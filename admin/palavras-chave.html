@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palavras-chave | Admin Start Corretora</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="admin-wrap">
+  <aside class="admin-sidebar">
+    <div class="admin-sidebar-logo">
+      <img src="../assets/images/logo.png" alt="Start Corretora" loading="lazy" style="height:40px;margin-bottom:6px">
+      <div class="logo-subtitle">CORRETORA DE SEGUROS</div>
+      <div class="admin-tag">ADMIN</div>
+    </div>
+    <nav class="admin-nav">
+      <a href="index.html"><span class="nav-icon">📊</span> Dashboard</a>
+      <a href="../index.html" target="_blank"><span class="nav-icon">🌐</span> Ver Site</a>
+      <a href="posts.html"><span class="nav-icon">📝</span> Posts</a>
+      <a href="novo-post.html"><span class="nav-icon">➕</span> Novo Post</a>
+      <a href="agendamento.html"><span class="nav-icon">📅</span> Calendário</a>
+      <a href="palavras-chave.html" class="active"><span class="nav-icon">🔍</span> Palavras-chave</a>
+      <a href="gsc.html"><span class="nav-icon">📈</span> Search Console</a>
+    </nav>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <h1>Palavras-chave SEO</h1>
+      <a href="novo-post.html" class="btn btn-primary">➕ Criar Post</a>
+    </div>
+
+    <!-- Legenda de status -->
+    <div style="display:flex;gap:20px;flex-wrap:wrap;margin-bottom:16px;font-size:13px;color:var(--text-muted)">
+      <span><span class="dot dot-gray" style="display:inline-block;margin-right:4px"></span> Pendente</span>
+      <span><span class="dot dot-yellow" style="display:inline-block;margin-right:4px"></span> Em produção</span>
+      <span><span class="dot dot-blue" style="display:inline-block;margin-right:4px"></span> Publicado</span>
+      <span><span class="dot dot-green" style="display:inline-block;margin-right:4px"></span> Posicionado</span>
+    </div>
+
+    <!-- Filtros -->
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px">
+      <button class="filter-btn kw-filter-btn active" data-filter="todos">Todas (22)</button>
+      <button class="filter-btn kw-filter-btn" data-filter="Transacional">Transacional</button>
+      <button class="filter-btn kw-filter-btn" data-filter="Informacional">Informacional</button>
+      <button class="filter-btn kw-filter-btn" data-filter="Local">Local</button>
+      <button class="filter-btn kw-filter-btn" data-filter="Alta">Alta prioridade</button>
+      <button class="filter-btn kw-filter-btn" data-filter="Média">Média prioridade</button>
+      <button class="filter-btn kw-filter-btn" data-filter="Baixa">Baixa prioridade</button>
+    </div>
+
+    <div class="admin-card">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Palavra-chave</th>
+            <th>Intenção</th>
+            <th>Prioridade</th>
+            <th>Sugestão de título</th>
+            <th>Status</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr class="kw-row" data-intencao="Transacional" data-prioridade="Alta">
+            <td>1</td>
+            <td>corretora de seguros rio de janeiro</td>
+            <td><span class="kw-intent"><span class="dot dot-yellow"></span>Transacional</span></td>
+            <td><span class="badge badge-green">Alta</span></td>
+            <td style="font-size:13px">Corretora de Seguros no Rio de Janeiro: cotação rápida e atendimento humanizado</td>
+            <td><span class="dot dot-gray"></span> Pendente</td>
+            <td><a href="novo-post.html" class="action-btn action-create">Criar</a></td>
+          </tr>
+
+          <tr class="kw-row" data-intencao="Transacional" data-prioridade="Alta">
+            <td>2</td>
+            <td>corretora de seguros são paulo</td>
+            <td><span class="kw-intent"><span class="dot dot-yellow"></span>Transacional</span></td>
+            <td><span class="badge badge-green">Alta</span></td>
+            <td style="font-size:13px">Corretora de Seguros em São Paulo: compare e contrate online</td>
+            <td><span class="dot dot-gray"></span> Pendente</td>
+            <td><a href="novo-post.html" class="action-btn action-create">Criar</a></td>
+          </tr>
+
+          <tr class="kw-row" data-intencao="Local" data-prioridade="Alta">
+            <td>3</td>
+            <td>seguro de vida rio de janeiro</td>
+            <td><span class="kw-intent"><span class="dot dot-blue"></span>Local</span></td>
+            <td><span class="badge badge-green">Alta</span></td>
+            <td style="font-size:13px">Seguro de Vida no Rio de Janeiro: como contratar e quanto custa</td>
+            <td><span class="dot dot-gray"></span> Pendente</td>
+            <td><a href="novo-post.html" class="action-btn action-create">Criar</a></td>
+          </tr>
+
+          <tr class="kw-row" data-intencao="Local" data-prioridade="Alta">
+            <td>4</td>
+            <td>seguro auto rj</td>
+            <td><span class="kw-intent"><span class="dot dot-blue"></span>Local</span></td>
+            <td><span class="badge badge-green">Alta</span></td>
+            <td style="font-size:13px">Seguro Auto no RJ: cotação, coberturas e as melhores seguradoras</td>
+            <td><span class="dot dot-yellow"></span> Em produção</td>
+            <td><a href="../blog/seguro-auto-rj.html" target="_blank" class="action-btn action-edit">Ver</a></td>
+          </tr>
+
+          <tr class="kw-row" data-intencao="Informacional" data-prioridade="Alta">
+            <td>5</td>
+            <td>seguro de vida vale a pena</td>
+            <td><span class="kw-intent"><span class="dot dot-gray"></span>Informacional</span></td>
+            <td><span class="badge badge-green">Alta</span></td>
+            <td style="font-size:13px">Seguro de Vida Vale a Pena? Análise honesta para você decidir</td>
+            <td><span class="dot dot-blue"></span> Publicado</td>
+            <td><a href="../blog/seguro-de-vida-por-que-investir-hoje.html" target="_blank" class="action-btn action-edit">Ver</a></td>
+          </tr>
+
+          <tr class="kw-row" data-intencao="Informacional" data-prioridade="Alta">
+            <td>6</td>
+            <td>quanto custa seguro de vida</td>
+            <td><span class="kw-intent"><span class="dot dot-gray"></span>Informacional</span></td>
+            <td><span class="badge badge-green">Alta</span></td>
+            <td style="font-size:13px">Quanto Custa um Seguro de Vida em 2025? Simulação completa</td>
+            <td><span class="dot dot-blue"></span> Publicado</td>
+            <td><a href="../blog/quanto-custa-seguro-de-vida-500mil.html" target="_blank" class="action-btn action-edit">Ver</a></td>
+          </tr>
+
+          <tr class="kw-row" data-intencao="Local" data-prioridade="Alta">
+            <td>7</td>
+            <td>plano de saúde são paulo</td>
+            <td><span class="kw-intent"><span class="dot dot-blue"></span>Local</span></td>
+            <td><span class="badge badge-green">Alta</span></td>
+            <td style="font-size:13px">Plano de Saúde em São Paulo: como encontrar o melhor custo-benefício</td>
+            <td><span class="dot dot-yellow"></span> Em produção</td>
+            <td><a href="../blog/plano-de-saude-sp.html" target="_blank" class="action-btn action-edit">Ver</a></td>
+          </tr>
+
+          <tr class="kw-row" data-intencao="Transacional" data-prioridade="Alta">
+            <td>8</td>
+            <td>seguro empresarial para pequenas empresas</td>
+            <td><span class="kw-intent"><span class="dot dot-yellow"></span>Transacional</span></td>
+            <td><span class="badge badge-green">Alta</span></td>
+            <td style="font-size:13px">Seguro Empresarial para PME: o que sua empresa precisa ter coberto</td>
+            <td><span class="dot dot-gray"></span> Pendente</td>
+            <td><a href="novo-post.html" class="action-btn action-create">Criar</a></td>
+          </tr>
+
+          <tr class="kw-row" data-intencao="Informacional" data-prioridade="Média">
+            <td>9</td>
+            <td>quem recebe seguro de vida falecido</td>
+            <td><span class="kw-intent"><span class="dot dot-gray"></span>Informacional</span></td>
+            <td><span class="badge badge-blue">Média</span></td>
+            <td style="font-size:13px">Quem Recebe o Seguro de Vida do Falecido? Regras e ordem</td>
+            <td><span class="dot dot-blue"></span> Publicado</td>
+            <td><a href="../blog/quem-recebe-seguro-de-vida-falecido.html" target="_blank" class="action-btn action-edit">Ver</a></td>
+          </tr>
+
+          <tr class="kw-row" data-intencao="Informacional" data-prioridade="Média">
+            <td>10</td>
+            <td>o que é franquia no seguro auto</td>
+            <td><span class="kw-intent"><span class="dot dot-gray"></span>Informacional</span></td>
+            <td><span class="badge badge-blue">Média</span></td>
+            <td style="font-size:13px">O que é Franquia no Seguro Auto e como ela afeta seu bolso</td>
+            <td><span class="dot dot-gray"></span> Pendente</td>
+            <td><a href="novo-post.html" class="action-btn action-create">Criar</a></td>
+          </tr>
+
+          <tr class="kw-row" data-intencao="Informacional" data-prioridade="Média">
+            <td>11</td>
+            <td>seguro residencial vale a pena</td>
+            <td><span class="kw-intent"><span class="dot dot-gray"></span>Informacional</span></td>
+            <td><span class="badge badge-blue">Média</span></td>
+            <td style="font-size:13px">Seguro Residencial: por que contratar e o que ele cobre</td>
+            <td><span class="dot dot-gray"></span> Pendente</td>
+            <td><a href="novo-post.html" class="action-btn action-create">Criar</a></td>
+          </tr>
+
+          <tr class="kw-row" data-intencao="Informacional" data-prioridade="Média">
+            <td>12</td>
+            <td>diferença plano saúde individual e coletivo</td>
+            <td><span class="kw-intent"><span class="dot dot-gray"></span>Informacional</span></td>
+            <td><span class="badge badge-blue">Média</span></td>
+            <td style="font-size:13px">Plano de Saúde Individual vs Coletivo: qual é o melhor para você?</td>
+            <td><span class="dot dot-gray"></span> Pendente</td>
+            <td><a href="novo-post.html" class="action-btn action-create">Criar</a></td>
+          </tr>
+
+          <tr class="kw-row" data-intencao="Transacional" data-prioridade="Média">
+            <td>13</td>
+            <td>cotação seguro de vida online</td>
+            <td><span class="kw-intent"><span class="dot dot-yellow"></span>Transacional</span></td>
+            <td><span class="badge badge-blue">Média</span></td>
+            <td style="font-size:13px">Cotação de Seguro de Vida Online: como funciona e o que comparar</td>
+            <td><span class="dot dot-gray"></span> Pendente</td>
+            <td><a href="novo-post.html" class="action-btn action-create">Criar</a></td>
+          </tr>
+
+          <tr class="kw-row" data-intencao="Local" data-prioridade="Média">
+            <td>14</td>
+            <td>seguro de vida zona sul rio de janeiro</td>
+            <td><span class="kw-intent"><span class="dot dot-blue"></span>Local</span></td>
+            <td><span class="badge badge-blue">Média</span></td>
+            <td style="font-size:13px">Seguro de Vida na Zona Sul do Rio: cotação e atendimento especializado</td>
+            <td><span class="dot dot-gray"></span> Pendente</td>
+            <td><a href="novo-post.html" class="action-btn action-create">Criar</a></td>
+          </tr>
+
+          <tr class="kw-row" data-intencao="Local" data-prioridade="Média">
+            <td>15</td>
+            <td>plano de saúde zona norte sp</td>
+            <td><span class="kw-intent"><span class="dot dot-blue"></span>Local</span></td>
+            <td><span class="badge badge-blue">Média</span></td>
+            <td style="font-size:13px">Plano de Saúde na Zona Norte de São Paulo: opções e preços</td>
+            <td><span class="dot dot-gray"></span> Pendente</td>
+            <td><a href="novo-post.html" class="action-btn action-create">Criar</a></td>
+          </tr>
+
+          <tr class="kw-row" data-intencao="Informacional" data-prioridade="Média">
+            <td>16</td>
+            <td>seguro auto roubado o que fazer</td>
+            <td><span class="kw-intent"><span class="dot dot-gray"></span>Informacional</span></td>
+            <td><span class="badge badge-blue">Média</span></td>
+            <td style="font-size:13px">Carro Roubado e Tenho Seguro: o que fazer passo a passo</td>
+            <td><span class="dot dot-gray"></span> Pendente</td>
+            <td><a href="novo-post.html" class="action-btn action-create">Criar</a></td>
+          </tr>
+
+          <tr class="kw-row" data-intencao="Informacional" data-prioridade="Baixa">
+            <td>17</td>
+            <td>doença grave seguro de vida</td>
+            <td><span class="kw-intent"><span class="dot dot-gray"></span>Informacional</span></td>
+            <td><span class="badge badge-gray">Baixa</span></td>
+            <td style="font-size:13px">O que é Considerado Doença Grave no Seguro de Vida?</td>
+            <td><span class="dot dot-blue"></span> Publicado</td>
+            <td><a href="../blog/doenca-grave-seguro-de-vida.html" target="_blank" class="action-btn action-edit">Ver</a></td>
+          </tr>
+
+          <tr class="kw-row" data-intencao="Informacional" data-prioridade="Baixa">
+            <td>18</td>
+            <td>seguro de vida para autônomo</td>
+            <td><span class="kw-intent"><span class="dot dot-gray"></span>Informacional</span></td>
+            <td><span class="badge badge-gray">Baixa</span></td>
+            <td style="font-size:13px">Seguro de Vida para Autônomos e MEI: por que é ainda mais importante</td>
+            <td><span class="dot dot-gray"></span> Pendente</td>
+            <td><a href="novo-post.html" class="action-btn action-create">Criar</a></td>
+          </tr>
+
+          <tr class="kw-row" data-intencao="Informacional" data-prioridade="Baixa">
+            <td>19</td>
+            <td>como acionar seguro de vida</td>
+            <td><span class="kw-intent"><span class="dot dot-gray"></span>Informacional</span></td>
+            <td><span class="badge badge-gray">Baixa</span></td>
+            <td style="font-size:13px">Como Acionar o Seguro de Vida: passo a passo completo</td>
+            <td><span class="dot dot-gray"></span> Pendente</td>
+            <td><a href="novo-post.html" class="action-btn action-create">Criar</a></td>
+          </tr>
+
+          <tr class="kw-row" data-intencao="Informacional" data-prioridade="Baixa">
+            <td>20</td>
+            <td>seguro residencial incêndio cobertura</td>
+            <td><span class="kw-intent"><span class="dot dot-gray"></span>Informacional</span></td>
+            <td><span class="badge badge-gray">Baixa</span></td>
+            <td style="font-size:13px">Seguro Residencial Cobre Incêndio? Veja tudo sobre coberturas</td>
+            <td><span class="dot dot-gray"></span> Pendente</td>
+            <td><a href="novo-post.html" class="action-btn action-create">Criar</a></td>
+          </tr>
+
+          <tr class="kw-row" data-intencao="Transacional" data-prioridade="Alta">
+            <td>21</td>
+            <td>seguro saúde para empresa pequena</td>
+            <td><span class="kw-intent"><span class="dot dot-yellow"></span>Transacional</span></td>
+            <td><span class="badge badge-green">Alta</span></td>
+            <td style="font-size:13px">Plano de Saúde para Pequenas Empresas: como contratar a partir de 2 vidas</td>
+            <td><span class="dot dot-gray"></span> Pendente</td>
+            <td><a href="novo-post.html" class="action-btn action-create">Criar</a></td>
+          </tr>
+
+          <tr class="kw-row" data-intencao="Informacional" data-prioridade="Média">
+            <td>22</td>
+            <td>benefícios seguro de vida</td>
+            <td><span class="kw-intent"><span class="dot dot-gray"></span>Informacional</span></td>
+            <td><span class="badge badge-blue">Média</span></td>
+            <td style="font-size:13px">Quais os Benefícios do Seguro de Vida: proteção, tranquilidade e segurança</td>
+            <td><span class="dot dot-blue"></span> Publicado</td>
+            <td><a href="../blog/beneficios-do-seguro-de-vida.html" target="_blank" class="action-btn action-edit">Ver</a></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

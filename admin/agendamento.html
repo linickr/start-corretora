@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendário de Agendamento | Admin Start Corretora</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+<div class="admin-wrap">
+  <aside class="admin-sidebar">
+    <div class="admin-sidebar-logo">
+      <img src="../assets/images/logo.png" alt="Start Corretora" loading="lazy" style="height:40px;margin-bottom:6px">
+      <div class="logo-subtitle">CORRETORA DE SEGUROS</div>
+      <div class="admin-tag">ADMIN</div>
+    </div>
+    <nav class="admin-nav">
+      <a href="index.html"><span class="nav-icon">📊</span> Dashboard</a>
+      <a href="../index.html" target="_blank"><span class="nav-icon">🌐</span> Ver Site</a>
+      <a href="posts.html"><span class="nav-icon">📝</span> Posts</a>
+      <a href="novo-post.html"><span class="nav-icon">➕</span> Novo Post</a>
+      <a href="agendamento.html" class="active"><span class="nav-icon">📅</span> Calendário</a>
+      <a href="palavras-chave.html"><span class="nav-icon">🔍</span> Palavras-chave</a>
+      <a href="gsc.html"><span class="nav-icon">📈</span> Search Console</a>
+    </nav>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <h1>Calendário Editorial</h1>
+      <a href="novo-post.html" class="btn btn-primary">➕ Novo Post</a>
+    </div>
+
+    <div class="calendar-wrap">
+      <!-- Calendário -->
+      <div class="admin-card" style="flex:1">
+        <div class="cal-header">
+          <button class="cal-nav" id="cal-prev">‹</button>
+          <h3 id="cal-title">Carregando...</h3>
+          <button class="cal-nav" id="cal-next">›</button>
+        </div>
+        <div class="cal-grid">
+          <div class="cal-day-label">Dom</div>
+          <div class="cal-day-label">Seg</div>
+          <div class="cal-day-label">Ter</div>
+          <div class="cal-day-label">Qua</div>
+          <div class="cal-day-label">Qui</div>
+          <div class="cal-day-label">Sex</div>
+          <div class="cal-day-label">Sáb</div>
+        </div>
+        <div class="cal-grid" id="cal-grid-body" class="cal-grid-body"></div>
+        <p style="font-size:12px;color:var(--text-muted);margin-top:12px">💡 Clique em um dia para agendar um novo post</p>
+      </div>
+
+      <!-- Próximas publicações -->
+      <div style="width:280px">
+        <div class="admin-card">
+          <div class="admin-card-title">📅 Próximas Publicações</div>
+          <div style="display:flex;flex-direction:column;gap:12px" id="upcoming-list">
+            <div style="background:var(--bg3);border-radius:6px;padding:14px">
+              <div style="font-size:12px;color:var(--primary);margin-bottom:4px">01/03/2026</div>
+              <div style="font-size:14px;font-weight:600">Seguro de Vida para Autônomos e MEI</div>
+              <div style="font-size:12px;color:var(--text-muted);margin-top:2px">Seguro de Vida</div>
+            </div>
+            <div style="background:var(--bg3);border-radius:6px;padding:14px">
+              <div style="font-size:12px;color:var(--primary);margin-bottom:4px">15/03/2026</div>
+              <div style="font-size:14px;font-weight:600">Como Acionar o Seguro de Vida: Passo a Passo</div>
+              <div style="font-size:12px;color:var(--text-muted);margin-top:2px">Seguro de Vida</div>
+            </div>
+            <div style="background:var(--bg3);border-radius:6px;padding:14px">
+              <div style="font-size:12px;color:var(--text-muted);margin-bottom:4px">— Sem data —</div>
+              <div style="font-size:14px;font-weight:600">Seguro Residencial Cobre Incêndio?</div>
+              <div style="font-size:12px;color:var(--text-muted);margin-top:2px">Residencial</div>
+            </div>
+          </div>
+          <a href="novo-post.html" class="btn btn-outline" style="width:100%;justify-content:center;margin-top:16px">➕ Agendar novo post</a>
+        </div>
+
+        <div class="admin-card" style="margin-top:16px">
+          <div class="admin-card-title">📊 Meta editorial</div>
+          <p style="font-size:14px;color:var(--text-muted);margin-bottom:8px">Meta: <strong style="color:var(--text)">2 posts/mês</strong></p>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+            <div style="flex:1;height:6px;background:var(--bg3);border-radius:3px"><div style="width:50%;height:100%;background:var(--primary);border-radius:3px"></div></div>
+            <span style="font-size:12px;color:var(--text-muted)">1/2 este mês</span>
+          </div>
+          <p style="font-size:13px;color:var(--text-muted)">Publique consistentemente para melhorar o ranqueamento orgânico no Google.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="../assets/js/main.js"></script>
+<script>
+  // Initialize calendar
+  const calGridBody = document.querySelector('#cal-grid-body');
+  const calTitleEl = document.querySelector('#cal-title');
+  if (calGridBody && calTitleEl) {
+    let currentDate = new Date();
+    const scheduledPosts = JSON.parse(localStorage.getItem('sc_scheduled') || '[]');
+    // Add some default scheduled posts
+    if (scheduledPosts.length === 0) {
+      scheduledPosts.push({ date: '2026-03-01', title: 'Seguro de Vida para Autônomos' });
+      scheduledPosts.push({ date: '2026-03-15', title: 'Como Acionar o Seguro de Vida' });
+      localStorage.setItem('sc_scheduled', JSON.stringify(scheduledPosts));
+    }
+    function renderCalendar() {
+      const year = currentDate.getFullYear();
+      const month = currentDate.getMonth();
+      const months = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+      calTitleEl.textContent = `${months[month]} ${year}`;
+      calGridBody.innerHTML = '';
+      const firstDay = new Date(year, month, 1).getDay();
+      const daysInMonth = new Date(year, month + 1, 0).getDate();
+      const today = new Date();
+      for (let i = 0; i < firstDay; i++) {
+        const el = document.createElement('div');
+        el.className = 'cal-day empty';
+        calGridBody.appendChild(el);
+      }
+      for (let d = 1; d <= daysInMonth; d++) {
+        const el = document.createElement('div');
+        el.className = 'cal-day';
+        if (today.getDate() === d && today.getMonth() === month && today.getFullYear() === year) el.classList.add('today');
+        const dateStr = `${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+        const posts = scheduledPosts.filter(p => p.date === dateStr);
+        el.innerHTML = `<div class="cal-day-num">${d}</div>` + posts.map(p => `<div class="cal-post-dot"></div><div class="cal-post-label">${p.title}</div>`).join('');
+        el.addEventListener('click', () => {
+          const title = prompt(`Agendar post para ${d}/${month+1}/${year}:`);
+          if (title) {
+            scheduledPosts.push({ date: dateStr, title });
+            localStorage.setItem('sc_scheduled', JSON.stringify(scheduledPosts));
+            renderCalendar();
+          }
+        });
+        calGridBody.appendChild(el);
+      }
+    }
+    document.querySelector('#cal-prev').addEventListener('click', () => { currentDate.setMonth(currentDate.getMonth()-1); renderCalendar(); });
+    document.querySelector('#cal-next').addEventListener('click', () => { currentDate.setMonth(currentDate.getMonth()+1); renderCalendar(); });
+    renderCalendar();
+  }
+</script>
+</body>
+</html>

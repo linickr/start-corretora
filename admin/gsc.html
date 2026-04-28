@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Console | Admin Start Corretora</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    .gsc-setup-steps { display:flex;flex-direction:column;gap:20px;margin-bottom:0 }
+    .gsc-step { display:flex;gap:16px;align-items:flex-start }
+    .gsc-step-num { width:32px;height:32px;border-radius:50%;background:var(--primary);color:#000;font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px }
+    .gsc-step-body { flex:1 }
+    .gsc-step-body h4 { font-size:15px;font-weight:600;margin-bottom:4px }
+    .gsc-step-body p { font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:8px }
+    .gsc-step-body p:last-child { margin-bottom:0 }
+    .code-tag { background:var(--bg3);border:1px solid var(--border);border-radius:4px;padding:2px 8px;font-family:monospace;font-size:12px;color:var(--primary);word-break:break-all;display:inline-block }
+    .meta-tag-area { width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:12px;font-family:monospace;font-size:12px;color:var(--text);resize:vertical;min-height:60px;margin-top:8px }
+    .meta-tag-area:focus { outline:none;border-color:var(--primary) }
+    .copy-btn { margin-top:8px;background:transparent;border:1px solid var(--border);color:var(--text-muted);padding:6px 14px;border-radius:4px;font-size:12px;cursor:pointer;transition:.2s }
+    .copy-btn:hover { border-color:var(--primary);color:var(--primary) }
+    .sitemap-url { background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:12px 16px;font-family:monospace;font-size:13px;color:var(--primary);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap }
+    .gsc-metrics { display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px }
+    @media(max-width:900px){ .gsc-metrics { grid-template-columns:repeat(2,1fr) } }
+    .gsc-metric-card { background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:18px;text-align:center }
+    .gsc-metric-value { font-size:28px;font-weight:700;font-family:'Barlow Condensed',sans-serif;margin-bottom:4px }
+    .gsc-metric-label { font-size:12px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.04em }
+    .gsc-metric-delta { font-size:12px;margin-top:4px }
+    .delta-up { color:#00e676 }
+    .delta-down { color:#ff5252 }
+    .chart-tabs { display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap }
+    .chart-tab { padding:6px 14px;border-radius:4px;font-size:13px;cursor:pointer;border:1px solid var(--border);background:transparent;color:var(--text-muted);transition:.2s }
+    .chart-tab.active { background:var(--primary);border-color:var(--primary);color:#000;font-weight:600 }
+    .kw-row { display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--border) }
+    .kw-row:last-child { border-bottom:none }
+    .kw-pos { width:36px;height:36px;border-radius:8px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex-shrink:0 }
+    .kw-pos.top3 { background:rgba(0,230,118,.15);color:#00e676 }
+    .kw-pos.top10 { background:rgba(255,193,7,.1);color:#ffc107 }
+    .kw-pos.other { background:var(--bg3);color:var(--text-muted) }
+    .kw-info { flex:1;min-width:0 }
+    .kw-term { font-size:14px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis }
+    .kw-url { font-size:11px;color:var(--text-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis }
+    .kw-stats { display:flex;gap:20px;text-align:right;flex-shrink:0 }
+    .kw-stat { }
+    .kw-stat-val { font-size:13px;font-weight:600 }
+    .kw-stat-lbl { font-size:11px;color:var(--text-muted) }
+    .gsc-two-col { display:grid;grid-template-columns:1fr 340px;gap:20px;align-items:start }
+    @media(max-width:900px){ .gsc-two-col { grid-template-columns:1fr } }
+    .alert-setup { background:rgba(255,193,7,.08);border:1px solid rgba(255,193,7,.3);border-radius:8px;padding:14px 18px;margin-bottom:24px;font-size:13px;color:#ffc107;display:flex;gap:10px;align-items:flex-start }
+    .alert-setup span { font-size:18px;flex-shrink:0 }
+  </style>
+</head>
+<body>
+<div class="admin-wrap">
+  <aside class="admin-sidebar">
+    <div class="admin-sidebar-logo">
+      <img src="../assets/images/logo.png" alt="Start Corretora" loading="lazy" style="height:40px;margin-bottom:6px">
+      <div class="logo-subtitle">CORRETORA DE SEGUROS</div>
+      <div class="admin-tag">ADMIN</div>
+    </div>
+    <nav class="admin-nav">
+      <a href="index.html"><span class="nav-icon">📊</span> Dashboard</a>
+      <a href="../index.html" target="_blank"><span class="nav-icon">🌐</span> Ver Site</a>
+      <a href="posts.html"><span class="nav-icon">📝</span> Posts</a>
+      <a href="novo-post.html"><span class="nav-icon">➕</span> Novo Post</a>
+      <a href="agendamento.html"><span class="nav-icon">📅</span> Calendário</a>
+      <a href="palavras-chave.html"><span class="nav-icon">🔍</span> Palavras-chave</a>
+      <a href="gsc.html" class="active"><span class="nav-icon">📈</span> Search Console</a>
+    </nav>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <h1>Google Search Console</h1>
+      <a href="https://search.google.com/search-console" target="_blank" rel="noopener" class="btn btn-primary">Abrir GSC ↗</a>
+    </div>
+
+    <!-- Alert se não configurado -->
+    <div class="alert-setup" id="alert-not-verified">
+      <span>⚠️</span>
+      <div>
+        <strong>Site ainda não verificado no GSC?</strong> Siga o passo a passo abaixo para conectar o domínio
+        <em>startcorretoradeseguros.com.br</em> e começar a receber dados de desempenho orgânico do Google.
+        <a href="#setup-section" style="color:var(--primary);text-decoration:underline;margin-left:4px">Ver instruções ↓</a>
+      </div>
+    </div>
+
+    <!-- Métricas simuladas (últimos 28 dias) -->
+    <div class="gsc-metrics">
+      <div class="gsc-metric-card">
+        <div class="gsc-metric-value" style="color:var(--primary)">1.240</div>
+        <div class="gsc-metric-label">Cliques totais</div>
+        <div class="gsc-metric-delta delta-up">▲ 18% vs. período anterior</div>
+      </div>
+      <div class="gsc-metric-card">
+        <div class="gsc-metric-value">42.800</div>
+        <div class="gsc-metric-label">Impressões</div>
+        <div class="gsc-metric-delta delta-up">▲ 31% vs. período anterior</div>
+      </div>
+      <div class="gsc-metric-card">
+        <div class="gsc-metric-value" style="color:#ffc107">2,9%</div>
+        <div class="gsc-metric-label">CTR médio</div>
+        <div class="gsc-metric-delta delta-down">▼ 0,4pp vs. período anterior</div>
+      </div>
+      <div class="gsc-metric-card">
+        <div class="gsc-metric-value">18,4</div>
+        <div class="gsc-metric-label">Posição média</div>
+        <div class="gsc-metric-delta delta-up">▲ Melhorou 2,1 posições</div>
+      </div>
+    </div>
+
+    <!-- Gráfico principal -->
+    <div class="admin-card" style="margin-bottom:20px">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:16px">
+        <div class="admin-card-title" style="margin-bottom:0">📊 Desempenho — últimos 28 dias</div>
+        <div class="chart-tabs">
+          <button class="chart-tab active" data-chart="clicks">Cliques</button>
+          <button class="chart-tab" data-chart="impressions">Impressões</button>
+          <button class="chart-tab" data-chart="ctr">CTR</button>
+          <button class="chart-tab" data-chart="position">Posição</button>
+        </div>
+      </div>
+      <canvas id="chartGSC" height="90"></canvas>
+    </div>
+
+    <div class="gsc-two-col">
+      <!-- Palavras-chave com melhor desempenho -->
+      <div class="admin-card">
+        <div class="admin-card-title">🔍 Palavras-chave — Top 10</div>
+        <div id="kw-ranking">
+          <!-- gerado via JS -->
+        </div>
+      </div>
+
+      <!-- Coluna lateral -->
+      <div style="display:flex;flex-direction:column;gap:20px">
+
+        <!-- Sitemap -->
+        <div class="admin-card">
+          <div class="admin-card-title">🗺️ Sitemap</div>
+          <p style="font-size:13px;color:var(--text-muted);margin-bottom:12px">Envie o sitemap no Google Search Console para indexação mais rápida de todas as páginas.</p>
+          <div class="sitemap-url">
+            <span>startcorretoradeseguros.com.br/sitemap.xml</span>
+            <button class="copy-btn" id="copy-sitemap">Copiar</button>
+          </div>
+          <p style="font-size:12px;color:var(--text-muted);margin-top:12px;line-height:1.6">
+            No GSC: <em>Índice → Sitemaps → Adicionar novo sitemap</em> → cole a URL acima → clique em <strong>Enviar</strong>.
+          </p>
+        </div>
+
+        <!-- Páginas mais clicadas -->
+        <div class="admin-card">
+          <div class="admin-card-title">📄 Páginas mais clicadas</div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;padding-bottom:8px;border-bottom:1px solid var(--border)">
+              <span style="color:var(--primary);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">/blog/quem-recebe-seguro-de-vida-falecido</span>
+              <span style="font-weight:600;flex-shrink:0;margin-left:8px">342</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;padding-bottom:8px;border-bottom:1px solid var(--border)">
+              <span style="color:var(--primary);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">/blog/quanto-custa-seguro-de-vida-500mil</span>
+              <span style="font-weight:600;flex-shrink:0;margin-left:8px">218</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;padding-bottom:8px;border-bottom:1px solid var(--border)">
+              <span style="color:var(--primary);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">/seguro-de-vida</span>
+              <span style="font-weight:600;flex-shrink:0;margin-left:8px">187</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;padding-bottom:8px;border-bottom:1px solid var(--border)">
+              <span style="color:var(--primary);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">/blog/beneficios-do-seguro-de-vida</span>
+              <span style="font-weight:600;flex-shrink:0;margin-left:8px">164</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px">
+              <span style="color:var(--primary);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">/seguro-rio-de-janeiro</span>
+              <span style="font-weight:600;flex-shrink:0;margin-left:8px">98</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seção de Configuração -->
+    <div class="admin-card" id="setup-section" style="margin-top:20px">
+      <div class="admin-card-title">⚙️ Configurar verificação no Google Search Console</div>
+      <p style="font-size:14px;color:var(--text-muted);margin-bottom:24px;line-height:1.6">
+        A verificação garante que somente você acesse os dados de desempenho do seu domínio no Google. Siga o método da <strong>meta tag HTML</strong> — o mais simples para sites estáticos.
+      </p>
+
+      <div class="gsc-setup-steps">
+        <div class="gsc-step">
+          <div class="gsc-step-num">1</div>
+          <div class="gsc-step-body">
+            <h4>Acesse o Google Search Console</h4>
+            <p>Entre em <a href="https://search.google.com/search-console" target="_blank" rel="noopener" style="color:var(--primary)">search.google.com/search-console</a> com a conta Google vinculada ao domínio.</p>
+          </div>
+        </div>
+
+        <div class="gsc-step">
+          <div class="gsc-step-num">2</div>
+          <div class="gsc-step-body">
+            <h4>Adicione a propriedade</h4>
+            <p>Clique em <strong>Adicionar propriedade</strong> → selecione <strong>Prefixo de URL</strong> → cole:</p>
+            <div class="code-tag">https://startcorretoradeseguros.com.br/</div>
+          </div>
+        </div>
+
+        <div class="gsc-step">
+          <div class="gsc-step-num">3</div>
+          <div class="gsc-step-body">
+            <h4>Escolha o método "Tag HTML"</h4>
+            <p>Na tela de verificação, selecione <em>Tag HTML</em>. O Google exibirá uma meta tag parecida com:</p>
+            <div class="code-tag">&lt;meta name="google-site-verification" content="XXXXXXXXXXXXXXXX" /&gt;</div>
+          </div>
+        </div>
+
+        <div class="gsc-step">
+          <div class="gsc-step-num">4</div>
+          <div class="gsc-step-body">
+            <h4>Cole a sua meta tag abaixo</h4>
+            <p>Copie a tag fornecida pelo Google e salve aqui para referência. Em seguida, adicione-a ao <strong>&lt;head&gt;</strong> de todas as páginas do site (no arquivo <span class="code-tag">assets/css/style.css</span> não — insira diretamente nos arquivos HTML).</p>
+            <textarea class="meta-tag-area" id="meta-tag-input" placeholder='Cole aqui: <meta name="google-site-verification" content="..." />'></textarea>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+              <button class="copy-btn" id="copy-meta-tag">Copiar tag</button>
+              <button class="copy-btn" id="save-meta-tag" style="border-color:var(--primary);color:var(--primary)">Salvar</button>
+            </div>
+            <p id="meta-save-msg" style="font-size:12px;color:#00e676;margin-top:6px;display:none">✔ Tag salva localmente.</p>
+          </div>
+        </div>
+
+        <div class="gsc-step">
+          <div class="gsc-step-num">5</div>
+          <div class="gsc-step-body">
+            <h4>Publique o site e clique em "Verificar"</h4>
+            <p>Faça o deploy das alterações (a tag deve estar no &lt;head&gt; da home) e volte ao GSC → clique em <strong>Verificar</strong>. A confirmação costuma ser imediata.</p>
+          </div>
+        </div>
+
+        <div class="gsc-step">
+          <div class="gsc-step-num">6</div>
+          <div class="gsc-step-body">
+            <h4>Envie o sitemap</h4>
+            <p>Após verificado, vá em <em>Índice → Sitemaps</em> e adicione a URL:</p>
+            <div class="code-tag">https://startcorretoradeseguros.com.br/sitemap.xml</div>
+            <p style="margin-top:8px">O Google começará a rastrear e indexar todas as páginas listadas. Os primeiros dados de cliques e impressões aparecem em 48–72 horas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="../assets/js/main.js"></script>
+<script>
+// --- Dados dos gráficos (simulados — 28 dias) ---
+const labels28 = Array.from({length:28}, (_,i) => {
+  const d = new Date(2026, 3, 27);
+  d.setDate(d.getDate() - 27 + i);
+  return `${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}`;
+});
+
+const dataClicks = [28,34,22,40,38,45,12,29,51,48,33,55,60,18,42,58,47,62,70,55,38,64,72,68,80,75,88,94];
+const dataImpressions = [980,1120,860,1340,1280,1450,580,1050,1680,1590,1190,1780,1920,740,1500,1860,1640,2010,2230,1870,1410,2080,2290,2150,2510,2420,2680,2980];
+const dataCTR = dataClicks.map((c,i) => parseFloat((c/dataImpressions[i]*100).toFixed(2)));
+const dataPosition = [22,21,23,20,19,18,24,21,17,18,20,16,15,22,18,15,16,14,13,15,17,14,12,13,11,12,10,11];
+
+const chartColors = {
+  clicks: { border:'#00e676', bg:'rgba(0,230,118,0.15)' },
+  impressions: { border:'#2979ff', bg:'rgba(41,121,255,0.15)' },
+  ctr: { border:'#ffc107', bg:'rgba(255,193,7,0.15)' },
+  position: { border:'#ff5252', bg:'rgba(255,82,82,0.15)' }
+};
+
+const chartDatasets = {
+  clicks: { label:'Cliques', data:dataClicks },
+  impressions: { label:'Impressões', data:dataImpressions },
+  ctr: { label:'CTR (%)', data:dataCTR },
+  position: { label:'Posição média', data:dataPosition }
+};
+
+let activeChart = 'clicks';
+
+const ctx = document.getElementById('chartGSC');
+const chart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: labels28,
+    datasets: [{
+      label: 'Cliques',
+      data: dataClicks,
+      borderColor: '#00e676',
+      backgroundColor: 'rgba(0,230,118,0.15)',
+      borderWidth: 2,
+      pointRadius: 3,
+      pointHoverRadius: 5,
+      tension: 0.4,
+      fill: true
+    }]
+  },
+  options: {
+    responsive: true,
+    interaction: { mode:'index', intersect:false },
+    plugins: {
+      legend: { labels: { color:'#999', usePointStyle:true } }
+    },
+    scales: {
+      x: { ticks:{ color:'#999', maxRotation:0, autoSkip:true, maxTicksLimit:10 }, grid:{ color:'#1e1e1e' } },
+      y: { ticks:{ color:'#999' }, grid:{ color:'#1e1e1e' } }
+    }
+  }
+});
+
+document.querySelectorAll('.chart-tab').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.chart-tab').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    const key = this.dataset.chart;
+    const ds = chartDatasets[key];
+    const col = chartColors[key];
+    chart.data.datasets[0].label = ds.label;
+    chart.data.datasets[0].data = ds.data;
+    chart.data.datasets[0].borderColor = col.border;
+    chart.data.datasets[0].backgroundColor = col.bg;
+    chart.update();
+  });
+});
+
+// --- Keywords ranking ---
+const keywords = [
+  { term:'quem recebe o seguro de vida do falecido', url:'/blog/quem-recebe-seguro-de-vida-falecido', pos:4, clicks:342, impressions:8200 },
+  { term:'quanto custa seguro de vida 500 mil', url:'/blog/quanto-custa-seguro-de-vida-500mil', pos:6, clicks:218, impressions:5400 },
+  { term:'corretora de seguros rio de janeiro', url:'/seguro-rio-de-janeiro', pos:9, clicks:187, impressions:4100 },
+  { term:'benefícios do seguro de vida', url:'/blog/beneficios-do-seguro-de-vida', pos:11, clicks:164, impressions:6300 },
+  { term:'seguro de vida para autônomo', url:'/seguro-de-vida', pos:13, clicks:98, impressions:3800 },
+  { term:'seguro auto rio de janeiro', url:'/blog/seguro-auto-rj', pos:16, clicks:87, impressions:4200 },
+  { term:'plano de saúde são paulo barato', url:'/blog/plano-de-saude-sp', pos:19, clicks:72, impressions:5100 },
+  { term:'quantas pessoas posso colocar no seguro de vida', url:'/blog/quantas-pessoas-seguro-de-vida', pos:22, clicks:61, impressions:3200 },
+  { term:'seguro residencial incêndio', url:'/seguro-residencial', pos:24, clicks:48, impressions:2800 },
+  { term:'corretora de seguros sp', url:'/seguro-sao-paulo', pos:31, clicks:29, impressions:2100 }
+];
+
+const kwContainer = document.getElementById('kw-ranking');
+kwContainer.innerHTML = keywords.map(kw => {
+  const posClass = kw.pos <= 3 ? 'top3' : kw.pos <= 10 ? 'top10' : 'other';
+  return `
+    <div class="kw-row">
+      <div class="kw-pos ${posClass}">${kw.pos}</div>
+      <div class="kw-info">
+        <div class="kw-term">${kw.term}</div>
+        <div class="kw-url">${kw.url}</div>
+      </div>
+      <div class="kw-stats">
+        <div class="kw-stat">
+          <div class="kw-stat-val">${kw.clicks}</div>
+          <div class="kw-stat-lbl">Cliques</div>
+        </div>
+        <div class="kw-stat">
+          <div class="kw-stat-val">${(kw.clicks/kw.impressions*100).toFixed(1)}%</div>
+          <div class="kw-stat-lbl">CTR</div>
+        </div>
+      </div>
+    </div>`;
+}).join('');
+
+// --- Copy sitemap URL ---
+document.getElementById('copy-sitemap').addEventListener('click', function() {
+  navigator.clipboard.writeText('https://startcorretoradeseguros.com.br/sitemap.xml').then(() => {
+    this.textContent = '✔ Copiado!';
+    setTimeout(() => this.textContent = 'Copiar', 2000);
+  });
+});
+
+// --- Meta tag save/copy ---
+const metaTagInput = document.getElementById('meta-tag-input');
+const savedTag = localStorage.getItem('sc_gsc_meta_tag');
+if (savedTag) metaTagInput.value = savedTag;
+
+document.getElementById('save-meta-tag').addEventListener('click', function() {
+  localStorage.setItem('sc_gsc_meta_tag', metaTagInput.value);
+  const msg = document.getElementById('meta-save-msg');
+  msg.style.display = 'block';
+  setTimeout(() => msg.style.display = 'none', 3000);
+});
+
+document.getElementById('copy-meta-tag').addEventListener('click', function() {
+  if (metaTagInput.value) {
+    navigator.clipboard.writeText(metaTagInput.value).then(() => {
+      this.textContent = '✔ Copiado!';
+      setTimeout(() => this.textContent = 'Copiar tag', 2000);
+    });
+  }
+});
+</script>
+</body>
+</html>
