@@ -1071,6 +1071,16 @@
     }
 
     /* ---- FEATURED SLIDER ---- */
+    /* Hero slider */
+    .hcard-slider { position: relative; overflow: hidden; cursor: default; }
+    .hcard-slider.hcard-main:hover { transform: none; box-shadow: none; border-color: var(--border-md); }
+    .hcard-slider .hslider-track {
+      display: flex;
+      transition: transform .55s cubic-bezier(.4,0,.2,1);
+      will-change: transform;
+    }
+    .hcard-slider .hslide { min-width: 100%; cursor: pointer; }
+
     .pcard-slider { position: relative; overflow: hidden; cursor: default; }
     .pcard-slider .slider-track {
       display: flex;
@@ -1241,22 +1251,71 @@
 
       <!-- Right column: cards -->
       <div class="hero-right anim d3">
-        <!-- Main featured card -->
-        <div class="hcard-main" onclick="location.href='blog/seguro-de-vida-por-que-investir-hoje.html'">
-          <div class="hcard-img">
-            <img src="assets/images/seguro-vida-proteja-a-familia.png" alt="Seguro de vida para proteger a família" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.55">
-            <div class="hcard-img-grid"></div>
-          </div>
-          <div class="hcard-body">
-            <span class="label label-vida">Seguro de Vida</span>
-            <h3>Por que investir em seguro de vida hoje pode proteger sua família amanhã</h3>
-            <p>Entenda coberturas, valores e por que adiar essa decisão pode custar muito mais caro no futuro.</p>
-            <div class="card-meta">
-              <span>8 min de leitura</span>
-              <div class="card-meta-sep"></div>
-              <span>Artigo</span>
+        <!-- Hero slider -->
+        <div class="hcard-main hcard-slider anim d3" id="heroSlider">
+          <div class="hslider-track">
+
+            <div class="hslide" onclick="location.href='blog/seguro-de-vida-por-que-investir-hoje.html'">
+              <div class="hcard-img">
+                <img src="assets/images/para-que-serve-seguro-de-vida-hj.png" alt="Seguro de vida" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.55">
+                <div class="hcard-img-grid"></div>
+              </div>
+              <div class="hcard-body">
+                <span class="label label-vida">Seguro de Vida</span>
+                <h3>Por que investir em seguro de vida hoje pode proteger sua família amanhã</h3>
+                <p>Entenda coberturas, valores e por que adiar essa decisão pode custar muito mais caro no futuro.</p>
+                <div class="card-meta"><span>8 min de leitura</span><div class="card-meta-sep"></div><span>Artigo</span></div>
+              </div>
             </div>
+
+            <div class="hslide" onclick="location.href='blog/quem-recebe-seguro-de-vida-falecido.html'">
+              <div class="hcard-img" style="background:linear-gradient(135deg,#080F28,#0D1B3A)">
+                <img src="assets/images/protecao-para-familia.png" alt="Proteção para a família" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.55">
+                <div class="hcard-img-grid"></div>
+              </div>
+              <div class="hcard-body">
+                <span class="label label-vida">Seguro de Vida</span>
+                <h3>Quem recebe o seguro de vida após o falecimento?</h3>
+                <p>Tudo sobre beneficiários, documentação e prazo de pagamento da indenização.</p>
+                <div class="card-meta"><span>6 min de leitura</span><div class="card-meta-sep"></div><span>Beneficiários</span></div>
+              </div>
+            </div>
+
+            <div class="hslide" onclick="location.href='blog/seguro-auto-rj.html'">
+              <div class="hcard-img" style="background:linear-gradient(135deg,#080F28,#0A1A32)">
+                <img src="assets/images/cobertura-para-auto.png" alt="Seguro Auto RJ" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.55">
+                <div class="hcard-img-grid"></div>
+              </div>
+              <div class="hcard-body">
+                <span class="label label-auto">Seguro Auto</span>
+                <h3>Seguro auto no Rio de Janeiro: como contratar pelo melhor preço</h3>
+                <p>Guia completo para motoristas cariocas escolherem a cobertura certa.</p>
+                <div class="card-meta"><span>5 min de leitura</span><div class="card-meta-sep"></div><span>Rio de Janeiro</span></div>
+              </div>
+            </div>
+
+            <div class="hslide" onclick="location.href='blog/plano-de-saude-sp.html'">
+              <div class="hcard-img" style="background:linear-gradient(135deg,#080F28,#0C152A)">
+                <img src="assets/images/seguro-saude-planos-personalizados.png" alt="Plano de saúde SP" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.55">
+                <div class="hcard-img-grid"></div>
+              </div>
+              <div class="hcard-body">
+                <span class="label label-saude">Plano de Saúde</span>
+                <h3>Plano de saúde em São Paulo: qual o melhor para seu perfil</h3>
+                <p>Comparativo entre as principais operadoras de SP para você escolher com segurança.</p>
+                <div class="card-meta"><span>9 min de leitura</span><div class="card-meta-sep"></div><span>São Paulo</span></div>
+              </div>
+            </div>
+
           </div>
+          <div class="slider-dots">
+            <button class="sdot active" data-idx="0" aria-label="Slide 1"></button>
+            <button class="sdot" data-idx="1" aria-label="Slide 2"></button>
+            <button class="sdot" data-idx="2" aria-label="Slide 3"></button>
+            <button class="sdot" data-idx="3" aria-label="Slide 4"></button>
+          </div>
+          <button class="sarr sarr-prev" aria-label="Anterior">&#8249;</button>
+          <button class="sarr sarr-next" aria-label="Próximo">&#8250;</button>
         </div>
 
         <!-- Mini cards -->
@@ -1687,6 +1746,25 @@
   }, { threshold: 0.08 });
 
   document.querySelectorAll('.anim').forEach(el => io.observe(el));
+
+  // Hero slider
+  (function() {
+    const track = document.querySelector('#heroSlider .hslider-track');
+    const dots  = document.querySelectorAll('#heroSlider .sdot');
+    const total = dots.length;
+    let cur = 0, timer;
+    function goTo(n) {
+      cur = (n + total) % total;
+      track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+      dots.forEach((d, i) => d.classList.toggle('active', i === cur));
+    }
+    function startTimer() { timer = setInterval(() => goTo(cur + 1), 4500); }
+    function reset() { clearInterval(timer); startTimer(); }
+    document.querySelector('#heroSlider .sarr-next').addEventListener('click', e => { e.stopPropagation(); goTo(cur + 1); reset(); });
+    document.querySelector('#heroSlider .sarr-prev').addEventListener('click', e => { e.stopPropagation(); goTo(cur - 1); reset(); });
+    dots.forEach(d => d.addEventListener('click', e => { e.stopPropagation(); goTo(+d.dataset.idx); reset(); }));
+    startTimer();
+  })();
 
   // Featured post slider
   (function() {
