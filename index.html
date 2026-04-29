@@ -1069,6 +1069,64 @@
       .cta-btns { align-items: center; }
       .nav-end .btn-green { display: none; }
     }
+
+    /* ---- FEATURED SLIDER ---- */
+    .pcard-slider { position: relative; overflow: hidden; cursor: default; }
+    .pcard-slider .slider-track {
+      display: flex;
+      height: 100%;
+      transition: transform .55s cubic-bezier(.4,0,.2,1);
+      will-change: transform;
+    }
+    .pcard-slider .slide {
+      min-width: 100%;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .pcard-slider .slide .pcard-body { flex: 1; }
+    .slider-dots {
+      position: absolute;
+      bottom: 18px;
+      right: 22px;
+      display: flex;
+      gap: 6px;
+      z-index: 10;
+    }
+    .sdot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.25);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: all .3s;
+    }
+    .sdot.active { background: var(--primary); width: 20px; border-radius: 4px; }
+    .sarr {
+      position: absolute;
+      top: 130px;
+      background: rgba(4,9,28,.6);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.1);
+      color: rgba(255,255,255,.75);
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      font-size: 20px;
+      line-height: 1;
+      transition: all .2s;
+    }
+    .sarr:hover { background: rgba(0,200,83,.2); border-color: var(--primary); color: var(--primary); }
+    .sarr-prev { left: 12px; }
+    .sarr-next { right: 12px; }
+    @media (max-width: 860px) {
+      .sarr { top: 100px; }
+    }
   </style>
 </head>
 
@@ -1307,27 +1365,84 @@
 
     <div class="blog-grid">
 
-      <!-- Featured -->
-      <article class="pcard pcard-feat anim" data-cat="vida"
-               onclick="location.href='blog/seguro-de-vida-por-que-investir-hoje.html'">
-        <div class="pcard-img" style="background:linear-gradient(135deg,#080F28,#0F1D45,#07142A)">
-          <img src="assets/images/porque-seguro-de-vida-e-importante.png" alt="Por que o seguro de vida é importante" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5">
-          <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(0,200,83,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,200,83,.03) 1px,transparent 1px);background-size:44px 44px"></div>
-        </div>
-        <div class="pcard-body">
-          <span class="label label-vida">Seguro de Vida</span>
-          <h2 class="pcard-title">Seguro de vida: por que investir hoje pode proteger sua família amanhã</h2>
-          <p class="pcard-exc">
-            Descubra como o seguro de vida funciona na prática, quais coberturas fazem sentido para o seu perfil
-            e por que adiar essa decisão pode custar muito mais caro no futuro.
-          </p>
-          <div class="card-meta">
-            <span>8 min de leitura</span>
-            <div class="card-meta-sep"></div>
-            <span>Abril 2025</span>
+      <!-- Featured Slider -->
+      <div class="pcard pcard-feat pcard-slider anim" id="featSlider">
+        <div class="slider-track">
+
+          <div class="slide" onclick="location.href='blog/seguro-de-vida-por-que-investir-hoje.html'">
+            <div class="pcard-img" style="background:linear-gradient(135deg,#080F28,#0F1D45,#07142A)">
+              <img src="assets/images/para-que-serve-seguro-de-vida-hj.png" alt="Para que serve o seguro de vida hoje" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5">
+              <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(0,200,83,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,200,83,.03) 1px,transparent 1px);background-size:44px 44px"></div>
+            </div>
+            <div class="pcard-body">
+              <span class="label label-vida">Seguro de Vida</span>
+              <h2 class="pcard-title">Seguro de vida: por que investir hoje pode proteger sua família amanhã</h2>
+              <p class="pcard-exc">Descubra como o seguro de vida funciona na prática, quais coberturas fazem sentido para o seu perfil e por que adiar essa decisão pode custar muito mais caro no futuro.</p>
+              <div class="card-meta"><span>8 min de leitura</span><div class="card-meta-sep"></div><span>Abril 2025</span></div>
+            </div>
           </div>
+
+          <div class="slide" onclick="location.href='blog/quem-recebe-seguro-de-vida-falecido.html'">
+            <div class="pcard-img" style="background:linear-gradient(135deg,#080F28,#0D1B3A)">
+              <img src="assets/images/protecao-para-familia.png" alt="Proteção para a família" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5">
+            </div>
+            <div class="pcard-body">
+              <span class="label label-vida">Seguro de Vida</span>
+              <h2 class="pcard-title">Quem recebe o seguro de vida após o falecimento?</h2>
+              <p class="pcard-exc">Tudo sobre beneficiários, documentação e prazo de pagamento da indenização após o falecimento do segurado.</p>
+              <div class="card-meta"><span>6 min de leitura</span><div class="card-meta-sep"></div><span>Beneficiários</span></div>
+            </div>
+          </div>
+
+          <div class="slide" onclick="location.href='blog/seguro-auto-rj.html'">
+            <div class="pcard-img" style="background:linear-gradient(135deg,#080F28,#0A1A32)">
+              <img src="assets/images/cobertura-para-auto.png" alt="Cobertura de seguro para automóvel" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5">
+            </div>
+            <div class="pcard-body">
+              <span class="label label-auto">Seguro Auto</span>
+              <h2 class="pcard-title">Seguro auto no Rio de Janeiro: como contratar pelo melhor preço</h2>
+              <p class="pcard-exc">Guia completo para motoristas cariocas escolherem a cobertura certa com o melhor custo-benefício.</p>
+              <div class="card-meta"><span>5 min de leitura</span><div class="card-meta-sep"></div><span>Rio de Janeiro</span></div>
+            </div>
+          </div>
+
+          <div class="slide" onclick="location.href='blog/quanto-custa-seguro-de-vida-500mil.html'">
+            <div class="pcard-img" style="background:linear-gradient(135deg,#080F28,#0C1830)">
+              <img src="assets/images/seguro-de-vida-comparativo.png" alt="Comparativo de seguro de vida" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5">
+            </div>
+            <div class="pcard-body">
+              <span class="label label-vida">Seguro de Vida</span>
+              <h2 class="pcard-title">Quanto custa um seguro de vida de R$ 500 mil?</h2>
+              <p class="pcard-exc">Tabela de preços por faixa etária e todas as coberturas incluídas em cada faixa de proteção.</p>
+              <div class="card-meta"><span>7 min de leitura</span><div class="card-meta-sep"></div><span>Preços</span></div>
+            </div>
+          </div>
+
+          <div class="slide" onclick="location.href='blog/plano-de-saude-sp.html'">
+            <div class="pcard-img" style="background:linear-gradient(135deg,#080F28,#0C152A)">
+              <img src="assets/images/seguro-saude-planos-personalizados.png" alt="Planos de saúde personalizados" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.5">
+            </div>
+            <div class="pcard-body">
+              <span class="label label-saude">Plano de Saúde</span>
+              <h2 class="pcard-title">Plano de saúde em São Paulo: qual o melhor para seu perfil</h2>
+              <p class="pcard-exc">Comparativo entre as principais operadoras de SP para você escolher com segurança e sem pagar caro.</p>
+              <div class="card-meta"><span>9 min de leitura</span><div class="card-meta-sep"></div><span>São Paulo</span></div>
+            </div>
+          </div>
+
         </div>
-      </article>
+
+        <div class="slider-dots">
+          <button class="sdot active" data-idx="0" aria-label="Slide 1"></button>
+          <button class="sdot" data-idx="1" aria-label="Slide 2"></button>
+          <button class="sdot" data-idx="2" aria-label="Slide 3"></button>
+          <button class="sdot" data-idx="3" aria-label="Slide 4"></button>
+          <button class="sdot" data-idx="4" aria-label="Slide 5"></button>
+        </div>
+
+        <button class="sarr sarr-prev" aria-label="Anterior">&#8249;</button>
+        <button class="sarr sarr-next" aria-label="Próximo">&#8250;</button>
+      </div>
 
       <!-- Post 2 -->
       <article class="pcard anim d1" data-cat="vida"
@@ -1572,6 +1687,25 @@
   }, { threshold: 0.08 });
 
   document.querySelectorAll('.anim').forEach(el => io.observe(el));
+
+  // Featured post slider
+  (function() {
+    const track = document.querySelector('#featSlider .slider-track');
+    const dots  = document.querySelectorAll('#featSlider .sdot');
+    const total = dots.length;
+    let cur = 0, timer;
+    function goTo(n) {
+      cur = (n + total) % total;
+      track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+      dots.forEach((d, i) => d.classList.toggle('active', i === cur));
+    }
+    function startTimer() { timer = setInterval(() => goTo(cur + 1), 5000); }
+    function reset() { clearInterval(timer); startTimer(); }
+    document.querySelector('#featSlider .sarr-next').addEventListener('click', e => { e.stopPropagation(); goTo(cur + 1); reset(); });
+    document.querySelector('#featSlider .sarr-prev').addEventListener('click', e => { e.stopPropagation(); goTo(cur - 1); reset(); });
+    dots.forEach(d => d.addEventListener('click', e => { e.stopPropagation(); goTo(+d.dataset.idx); reset(); }));
+    startTimer();
+  })();
 </script>
 
 </body>
