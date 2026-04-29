@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Quem Somos | Start Corretora de Seguros – Rio de Janeiro</title>
-  <meta name="description" content="Conheça a Start Corretora de Seguros, empresa especializada em seguro auto, vida, saúde, residencial e empresarial no Rio de Janeiro e São Paulo. Atendimento humanizado e sem robôs.">
+  <meta name="description" content="Conheça a Start Corretora de Seguros, empresa independente especializada em seguro auto, vida, saúde, residencial e empresarial no Rio de Janeiro e São Paulo. Atendimento humanizado, sem robôs.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://startcorretoradeseguros.com.br/sobre.html">
   <meta property="og:type" content="website">
@@ -12,10 +12,11 @@
   <meta property="og:title" content="Quem Somos | Start Corretora de Seguros">
   <meta property="og:description" content="Conheça a Start Corretora de Seguros: missão, valores e o compromisso com atendimento humanizado no RJ e SP.">
   <meta property="og:image" content="https://startcorretoradeseguros.com.br/assets/images/logo.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/noturno.css">
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -30,182 +31,262 @@
       "addressRegion": "RJ",
       "postalCode": "20540-220",
       "addressCountry": "BR"
-    }
+    },
+    "areaServed": ["Rio de Janeiro", "São Paulo", "Brasil"]
   }
   </script>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="header-top">
-    <a href="index.html" class="logo-wrap">
-      <img src="assets/images/logo.png" alt="Start Corretora de Seguros" loading="lazy" style="height:48px">
-      <span class="logo-subtitle">CORRETORA DE SEGUROS</span>
+<nav class="nav" id="mainNav">
+  <div class="nav-inner container">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-name">Start</span>
+      <span class="nav-logo-tag">Corretora de Seguros</span>
     </a>
-    <nav class="site-nav">
-      <a href="index.html">Home</a>
-      <a href="seguro-de-vida.html">Seguro de Vida</a>
-      <a href="plano-de-saude.html">Plano de Saúde</a>
-      <a href="seguro-auto.html">Seguro Auto</a>
-      <a href="seguro-empresarial.html">Para Empresas</a>
-      <a href="seguro-residencial.html">Residencial</a>
-      <a href="blog/">Blog</a>
-      <a href="contato.html">Contato</a>
-    </nav>
-    <a href="https://wa.me/5521999992002?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o%20de%20seguro." class="btn-cta-header" target="_blank" rel="noopener">📲 Cotação Grátis</a>
-    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="seguro-de-vida.html">Seguro de Vida</a></li>
+      <li><a href="plano-de-saude.html">Plano de Saúde</a></li>
+      <li><a href="seguro-auto.html">Seguro Auto</a></li>
+      <li><a href="blog/">Blog</a></li>
+      <li><a href="sobre.html" class="active">Sobre</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+    <div class="nav-end">
+      <a href="contato.html" class="btn btn-outline">Contato</a>
+      <a href="https://wa.me/5521999992002?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o%20de%20seguro."
+         class="btn btn-green" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.556 4.118 1.526 5.843L.063 22.853c-.086.224-.027.476.148.64.124.115.284.175.444.175.071 0 .143-.012.213-.037l5.2-1.705A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.992 0-3.837-.6-5.373-1.627l-.367-.229-3.799 1.247 1.225-3.669-.243-.393C2.427 15.598 1.818 13.864 1.818 12 1.818 6.367 6.367 1.818 12 1.818S22.182 6.367 22.182 12 17.633 21.818 12 21.818z"/></svg>
+        Cotar agora
+      </a>
+    </div>
+    <div class="nav-burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
   </div>
-  <nav class="mobile-nav">
-    <a href="index.html">Home</a>
-    <a href="seguro-de-vida.html">Seguro de Vida</a>
-    <a href="plano-de-saude.html">Plano de Saúde</a>
-    <a href="seguro-auto.html">Seguro Auto</a>
-    <a href="seguro-empresarial.html">Para Empresas</a>
-    <a href="seguro-residencial.html">Residencial</a>
-    <a href="blog/">Blog</a>
-    <a href="contato.html">Contato</a>
-  </nav>
-</header>
+</nav>
 
-<div class="page-breadcrumb">
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="seguro-de-vida.html">Seguro de Vida</a>
+  <a href="plano-de-saude.html">Plano de Saúde</a>
+  <a href="seguro-auto.html">Seguro Auto</a>
+  <a href="seguro-residencial.html">Seguro Residencial</a>
+  <a href="seguro-empresarial.html">Seguro Empresarial</a>
+  <a href="blog/">Blog</a>
+  <a href="sobre.html">Sobre</a>
+  <a href="contato.html">Contato</a>
+  <a href="https://wa.me/5521999992002?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o%20de%20seguro."
+     class="btn btn-green" target="_blank" rel="noopener">Cotar no WhatsApp</a>
+</div>
+
+<div class="breadcrumb-bar">
   <div class="container">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="index.html">Home</a>
       <span class="breadcrumb-sep">›</span>
-      <span>Quem Somos</span>
+      <span class="breadcrumb-curr">Quem Somos</span>
     </nav>
   </div>
 </div>
 
-<main>
-  <!-- Hero -->
-  <section class="service-hero">
-    <div class="container">
-      <div class="service-intro">
-        <h1>Sobre a <span class="text-green">Start Corretora</span></h1>
-        <p>Somos uma corretora de seguros independente com sede no Rio de Janeiro, focada em oferecer as melhores soluções de proteção para pessoas físicas e jurídicas em todo o Brasil — com foco especial no RJ e em São Paulo.</p>
-        <p style="margin-top:12px;font-size:16px;color:var(--text-muted)">Na Start, você não fala com robô. Nossa equipe está sempre disponível para entender a sua situação, comparar opções e encontrar a cobertura ideal para o seu bolso e para o seu perfil de risco.</p>
+<!-- ==================== HERO ==================== -->
+<section class="about-hero">
+  <div class="container">
+    <div class="about-hero-inner anim">
+      <div class="eyebrow">Sobre nós</div>
+      <h1>Protegemos o que <em>mais importa</em> para você</h1>
+      <p>
+        Somos uma corretora de seguros independente com sede no Andaraí, Rio de Janeiro,
+        focada em oferecer as melhores soluções de proteção para pessoas físicas e jurídicas
+        em todo o Brasil — com foco especial no RJ e em São Paulo.
+      </p>
+      <p style="margin-top:14px;font-size:15px;color:var(--text-mid)">
+        Na Start, você não fala com robô. Nossa equipe está sempre disponível para entender
+        a sua situação, comparar opções e encontrar a cobertura ideal para o seu perfil e orçamento.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== VALORES ==================== -->
+<section class="about-section">
+  <div class="container">
+    <div class="eyebrow anim">Nossos valores</div>
+    <h2 class="sec-title anim d1" style="margin-bottom:40px">O que nos guia <em>todos os dias</em></h2>
+    <div class="values-grid">
+      <div class="value-card anim d1">
+        <div class="value-ico">🤝</div>
+        <h3>Atendimento Humanizado</h3>
+        <p>Seguro é um assunto sério demais para ser resolvido por chatbot. Cada cliente recebe atenção personalizada, com explicações claras sobre cobertura, franquia e carência — sem jargão técnico desnecessário.</p>
+      </div>
+      <div class="value-card anim d2">
+        <div class="value-ico">🔍</div>
+        <h3>Transparência Total</h3>
+        <p>Apresentamos todas as opções do mercado com os prós e contras de cada uma. Não empurramos a opção mais cara — indicamos a que realmente faz sentido para o cliente. Nosso sucesso depende da sua satisfação.</p>
+      </div>
+      <div class="value-card anim d3">
+        <div class="value-ico">⚡</div>
+        <h3>Agilidade e Eficiência</h3>
+        <p>Cotamos junto às principais seguradoras do Brasil em tempo real. Em poucos minutos você recebe as melhores propostas comparadas lado a lado, com assistência completa na escolha e na contratação.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Missão, Visão, Valores -->
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title" style="margin-bottom:32px">Nossos Valores</h2>
-      <div class="values-grid">
-        <div class="value-card">
-          <div class="value-icon">🤝</div>
-          <h3>Atendimento Humanizado</h3>
-          <p>Acreditamos que seguro é um assunto sério demais para ser resolvido por chatbot. Cada cliente recebe atenção personalizada, com explicações claras sobre cobertura, franquia e carência — sem jargão técnico desnecessário.</p>
+<!-- ==================== MISSÃO E VISÃO ==================== -->
+<section class="about-section" style="padding-top:0">
+  <div class="container">
+    <div class="eyebrow anim">Propósito</div>
+    <h2 class="sec-title anim d1" style="margin-bottom:8px">Missão <em>&amp;</em> Visão</h2>
+    <div class="mission-grid">
+      <div class="mission-card anim d2">
+        <div class="mission-card-ico">🎯</div>
+        <h3>Nossa Missão</h3>
+        <p>Simplificar o acesso a seguros de qualidade no Brasil, conectando pessoas e empresas às melhores soluções de proteção disponíveis no mercado, com transparência, agilidade e atendimento que vai além do básico. Queremos que nossos clientes se sintam seguros — antes e depois de assinar o contrato.</p>
+      </div>
+      <div class="mission-card anim d3">
+        <div class="mission-card-ico">🚀</div>
+        <h3>Nossa Visão</h3>
+        <p>Ser reconhecida como a corretora de seguros de referência no Rio de Janeiro e em São Paulo, expandindo a atuação para todo o Brasil com uma equipe de especialistas dedicados. Buscamos construir relações de longo prazo com nossos clientes, sendo parceiros em todas as fases da vida.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== NÚMEROS ==================== -->
+<section class="about-section" style="padding-top:0">
+  <div class="container">
+    <div class="eyebrow anim">Resultados</div>
+    <h2 class="sec-title anim d1" style="margin-bottom:8px">Start em <em>números</em></h2>
+    <div class="stats-row">
+      <div class="stat-card anim d1">
+        <div class="stat-num">+15</div>
+        <div class="stat-label">Seguradoras parceiras no Brasil</div>
+      </div>
+      <div class="stat-card anim d2">
+        <div class="stat-num">5</div>
+        <div class="stat-label">Modalidades de seguro disponíveis</div>
+      </div>
+      <div class="stat-card anim d3">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Atendimento humano, sem robôs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CTA ==================== -->
+<section class="cta-sec">
+  <div class="container">
+    <div class="cta-body">
+      <div class="eyebrow">Fale conosco</div>
+      <h2 class="cta-title">
+        Pronto para proteger<br>o que <em>mais importa?</em>
+      </h2>
+      <p class="cta-desc">
+        Fale com nossa equipe e receba uma cotação gratuita e personalizada.
+        Sem compromisso, sem robô, sem enrolação.
+      </p>
+      <div class="cta-btns">
+        <a href="https://wa.me/5521999992002?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o%20de%20seguro."
+           class="btn btn-green btn-lg" target="_blank" rel="noopener">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.556 4.118 1.526 5.843L.063 22.853c-.086.224-.027.476.148.64.124.115.284.175.444.175.071 0 .143-.012.213-.037l5.2-1.705A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.992 0-3.837-.6-5.373-1.627l-.367-.229-3.799 1.247 1.225-3.669-.243-.393C2.427 15.598 1.818 13.864 1.818 12 1.818 6.367 6.367 1.818 12 1.818S22.182 6.367 22.182 12 17.633 21.818 12 21.818z"/></svg>
+          Falar no WhatsApp
+        </a>
+        <a href="contato.html" class="btn btn-outline btn-lg">Enviar mensagem</a>
+      </div>
+      <div class="trust-row">
+        <div class="trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Sem compromisso
         </div>
-        <div class="value-card">
-          <div class="value-icon">🔍</div>
-          <h3>Transparência Total</h3>
-          <p>Apresentamos todas as opções do mercado, com prós e contras de cada uma. Não empurramos a opção mais cara — indicamos a que realmente faz sentido para a situação do cliente. Nosso sucesso depende da sua satisfação.</p>
+        <div class="trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Resposta em até 2h úteis
         </div>
-        <div class="value-card">
-          <div class="value-icon">⚡</div>
-          <h3>Agilidade e Eficiência</h3>
-          <p>Cotamos junto às principais seguradoras do Brasil em tempo real. Em poucos minutos você recebe as melhores propostas comparadas lado a lado, com assistência na escolha e no processo de contratação.</p>
+        <div class="trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Corretor humano dedicado
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Missão e Visão -->
-  <section class="section" style="padding-top:0">
-    <div class="container">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
-        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:32px">
-          <div style="font-size:2rem;margin-bottom:12px">🎯</div>
-          <h3 style="color:var(--primary);margin-bottom:12px">Nossa Missão</h3>
-          <p style="color:#ccc;line-height:1.8">Simplificar o acesso a seguros de qualidade no Brasil, conectando pessoas e empresas às melhores soluções de proteção disponíveis no mercado, com transparência, agilidade e atendimento que vai além do básico. Queremos que nossos clientes se sintam seguros — antes e depois de assinar o contrato.</p>
-        </div>
-        <div style="background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:32px">
-          <div style="font-size:2rem;margin-bottom:12px">🚀</div>
-          <h3 style="color:var(--primary);margin-bottom:12px">Nossa Visão</h3>
-          <p style="color:#ccc;line-height:1.8">Ser reconhecida como a corretora de seguros de referência no Rio de Janeiro e em São Paulo até 2027, expandindo a atuação para todo o Brasil com uma equipe de especialistas dedicados. Buscamos construir relações de longo prazo com nossos clientes, sendo parceiros ao longo de todas as fases da vida.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Números -->
-  <section class="section" style="padding-top:0">
-    <div class="container">
-      <h2 class="section-title" style="margin-bottom:32px">Start em Números</h2>
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-number">+15</div>
-          <div class="stat-label">Seguradoras parceiras no Brasil</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">5</div>
-          <div class="stat-label">Tipos de seguro disponíveis</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">Atendimento humanizado, sem robôs</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="section" style="padding-top:0">
-    <div class="container">
-      <div class="cta-banner">
-        <h2>Pronto para <span class="text-green">proteger o que importa</span>?</h2>
-        <p>Fale com nossa equipe e receba uma cotação gratuita e personalizada para o seu perfil.</p>
-        <div class="cta-buttons">
-          <a href="https://wa.me/5521999992002?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o%20de%20seguro." class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener">📲 Falar no WhatsApp</a>
-          <a href="contato.html" class="btn btn-outline btn-lg">✉️ Enviar Mensagem</a>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer class="site-footer">
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="logo-wrap" style="flex-direction:row;gap:10px;align-items:center;margin-bottom:16px;">
-          <img src="assets/images/logo.png" alt="Start Corretora" loading="lazy" style="height:40px">
-          <span class="logo-subtitle">CORRETORA DE SEGUROS</span>
+      <div>
+        <div class="f-brand-name">Start</div>
+        <div class="f-brand-tag">Corretora de Seguros</div>
+        <p class="f-desc">Corretora independente especializada em seguros e planos de saúde. Atendemos pessoas físicas e jurídicas em todo o Brasil.</p>
+        <div class="f-contact">
+          <div class="f-contact-item">
+            <svg class="f-contact-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Rua Gastão Penalva, 15 — Andaraí, Rio de Janeiro/RJ</span>
+          </div>
+          <div class="f-contact-item">
+            <svg class="f-contact-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6 6l.93-.93a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16a2 2 0 0 1 .27.92z"/></svg>
+            <a href="https://wa.me/5521999992002" style="color:var(--primary)">(21) 99999-2002</a>
+          </div>
+          <div class="f-contact-item">
+            <svg class="f-contact-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <span>CNPJ: 48.385.999/0001-69</span>
+          </div>
         </div>
-        <p>Start Corretora de Seguros LTDA<br>CNPJ: 48.385.999/0001-69<br>Rua Gastão Penalva, nº 15, Bloco 1, Apto. 215<br>Andaraí, Rio de Janeiro/RJ — CEP 20540-220<br><strong>(21) 99999-2002</strong></p>
       </div>
-      <div class="footer-col"><h4>Seguros</h4><ul>
-        <li><a href="seguro-de-vida.html">Seguro de Vida</a></li>
-        <li><a href="plano-de-saude.html">Plano de Saúde</a></li>
-        <li><a href="seguro-auto.html">Seguro Auto</a></li>
-        <li><a href="seguro-residencial.html">Seguro Residencial</a></li>
-        <li><a href="seguro-empresarial.html">Seguro Empresarial</a></li>
-      </ul></div>
-      <div class="footer-col"><h4>Regiões</h4><ul>
-        <li><a href="seguro-rio-de-janeiro.html">Rio de Janeiro</a></li>
-        <li><a href="seguro-sao-paulo.html">São Paulo</a></li>
-      </ul></div>
-      <div class="footer-col"><h4>Empresa</h4><ul>
-        <li><a href="sobre.html">Quem Somos</a></li>
-        <li><a href="contato.html">Contato</a></li>
-        <li><a href="blog/">Blog</a></li>
-      </ul></div>
+      <div>
+        <div class="f-col-head">Seguros</div>
+        <ul class="f-links">
+          <li><a href="seguro-de-vida.html">Seguro de Vida</a></li>
+          <li><a href="plano-de-saude.html">Plano de Saúde</a></li>
+          <li><a href="seguro-auto.html">Seguro Auto</a></li>
+          <li><a href="seguro-residencial.html">Seguro Residencial</a></li>
+          <li><a href="seguro-empresarial.html">Seguro Empresarial</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="f-col-head">Regiões</div>
+        <ul class="f-links">
+          <li><a href="seguro-rio-de-janeiro.html">Rio de Janeiro</a></li>
+          <li><a href="seguro-sao-paulo.html">São Paulo</a></li>
+          <li><a href="index.html">Todo o Brasil</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="f-col-head">Empresa</div>
+        <ul class="f-links">
+          <li><a href="sobre.html">Sobre a Start</a></li>
+          <li><a href="blog/">Blog</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 Start Corretora de Seguros LTDA. Todos os direitos reservados.</p>
-      <span class="susep-note">SUSEP · Todos os seguros são regulamentados pela SUSEP</span>
+      <p class="f-copy">© 2025 Start Corretora de Seguros LTDA. Todos os direitos reservados.</p>
+      <p class="f-copy">SUSEP · Todos os seguros são regulamentados pela SUSEP.</p>
     </div>
   </div>
 </footer>
 
-<a href="https://wa.me/5521999992002?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o%20de%20seguro." class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <svg viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16 2C8.268 2 2 8.268 2 16c0 2.824.784 5.464 2.144 7.72L2 30l6.48-2.1A13.93 13.93 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.6a11.56 11.56 0 01-5.88-1.6l-.42-.252-4.344 1.4 1.4-4.2-.276-.432A11.56 11.56 0 014.4 16C4.4 9.59 9.59 4.4 16 4.4c6.41 0 11.6 5.19 11.6 11.6 0 6.41-5.19 11.6-11.6 11.6zm6.36-8.68c-.348-.176-2.064-1.016-2.384-1.132-.32-.116-.552-.176-.784.176s-.9 1.132-1.104 1.364c-.2.228-.4.256-.748.08-.348-.176-1.468-.54-2.796-1.724-1.032-.924-1.728-2.064-1.932-2.412-.2-.348-.02-.536.152-.708.156-.156.348-.4.52-.604.176-.2.232-.348.348-.576.116-.232.058-.432-.028-.608-.088-.176-.784-1.892-1.076-2.588-.284-.68-.572-.588-.784-.6-.204-.008-.436-.012-.668-.012s-.608.088-.928.432c-.316.348-1.216 1.188-1.216 2.9 0 1.712 1.244 3.368 1.416 3.6.176.232 2.448 3.736 5.932 5.24.828.356 1.476.568 1.98.728.832.264 1.588.228 2.188.14.668-.1 2.064-.844 2.356-1.66.288-.816.288-1.516.2-1.66-.084-.14-.316-.228-.664-.404z"/>
+<a href="https://wa.me/5521999992002?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o."
+   class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.556 4.118 1.526 5.843L.063 22.853c-.086.224-.027.476.148.64.124.115.284.175.444.175.071 0 .143-.012.213-.037l5.2-1.705A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.992 0-3.837-.6-5.373-1.627l-.367-.229-3.799 1.247 1.225-3.669-.243-.393C2.427 15.598 1.818 13.864 1.818 12 1.818 6.367 6.367 1.818 12 1.818S22.182 6.367 22.182 12 17.633 21.818 12 21.818z"/>
   </svg>
 </a>
-<script src="assets/js/main.js"></script>
+
+<script>
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 16); }, { passive: true });
+  document.getElementById('burger').addEventListener('click', () => { document.getElementById('mobileMenu').classList.toggle('open'); });
+  document.querySelectorAll('#mobileMenu a').forEach(a => { a.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open')); });
+  const io = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } }); }, { threshold: 0.08 });
+  document.querySelectorAll('.anim').forEach(el => io.observe(el));
+</script>
+
 </body>
 </html>

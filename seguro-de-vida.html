@@ -12,10 +12,11 @@
   <meta property="og:title" content="Seguro de Vida no Rio de Janeiro e São Paulo | Start Corretora">
   <meta property="og:description" content="Contrate seguro de vida no RJ e SP. Compare coberturas, simule valores e proteja sua família com atendimento humanizado.">
   <meta property="og:image" content="https://startcorretoradeseguros.com.br/assets/images/logo.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/noturno.css">
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -46,163 +47,301 @@
       {
         "@type": "Question",
         "name": "O seguro de vida cobre morte por qualquer causa?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Depende do plano contratado. O seguro de vida cobre morte natural e acidental na maioria dos casos. Alguns planos mais básicos cobrem apenas morte acidental. É importante verificar as coberturas antes de contratar."
-        }
+        "acceptedAnswer": { "@type": "Answer", "text": "Depende do plano contratado. O seguro de vida cobre morte natural e acidental na maioria dos casos. Alguns planos mais básicos cobrem apenas morte acidental. É importante verificar as coberturas antes de contratar." }
       },
       {
         "@type": "Question",
         "name": "Quem pode ser beneficiário do seguro de vida?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "O segurado pode designar qualquer pessoa como beneficiária, incluindo cônjuge, filhos, pais, irmãos ou até amigos. Não há restrição de parentesco. É possível dividir o valor entre vários beneficiários em percentuais."
-        }
+        "acceptedAnswer": { "@type": "Answer", "text": "O segurado pode designar qualquer pessoa como beneficiária, incluindo cônjuge, filhos, pais, irmãos ou até amigos. Não há restrição de parentesco. É possível dividir o valor entre vários beneficiários em percentuais." }
       },
       {
         "@type": "Question",
         "name": "Quanto tempo demora para receber o seguro de vida?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Após a entrega de toda a documentação exigida pela seguradora, o prazo legal para pagamento é de 30 dias. Na prática, seguradoras eficientes costumam pagar em 15 a 20 dias úteis."
-        }
+        "acceptedAnswer": { "@type": "Answer", "text": "Após a entrega de toda a documentação exigida pela seguradora, o prazo legal para pagamento é de 30 dias. Na prática, seguradoras eficientes costumam pagar em 15 a 20 dias úteis." }
       },
       {
         "@type": "Question",
         "name": "O seguro de vida tem carência?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Sim. Para morte natural, a carência varia de 2 a 12 meses dependendo da seguradora. Para morte acidental e invalidez por acidente, geralmente não há carência. Doenças graves costumam ter carência de 180 dias a 2 anos."
-        }
+        "acceptedAnswer": { "@type": "Answer", "text": "Sim. Para morte natural, a carência varia de 2 a 12 meses dependendo da seguradora. Para morte acidental e invalidez por acidente, geralmente não há carência. Doenças graves costumam ter carência de 180 dias a 2 anos." }
       }
     ]
   }
   </script>
 </head>
+
 <body>
 
-<header class="site-header">
-  <div class="header-top">
-    <a href="index.html" class="logo-wrap">
-      <img src="assets/images/logo.png" alt="Start Corretora de Seguros" loading="lazy" style="height:48px">
-      <span class="logo-subtitle">CORRETORA DE SEGUROS</span>
+<!-- ==================== NAV ==================== -->
+<nav class="nav" id="mainNav">
+  <div class="nav-inner container">
+    <a href="index.html" class="nav-logo">
+      <span class="nav-logo-name">Start</span>
+      <span class="nav-logo-tag">Corretora de Seguros</span>
     </a>
-    <nav class="site-nav">
-      <a href="index.html">Home</a>
-      <a href="seguro-de-vida.html" class="active">Seguro de Vida</a>
-      <a href="plano-de-saude.html">Plano de Saúde</a>
-      <a href="seguro-auto.html">Seguro Auto</a>
-      <a href="seguro-empresarial.html">Para Empresas</a>
-      <a href="seguro-residencial.html">Residencial</a>
-      <a href="blog/">Blog</a>
-      <a href="contato.html">Contato</a>
-    </nav>
-    <a href="https://wa.me/5521999992002?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o%20de%20seguro%20de%20vida." class="btn-cta-header" target="_blank" rel="noopener">📲 Cotação Grátis</a>
-    <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul class="nav-links">
+      <li><a href="seguro-de-vida.html" class="active">Seguro de Vida</a></li>
+      <li><a href="plano-de-saude.html">Plano de Saúde</a></li>
+      <li><a href="seguro-auto.html">Seguro Auto</a></li>
+      <li><a href="blog/">Blog</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+    <div class="nav-end">
+      <a href="contato.html" class="btn btn-outline">Contato</a>
+      <a href="https://wa.me/5521999992002?text=Olá!%20Gostaria%20de%20cotar%20um%20seguro%20de%20vida."
+         class="btn btn-green" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.556 4.118 1.526 5.843L.063 22.853c-.086.224-.027.476.148.64.124.115.284.175.444.175.071 0 .143-.012.213-.037l5.2-1.705A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.992 0-3.837-.6-5.373-1.627l-.367-.229-3.799 1.247 1.225-3.669-.243-.393C2.427 15.598 1.818 13.864 1.818 12 1.818 6.367 6.367 1.818 12 1.818S22.182 6.367 22.182 12 17.633 21.818 12 21.818z"/></svg>
+        Cotar agora
+      </a>
+    </div>
+    <div class="nav-burger" id="burger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
   </div>
-  <nav class="mobile-nav">
-    <a href="index.html">Home</a>
-    <a href="seguro-de-vida.html">Seguro de Vida</a>
-    <a href="plano-de-saude.html">Plano de Saúde</a>
-    <a href="seguro-auto.html">Seguro Auto</a>
-    <a href="seguro-empresarial.html">Para Empresas</a>
-    <a href="seguro-residencial.html">Residencial</a>
-    <a href="blog/">Blog</a>
-    <a href="contato.html">Contato</a>
-  </nav>
-</header>
+</nav>
 
-<div class="page-breadcrumb">
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">Home</a>
+  <a href="seguro-de-vida.html">Seguro de Vida</a>
+  <a href="plano-de-saude.html">Plano de Saúde</a>
+  <a href="seguro-auto.html">Seguro Auto</a>
+  <a href="seguro-residencial.html">Seguro Residencial</a>
+  <a href="seguro-empresarial.html">Seguro Empresarial</a>
+  <a href="blog/">Blog</a>
+  <a href="sobre.html">Sobre</a>
+  <a href="contato.html">Contato</a>
+  <a href="https://wa.me/5521999992002?text=Olá!%20Gostaria%20de%20cotar%20seguro%20de%20vida."
+     class="btn btn-green" target="_blank" rel="noopener">Cotar no WhatsApp</a>
+</div>
+
+<!-- ==================== BREADCRUMB ==================== -->
+<div class="breadcrumb-bar">
   <div class="container">
-    <nav class="breadcrumb">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="index.html">Home</a>
       <span class="breadcrumb-sep">›</span>
-      <span>Seguro de Vida</span>
+      <span class="breadcrumb-curr">Seguro de Vida</span>
     </nav>
   </div>
 </div>
 
-<main>
-  <section class="service-hero">
-    <div class="container">
-      <span class="badge-cat cat-badge">❤️ Seguro de Vida</span>
-      <div class="service-intro">
+<!-- ==================== PAGE HERO ==================== -->
+<section class="page-hero">
+  <div class="container">
+    <div class="page-hero-inner">
+      <div class="anim">
+        <div class="eyebrow">Proteção</div>
+        <div class="page-hero-ico">🛡️</div>
         <h1>Seguro de Vida no Rio de Janeiro e São Paulo</h1>
-        <p>Proteção financeira para sua família em caso de imprevisto. Compare as melhores opções do mercado e contrate com quem entende de seguros.</p>
+        <p class="page-hero-desc">
+          Proteção financeira para sua família em caso de imprevisto.
+          Comparamos as melhores opções do mercado e cuidamos de tudo —
+          do primeiro contato ao acionamento do sinistro.
+        </p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="https://wa.me/5521999992002?text=Olá!%20Gostaria%20de%20cotar%20um%20seguro%20de%20vida."
+             class="btn btn-green btn-lg" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.556 4.118 1.526 5.843L.063 22.853c-.086.224-.027.476.148.64.124.115.284.175.444.175.071 0 .143-.012.213-.037l5.2-1.705A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.992 0-3.837-.6-5.373-1.627l-.367-.229-3.799 1.247 1.225-3.669-.243-.393C2.427 15.598 1.818 13.864 1.818 12 1.818 6.367 6.367 1.818 12 1.818S22.182 6.367 22.182 12 17.633 21.818 12 21.818z"/></svg>
+            Cotar Grátis
+          </a>
+          <a href="#coberturas" class="btn btn-outline btn-lg">Ver coberturas ↓</a>
+        </div>
+      </div>
+
+      <!-- Side CTA card (desktop only) -->
+      <div class="page-hero-cta anim d2">
+        <h4>Cotação gratuita em minutos</h4>
+        <p>Sem compromisso. Um especialista humano analisa o melhor plano para você.</p>
+        <a href="https://wa.me/5521999992002?text=Olá!%20Gostaria%20de%20cotar%20um%20seguro%20de%20vida."
+           class="btn btn-green" target="_blank" rel="noopener" style="margin-bottom:10px">
+          Falar no WhatsApp
+        </a>
+        <a href="contato.html" class="btn btn-outline" style="width:100%;justify-content:center">Enviar mensagem</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
+
+<!-- ==================== MAIN CONTENT ==================== -->
+<div class="main-wrap">
   <div class="container">
-    <div class="service-layout">
-      <div class="service-content">
+    <div class="page-layout">
 
-        <!-- O que é -->
-        <h2 style="margin-bottom:16px">O que é o Seguro de Vida?</h2>
-        <p>O seguro de vida é um contrato entre o segurado e a seguradora, pelo qual a empresa se compromete a pagar uma indenização aos beneficiários indicados em caso de morte, invalidez permanente, doenças graves ou outros eventos cobertos. É uma das formas mais eficientes de garantir a estabilidade financeira da família em momentos difíceis.</p>
-        <p>No Brasil, o mercado de seguros de vida cresceu significativamente nos últimos anos, com opções para todos os perfis e orçamentos. É possível contratar coberturas que vão de R$ 50 mil a mais de R$ 1 milhão, dependendo do valor que você quer deixar protegido para seus dependentes. A mensalidade é acessível — geralmente entre R$ 30 e R$ 200 por mês para coberturas robustas.</p>
+      <!-- ===== CONTENT ===== -->
+      <main class="page-content">
 
-        <!-- Para quem é indicado -->
-        <h2 style="margin:32px 0 16px">Para Quem é Indicado?</h2>
-        <div class="for-whom-list">
-          <div class="for-whom-item"><span class="icon">👨‍👩‍👧</span><p><strong>Chefes de família:</strong> quem sustenta o lar e quer garantir que filhos e cônjuge não ficarão desamparados em caso de falecimento.</p></div>
-          <div class="for-whom-item"><span class="icon">💼</span><p><strong>Autônomos e MEIs:</strong> sem INSS robusto, o seguro de vida preenche a lacuna de proteção em caso de invalidez ou morte.</p></div>
-          <div class="for-whom-item"><span class="icon">🏦</span><p><strong>Quem tem dívidas ou financiamentos:</strong> o seguro quitador de dívidas protege a família de herdar um saldo devedor.</p></div>
-          <div class="for-whom-item"><span class="icon">🧑‍💼</span><p><strong>Empresários:</strong> o seguro de vida empresarial garante continuidade dos negócios e protege sócios de eventuais impactos financeiros.</p></div>
-          <div class="for-whom-item"><span class="icon">👴</span><p><strong>Qualquer adulto com dependentes:</strong> se alguém depende da sua renda, o seguro de vida é indispensável.</p></div>
+        <h2>O que é o Seguro de Vida?</h2>
+        <p>
+          O seguro de vida é um contrato entre o segurado e a seguradora, pelo qual a empresa
+          se compromete a pagar uma indenização aos beneficiários indicados em caso de morte,
+          invalidez permanente, doenças graves ou outros eventos cobertos. É uma das formas mais
+          eficientes de garantir a estabilidade financeira da família em momentos difíceis.
+        </p>
+        <p>
+          No Brasil, é possível contratar coberturas que vão de R$ 50 mil a mais de R$ 1 milhão.
+          A mensalidade costuma ser acessível — geralmente entre R$ 30 e R$ 200 por mês para
+          coberturas robustas, dependendo da idade e perfil de saúde do segurado.
+        </p>
+
+        <h2>Para Quem é Indicado?</h2>
+        <div class="forwhom-list">
+          <div class="forwhom-item">
+            <div class="forwhom-ico">👨‍👩‍👧</div>
+            <p><strong>Chefes de família:</strong> quem sustenta o lar e quer garantir que filhos e cônjuge não ficarão desamparados em caso de falecimento.</p>
+          </div>
+          <div class="forwhom-item">
+            <div class="forwhom-ico">💼</div>
+            <p><strong>Autônomos e MEIs:</strong> sem INSS robusto, o seguro de vida preenche a lacuna de proteção em caso de invalidez ou morte.</p>
+          </div>
+          <div class="forwhom-item">
+            <div class="forwhom-ico">🏦</div>
+            <p><strong>Quem tem dívidas ou financiamentos:</strong> o seguro quitador protege a família de herdar um saldo devedor.</p>
+          </div>
+          <div class="forwhom-item">
+            <div class="forwhom-ico">🧑‍💼</div>
+            <p><strong>Empresários:</strong> o seguro de vida empresarial garante continuidade dos negócios e protege sócios de impactos financeiros.</p>
+          </div>
+          <div class="forwhom-item">
+            <div class="forwhom-ico">👴</div>
+            <p><strong>Qualquer adulto com dependentes:</strong> se alguém depende da sua renda, o seguro de vida é indispensável.</p>
+          </div>
         </div>
 
-        <!-- Coberturas -->
-        <h2 style="margin:32px 0 16px">O que Está Incluído na Cobertura?</h2>
+        <h2 id="coberturas">O que Está Incluído na Cobertura?</h2>
         <div class="coverage-grid">
-          <div class="coverage-item"><div class="icon">💀</div><h4>Morte Natural</h4><p>Indenização paga aos beneficiários em caso de falecimento por doença ou causas naturais, após carência.</p></div>
-          <div class="coverage-item"><div class="icon">🚨</div><h4>Morte Acidental</h4><p>Indenização em caso de falecimento por acidente. Muitos planos pagam capital adicional para esta cobertura.</p></div>
-          <div class="coverage-item"><div class="icon">🦽</div><h4>Invalidez Permanente</h4><p>Pagamento de indenização quando o segurado fica permanentemente inválido por acidente ou doença.</p></div>
-          <div class="coverage-item"><div class="icon">🏥</div><h4>Doenças Graves</h4><p>Indenização antecipada em diagnóstico de câncer, infarto, AVC, insuficiência renal, entre outras doenças previstas.</p></div>
-          <div class="coverage-item"><div class="icon">🕊️</div><h4>Assistência Funeral</h4><p>Cobertura das despesas funerárias do segurado e, em muitos planos, dos dependentes.</p></div>
-          <div class="coverage-item"><div class="icon">🏠</div><h4>Diária por Internação</h4><p>Valor diário pago durante internação hospitalar do segurado, complementando o plano de saúde.</p></div>
+          <div class="cov-card">
+            <div class="cov-ico">💀</div>
+            <h4>Morte Natural</h4>
+            <p>Indenização paga aos beneficiários em caso de falecimento por doença ou causas naturais, após carência.</p>
+          </div>
+          <div class="cov-card">
+            <div class="cov-ico">🚨</div>
+            <h4>Morte Acidental</h4>
+            <p>Indenização em caso de falecimento por acidente. Muitos planos pagam capital adicional nessa cobertura.</p>
+          </div>
+          <div class="cov-card">
+            <div class="cov-ico">🦽</div>
+            <h4>Invalidez Permanente</h4>
+            <p>Pagamento de indenização quando o segurado fica permanentemente inválido por acidente ou doença.</p>
+          </div>
+          <div class="cov-card">
+            <div class="cov-ico">🏥</div>
+            <h4>Doenças Graves</h4>
+            <p>Indenização antecipada em diagnóstico de câncer, infarto, AVC, insuficiência renal e outras previstas.</p>
+          </div>
+          <div class="cov-card">
+            <div class="cov-ico">🕊️</div>
+            <h4>Assistência Funeral</h4>
+            <p>Cobertura das despesas funerárias do segurado e, em muitos planos, dos dependentes diretos.</p>
+          </div>
+          <div class="cov-card">
+            <div class="cov-ico">🏠</div>
+            <h4>Diária por Internação</h4>
+            <p>Valor diário pago durante internação hospitalar do segurado, complementando o plano de saúde.</p>
+          </div>
         </div>
 
-        <!-- Como funciona -->
-        <h2 style="margin:32px 0 16px">Como Funciona: Passo a Passo</h2>
+        <h2>Como Funciona: Passo a Passo</h2>
         <div class="steps-list">
-          <div class="step"><div class="step-num">1</div><div><h4>Cotação gratuita</h4><p>Entre em contato com a Start Corretora. Nossa equipe coleta suas informações (idade, profissão, saúde) e solicita propostas junto às principais seguradoras do Brasil.</p></div></div>
-          <div class="step"><div class="step-num">2</div><div><h4>Comparação e escolha</h4><p>Apresentamos as melhores propostas de forma transparente, explicando cada cobertura, exclusão e carência. Você escolhe o plano que melhor se encaixa no seu orçamento e necessidade.</p></div></div>
-          <div class="step"><div class="step-num">3</div><div><h4>Contratação e apólice</h4><p>Assinatura do contrato de forma digital ou presencial. Você recebe a apólice com todos os detalhes da cobertura e dados de contato da seguradora para acionamentos.</p></div></div>
-          <div class="step"><div class="step-num">4</div><div><h4>Acionamento do seguro</h4><p>Em caso de sinistro, os beneficiários entram em contato com a seguradora apresentando os documentos exigidos. A indenização é paga em até 30 dias após a entrega completa da documentação.</p></div></div>
+          <div class="step">
+            <div class="step-num">1</div>
+            <div>
+              <h4>Cotação gratuita</h4>
+              <p>Entre em contato com a Start Corretora. Nossa equipe coleta suas informações — idade, profissão, estado de saúde — e solicita propostas junto às principais seguradoras do Brasil.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div>
+              <h4>Comparação e escolha</h4>
+              <p>Apresentamos as melhores propostas de forma transparente, explicando cada cobertura, exclusão e carência. Você escolhe o plano que melhor se encaixa no seu orçamento e necessidade.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div>
+              <h4>Contratação e apólice</h4>
+              <p>Assinatura do contrato de forma digital ou presencial. Você recebe a apólice com todos os detalhes e os dados da seguradora para acionamentos futuros.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">4</div>
+            <div>
+              <h4>Acionamento do seguro</h4>
+              <p>Em caso de sinistro, os beneficiários entram em contato com a seguradora com os documentos exigidos. O pagamento ocorre em até 30 dias após a documentação completa.</p>
+            </div>
+          </div>
         </div>
 
-        <!-- FAQ -->
-        <h2 style="margin:32px 0 16px">Perguntas Frequentes</h2>
+        <h2>Perguntas Frequentes</h2>
         <div class="faq-list">
-          <div class="faq-item">
-            <div class="faq-question">O seguro de vida cobre morte por qualquer causa? <span class="faq-arrow">⌄</span></div>
-            <div class="faq-answer"><p>Depende do plano contratado. O seguro de vida cobre morte natural e acidental na maioria dos casos. Alguns planos mais básicos cobrem apenas morte acidental. É fundamental verificar as coberturas e exclusões da apólice antes de contratar.</p></div>
+          <div class="faq-item open">
+            <div class="faq-q">
+              O seguro de vida cobre morte por qualquer causa?
+              <span class="faq-arrow">▾</span>
+            </div>
+            <div class="faq-a">
+              Depende do plano contratado. O seguro de vida cobre morte natural e acidental na maioria dos casos.
+              Alguns planos mais básicos cobrem apenas morte acidental. É fundamental verificar as coberturas e
+              exclusões da apólice antes de contratar.
+            </div>
           </div>
           <div class="faq-item">
-            <div class="faq-question">Quem pode ser beneficiário do seguro de vida? <span class="faq-arrow">⌄</span></div>
-            <div class="faq-answer"><p>O segurado pode designar qualquer pessoa como beneficiária, incluindo cônjuge, filhos, pais, irmãos ou até amigos. Não há restrição de parentesco. É possível dividir o valor entre vários beneficiários em percentuais definidos pelo segurado.</p></div>
+            <div class="faq-q">
+              Quem pode ser beneficiário do seguro de vida?
+              <span class="faq-arrow">▾</span>
+            </div>
+            <div class="faq-a">
+              O segurado pode designar qualquer pessoa como beneficiária, incluindo cônjuge, filhos, pais, irmãos
+              ou até amigos. Não há restrição de parentesco. É possível dividir o valor entre vários beneficiários
+              em percentuais definidos pelo segurado.
+            </div>
           </div>
           <div class="faq-item">
-            <div class="faq-question">Quanto tempo demora para receber o seguro de vida? <span class="faq-arrow">⌄</span></div>
-            <div class="faq-answer"><p>Após a entrega de toda a documentação exigida pela seguradora, o prazo legal é de 30 dias para pagamento. Na prática, seguradoras eficientes costumam pagar em 15 a 20 dias úteis após completar o processo de análise.</p></div>
+            <div class="faq-q">
+              Quanto tempo demora para receber o seguro de vida?
+              <span class="faq-arrow">▾</span>
+            </div>
+            <div class="faq-a">
+              Após a entrega de toda a documentação exigida pela seguradora, o prazo legal é de 30 dias para
+              pagamento. Na prática, seguradoras eficientes costumam pagar em 15 a 20 dias úteis após completar
+              o processo de análise.
+            </div>
           </div>
           <div class="faq-item">
-            <div class="faq-question">O seguro de vida tem carência? <span class="faq-arrow">⌄</span></div>
-            <div class="faq-answer"><p>Sim. Para morte natural, a carência varia de 2 a 12 meses dependendo da seguradora. Para morte acidental e invalidez por acidente, geralmente não há carência. Doenças graves costumam ter carência de 180 dias a 2 anos.</p></div>
+            <div class="faq-q">
+              O seguro de vida tem carência?
+              <span class="faq-arrow">▾</span>
+            </div>
+            <div class="faq-a">
+              Sim. Para morte natural, a carência varia de 2 a 12 meses dependendo da seguradora. Para morte
+              acidental e invalidez por acidente, geralmente não há carência. Doenças graves costumam ter carência
+              de 180 dias a 2 anos.
+            </div>
           </div>
         </div>
 
-        <!-- CTA + formulário -->
-        <div style="background:var(--primary-glow);border:1px solid var(--primary);border-radius:12px;padding:32px;margin-top:40px">
-          <h2 style="color:var(--primary);margin-bottom:8px">Faça sua Cotação de Seguro de Vida Grátis</h2>
-          <p style="color:var(--text-muted);margin-bottom:24px">Preencha o formulário ou fale pelo WhatsApp. Resposta em até 2 horas úteis.</p>
-          <form id="contact-form" style="display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:12px;align-items:end">
-            <div class="form-group" style="margin:0"><label>Nome</label><input type="text" name="nome" class="form-control" placeholder="Seu nome" required></div>
-            <div class="form-group" style="margin:0"><label>WhatsApp</label><input type="tel" name="telefone" class="form-control" placeholder="(21) 99999-9999" required></div>
-            <div class="form-group" style="margin:0">
-              <label>Seguro</label>
-              <select name="seguro" class="form-control">
+        <!-- Quote form -->
+        <div class="quote-block">
+          <div class="quote-block-head">
+            <div class="eyebrow">Cotação grátis</div>
+            <h2>Receba as melhores propostas agora</h2>
+            <p class="quote-sub">Preencha o formulário. Nossa equipe responde em até 2 horas úteis.</p>
+          </div>
+          <form class="quote-form" id="quoteForm">
+            <div class="form-field">
+              <label class="form-label">Nome</label>
+              <input class="form-input" type="text" name="nome" placeholder="Seu nome completo" required>
+            </div>
+            <div class="form-field">
+              <label class="form-label">WhatsApp</label>
+              <input class="form-input" type="tel" name="telefone" placeholder="(21) 99999-9999" required>
+            </div>
+            <div class="form-field">
+              <label class="form-label">Tipo de seguro</label>
+              <select class="form-select" name="seguro">
                 <option>Seguro de Vida</option>
                 <option>Seguro Auto</option>
                 <option>Plano de Saúde</option>
@@ -210,89 +349,234 @@
                 <option>Empresarial</option>
               </select>
             </div>
-            <button type="submit" class="btn btn-primary">Cotar →</button>
+            <button type="submit" class="btn btn-green" style="height:44px;align-self:end">Cotar →</button>
           </form>
-          <div class="form-success" style="margin-top:16px">
-            <p>✅ <strong>Recebemos sua solicitação!</strong> Nossa equipe entrará em contato em breve.</p>
+          <div class="quote-success" id="quoteSuccess">
+            ✓ <strong>Solicitação recebida!</strong> Nossa equipe entrará em contato em breve.
           </div>
-          <div style="margin-top:16px;text-align:center">
-            <a href="https://wa.me/5521999992002?text=Ol%C3%A1!%20Gostaria%20de%20cotar%20um%20seguro%20de%20vida." class="btn btn-whatsapp" target="_blank" rel="noopener">📲 Falar Agora no WhatsApp</a>
+          <div class="quote-wa">
+            Prefere falar agora?
+            <a href="https://wa.me/5521999992002?text=Olá!%20Gostaria%20de%20cotar%20seguro%20de%20vida." target="_blank" rel="noopener">
+              Falar direto no WhatsApp →
+            </a>
           </div>
         </div>
 
-      </div>
+      </main>
 
-      <!-- Sidebar -->
-      <aside class="post-sidebar">
-        <div class="sidebar-cta sidebar-card">
-          <h4>📲 Cotação Grátis Agora</h4>
-          <p>Fale com um especialista em seguro de vida e receba as melhores ofertas em minutos.</p>
-          <a href="https://wa.me/5521999992002?text=Ol%C3%A1!%20Gostaria%20de%20cotar%20seguro%20de%20vida." class="btn btn-whatsapp" target="_blank" rel="noopener">Falar no WhatsApp</a>
+      <!-- ===== SIDEBAR ===== -->
+      <aside class="sidebar">
+
+        <div class="s-card s-card-cta">
+          <h4>Cotação Grátis em Minutos</h4>
+          <p>Fale com um especialista em seguro de vida. Sem robôs, sem enrolação.</p>
+          <a href="https://wa.me/5521999992002?text=Olá!%20Gostaria%20de%20cotar%20um%20seguro%20de%20vida."
+             class="btn btn-green" target="_blank" rel="noopener">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.556 4.118 1.526 5.843L.063 22.853c-.086.224-.027.476.148.64.124.115.284.175.444.175.071 0 .143-.012.213-.037l5.2-1.705A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.992 0-3.837-.6-5.373-1.627l-.367-.229-3.799 1.247 1.225-3.669-.243-.393C2.427 15.598 1.818 13.864 1.818 12 1.818 6.367 6.367 1.818 12 1.818S22.182 6.367 22.182 12 17.633 21.818 12 21.818z"/></svg>
+            Falar no WhatsApp
+          </a>
         </div>
-        <div class="sidebar-card">
-          <h4>📚 Artigos Relacionados</h4>
-          <div class="related-post">
-            <div class="related-thumb">❤️</div>
-            <div><h5><a href="blog/seguro-de-vida-por-que-investir-hoje.html">Por Que Investir em Seguro de Vida Hoje?</a></h5><span>03 set 2025</span></div>
-          </div>
-          <div class="related-post">
-            <div class="related-thumb">💰</div>
-            <div><h5><a href="blog/quanto-custa-seguro-de-vida-500mil.html">Quanto Custa um Seguro de 500 Mil?</a></h5><span>15 jan 2026</span></div>
-          </div>
-          <div class="related-post">
-            <div class="related-thumb">🛡️</div>
-            <div><h5><a href="blog/beneficios-do-seguro-de-vida.html">Benefícios do Seguro de Vida</a></h5><span>10 dez 2025</span></div>
+
+        <div class="s-card">
+          <h4>Artigos Relacionados</h4>
+          <div class="related-list">
+            <div class="related-item">
+              <div class="related-ico">🛡️</div>
+              <div>
+                <a href="blog/seguro-de-vida-por-que-investir-hoje.html">
+                  Por que investir em seguro de vida hoje?
+                </a>
+                <time>03 set 2025</time>
+              </div>
+            </div>
+            <div class="related-item">
+              <div class="related-ico">💰</div>
+              <div>
+                <a href="blog/quanto-custa-seguro-de-vida-500mil.html">
+                  Quanto custa um seguro de R$ 500 mil?
+                </a>
+                <time>15 jan 2026</time>
+              </div>
+            </div>
+            <div class="related-item">
+              <div class="related-ico">❤️</div>
+              <div>
+                <a href="blog/beneficios-do-seguro-de-vida.html">
+                  Benefícios do seguro de vida
+                </a>
+                <time>10 dez 2025</time>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="sidebar-card atende-card">
-          <h4>🌎 Atendemos Todo o Brasil</h4>
+
+        <div class="s-card">
+          <div style="width:36px;height:36px;border-radius:50%;background:var(--primary-glow);border:1px solid var(--primary-rim);display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:14px">🌎</div>
+          <h4>Atendemos todo o Brasil</h4>
           <p>Sede no Andaraí, Rio de Janeiro. Atendimento remoto para todo o território nacional, com foco em RJ e SP.</p>
         </div>
+
       </aside>
+
     </div>
   </div>
-</main>
+</div>
 
-<footer class="site-footer">
+
+<!-- ==================== CTA SECTION ==================== -->
+<section class="cta-sec">
+  <div class="container">
+    <div class="cta-body">
+      <div class="eyebrow">Proteção agora</div>
+      <h2 class="cta-title">
+        Pronto para proteger<br>o que <em>mais importa?</em>
+      </h2>
+      <p class="cta-desc">
+        Fale com um corretor agora mesmo. Sem robôs, sem enrolação.<br>
+        Cotação em minutos, diretamente no WhatsApp.
+      </p>
+      <div class="cta-btns">
+        <a href="https://wa.me/5521999992002?text=Olá!%20Gostaria%20de%20cotar%20um%20seguro%20de%20vida."
+           class="btn btn-green btn-lg" target="_blank" rel="noopener">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.556 4.118 1.526 5.843L.063 22.853c-.086.224-.027.476.148.64.124.115.284.175.444.175.071 0 .143-.012.213-.037l5.2-1.705A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.992 0-3.837-.6-5.373-1.627l-.367-.229-3.799 1.247 1.225-3.669-.243-.393C2.427 15.598 1.818 13.864 1.818 12 1.818 6.367 6.367 1.818 12 1.818S22.182 6.367 22.182 12 17.633 21.818 12 21.818z"/></svg>
+          Falar no WhatsApp
+        </a>
+        <a href="contato.html" class="btn btn-outline btn-lg">Enviar mensagem</a>
+      </div>
+      <div class="trust-row">
+        <div class="trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Sem compromisso
+        </div>
+        <div class="trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Resposta em 24h
+        </div>
+        <div class="trust-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Atendimento humano
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="footer">
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="logo-wrap" style="flex-direction:row;gap:10px;align-items:center;margin-bottom:16px;">
-          <img src="assets/images/logo.png" alt="Start Corretora" loading="lazy" style="height:40px">
-          <span class="logo-subtitle">CORRETORA DE SEGUROS</span>
+      <div>
+        <div class="f-brand-name">Start</div>
+        <div class="f-brand-tag">Corretora de Seguros</div>
+        <p class="f-desc">
+          Corretora independente especializada em seguros e planos de saúde.
+          Atendemos pessoas físicas e jurídicas em todo o Brasil.
+        </p>
+        <div class="f-contact">
+          <div class="f-contact-item">
+            <svg class="f-contact-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Rua Gastão Penalva, 15 — Andaraí, Rio de Janeiro/RJ</span>
+          </div>
+          <div class="f-contact-item">
+            <svg class="f-contact-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5 19.79 19.79 0 0 1 1.61 4.9 2 2 0 0 1 3.59 2.69h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.49a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.5 17l.42-.08z"/></svg>
+            <a href="https://wa.me/5521999992002" style="color:var(--primary)">(21) 99999-2002</a>
+          </div>
+          <div class="f-contact-item">
+            <svg class="f-contact-ico" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            <span>CNPJ: 48.385.999/0001-69</span>
+          </div>
         </div>
-        <p>Start Corretora de Seguros LTDA<br>CNPJ: 48.385.999/0001-69<br>Rua Gastão Penalva, nº 15, Bloco 1, Apto. 215<br>Andaraí, Rio de Janeiro/RJ — CEP 20540-220<br><strong>(21) 99999-2002</strong></p>
       </div>
-      <div class="footer-col"><h4>Seguros</h4><ul>
-        <li><a href="seguro-de-vida.html">Seguro de Vida</a></li>
-        <li><a href="plano-de-saude.html">Plano de Saúde</a></li>
-        <li><a href="seguro-auto.html">Seguro Auto</a></li>
-        <li><a href="seguro-residencial.html">Seguro Residencial</a></li>
-        <li><a href="seguro-empresarial.html">Seguro Empresarial</a></li>
-      </ul></div>
-      <div class="footer-col"><h4>Regiões</h4><ul>
-        <li><a href="seguro-rio-de-janeiro.html">Rio de Janeiro</a></li>
-        <li><a href="seguro-sao-paulo.html">São Paulo</a></li>
-      </ul></div>
-      <div class="footer-col"><h4>Empresa</h4><ul>
-        <li><a href="sobre.html">Quem Somos</a></li>
-        <li><a href="contato.html">Contato</a></li>
-        <li><a href="blog/">Blog</a></li>
-      </ul></div>
+
+      <div>
+        <div class="f-col-head">Seguros</div>
+        <ul class="f-links">
+          <li><a href="seguro-de-vida.html">Seguro de Vida</a></li>
+          <li><a href="plano-de-saude.html">Plano de Saúde</a></li>
+          <li><a href="seguro-auto.html">Seguro Auto</a></li>
+          <li><a href="seguro-residencial.html">Seguro Residencial</a></li>
+          <li><a href="seguro-empresarial.html">Seguro Empresarial</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="f-col-head">Regiões</div>
+        <ul class="f-links">
+          <li><a href="seguro-rio-de-janeiro.html">Rio de Janeiro</a></li>
+          <li><a href="seguro-sao-paulo.html">São Paulo</a></li>
+          <li><a href="index.html">Todo o Brasil</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="f-col-head">Empresa</div>
+        <ul class="f-links">
+          <li><a href="sobre.html">Sobre a Start</a></li>
+          <li><a href="blog/">Blog</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
     </div>
+
     <div class="footer-bottom">
-      <p>© 2025 Start Corretora de Seguros LTDA. Todos os direitos reservados.</p>
-      <span class="susep-note">SUSEP · Todos os seguros são regulamentados pela SUSEP</span>
+      <p class="f-copy">© 2025 Start Corretora de Seguros LTDA. Todos os direitos reservados.</p>
+      <p class="f-copy">SUSEP · Todos os seguros são regulamentados pela SUSEP.</p>
     </div>
   </div>
 </footer>
 
-<a href="https://wa.me/5521999992002?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20uma%20cota%C3%A7%C3%A3o%20de%20seguro." class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <svg viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16 2C8.268 2 2 8.268 2 16c0 2.824.784 5.464 2.144 7.72L2 30l6.48-2.1A13.93 13.93 0 0016 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.6a11.56 11.56 0 01-5.88-1.6l-.42-.252-4.344 1.4 1.4-4.2-.276-.432A11.56 11.56 0 014.4 16C4.4 9.59 9.59 4.4 16 4.4c6.41 0 11.6 5.19 11.6 11.6 0 6.41-5.19 11.6-11.6 11.6zm6.36-8.68c-.348-.176-2.064-1.016-2.384-1.132-.32-.116-.552-.176-.784.176s-.9 1.132-1.104 1.364c-.2.228-.4.256-.748.08-.348-.176-1.468-.54-2.796-1.724-1.032-.924-1.728-2.064-1.932-2.412-.2-.348-.02-.536.152-.708.156-.156.348-.4.52-.604.176-.2.232-.348.348-.576.116-.232.058-.432-.028-.608-.088-.176-.784-1.892-1.076-2.588-.284-.68-.572-.588-.784-.6-.204-.008-.436-.012-.668-.012s-.608.088-.928.432c-.316.348-1.216 1.188-1.216 2.9 0 1.712 1.244 3.368 1.416 3.6.176.232 2.448 3.736 5.932 5.24.828.356 1.476.568 1.98.728.832.264 1.588.228 2.188.14.668-.1 2.064-.844 2.356-1.66.288-.816.288-1.516.2-1.66-.084-.14-.316-.228-.664-.404z"/>
+
+<!-- ==================== WA FLOAT ==================== -->
+<a href="https://wa.me/5521999992002?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20uma%20cotação."
+   class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.556 4.118 1.526 5.843L.063 22.853c-.086.224-.027.476.148.64.124.115.284.175.444.175.071 0 .143-.012.213-.037l5.2-1.705A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.992 0-3.837-.6-5.373-1.627l-.367-.229-3.799 1.247 1.225-3.669-.243-.393C2.427 15.598 1.818 13.864 1.818 12 1.818 6.367 6.367 1.818 12 1.818S22.182 6.367 22.182 12 17.633 21.818 12 21.818z"/>
   </svg>
 </a>
-<script src="assets/js/main.js"></script>
-<style>@media(max-width:768px){form[id="contact-form"]{grid-template-columns:1fr!important}}</style>
+
+
+<script>
+  // Nav scroll
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 16);
+  }, { passive: true });
+
+  // Mobile menu
+  document.getElementById('burger').addEventListener('click', () => {
+    document.getElementById('mobileMenu').classList.toggle('open');
+  });
+  document.querySelectorAll('#mobileMenu a').forEach(a => {
+    a.addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('open'));
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Quote form
+  document.getElementById('quoteForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    document.getElementById('quoteSuccess').style.display = 'block';
+    e.target.reset();
+  });
+
+  // Intersection Observer for .anim
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.anim').forEach(el => io.observe(el));
+</script>
+
 </body>
 </html>
