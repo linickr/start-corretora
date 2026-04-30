@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leads | Admin Start Corretora</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .lead-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--primary-glow); border: 1px solid var(--primary);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px; font-weight: 700; color: var(--primary);
+      flex-shrink: 0;
+    }
+    .lead-name-cell { display: flex; align-items: center; gap: 10px; }
+    .lead-name-cell .lead-name { font-weight: 600; font-size: 14px; }
+    .lead-name-cell .lead-phone { font-size: 12px; color: var(--text-muted); margin-top: 1px; }
+    .badge-red   { background: rgba(244,67,54,.15); color: #ef5350; }
+    .badge-blue  { background: rgba(30,136,229,.15); color: #42a5f5; }
+    .seg-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 20px; padding: 3px 10px; font-size: 12px; white-space: nowrap;
+    }
+    .filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; align-items: center; }
+    .filter-select {
+      background: var(--bg3); border: 1px solid var(--border); border-radius: 20px;
+      color: var(--text-muted); padding: 7px 14px; font-family: 'Barlow', sans-serif;
+      font-size: 14px; cursor: pointer; transition: .2s;
+    }
+    .filter-select:focus { outline: none; border-color: var(--primary); }
+    .btn-wa-sm {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: #25d366; color: #fff; border: none; border-radius: 4px;
+      padding: 5px 10px; font-size: 12px; font-weight: 600; cursor: pointer; transition: .2s;
+      text-decoration: none; white-space: nowrap;
+    }
+    .btn-wa-sm:hover { background: #1db954; }
+    .status-select {
+      background: var(--bg3); border: 1px solid var(--border); border-radius: 4px;
+      color: var(--text); padding: 4px 8px; font-family: 'Barlow', sans-serif;
+      font-size: 12px; cursor: pointer;
+    }
+    .status-select:focus { outline: none; border-color: var(--primary); }
+    .empty-state {
+      text-align: center; padding: 60px 20px; color: var(--text-muted);
+    }
+    .empty-state .icon { font-size: 3rem; margin-bottom: 12px; }
+    .add-lead-modal-overlay {
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,.7);
+      z-index: 200; align-items: center; justify-content: center;
+    }
+    .add-lead-modal-overlay.open { display: flex; }
+    .modal-box {
+      background: var(--bg2); border: 1px solid var(--border); border-radius: 12px;
+      padding: 28px; width: 100%; max-width: 480px; max-height: 90vh; overflow-y: auto;
+    }
+    .modal-box h2 { font-size: 1.3rem; margin-bottom: 20px; }
+    .modal-footer { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
+    .metric-trend { font-size: 11px; color: var(--primary); margin-top: 2px; }
+    .pipeline-bar { margin-top: 16px; }
+    .pipeline-stages { display: flex; gap: 2px; height: 6px; border-radius: 3px; overflow: hidden; }
+    .pipeline-stage { height: 100%; transition: flex .5s; }
+    .ps-novo { background: #42a5f5; }
+    .ps-atend { background: #ffc107; }
+    .ps-conv { background: #00e676; }
+    .ps-perd { background: #ef5350; }
+    .pipeline-legend { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 8px; font-size: 12px; color: var(--text-muted); }
+    .pipeline-legend span { display: flex; align-items: center; gap: 5px; }
+    .pl-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .search-box {
+      background: var(--bg3); border: 1px solid var(--border); border-radius: 20px;
+      padding: 7px 14px 7px 36px; color: var(--text); font-family: 'Barlow', sans-serif;
+      font-size: 14px; width: 200px; transition: .2s; position: relative;
+    }
+    .search-wrap { position: relative; }
+    .search-wrap svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
+    .search-box:focus { outline: none; border-color: var(--primary); width: 240px; }
+  </style>
+</head>
+<body>
+<div class="admin-wrap">
+  <!-- Sidebar -->
+  <aside class="admin-sidebar">
+    <div class="admin-sidebar-logo">
+      <img src="../assets/images/logo-start-corretora.png" alt="Start Corretora" loading="lazy" style="height:40px;margin-bottom:6px">
+      <div class="logo-subtitle">CORRETORA DE SEGUROS</div>
+      <div class="admin-tag">ADMIN</div>
+    </div>
+    <nav class="admin-nav">
+      <a href="index.html"><span class="nav-icon">📊</span> Dashboard</a>
+      <a href="../index.html" target="_blank"><span class="nav-icon">🌐</span> Ver Site</a>
+      <a href="posts.html"><span class="nav-icon">📝</span> Posts</a>
+      <a href="novo-post.html"><span class="nav-icon">➕</span> Novo Post</a>
+      <a href="agendamento.html"><span class="nav-icon">📅</span> Calendário</a>
+      <a href="palavras-chave.html"><span class="nav-icon">🔍</span> Palavras-chave</a>
+      <a href="gsc.html"><span class="nav-icon">📈</span> Search Console</a>
+      <a href="leads.html" class="active"><span class="nav-icon">📋</span> Leads</a>
+      <a href="configuracoes.html"><span class="nav-icon">⚙️</span> Configurações</a>
+    </nav>
+  </aside>
+
+  <!-- Main -->
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <h1>Leads &amp; Cotações</h1>
+      <button class="btn btn-primary" id="btn-open-modal">➕ Adicionar Lead</button>
+    </div>
+
+    <!-- Métricas -->
+    <div class="metrics-grid" style="margin-bottom:24px">
+      <div class="metric-card">
+        <div class="label">Total de Leads</div>
+        <div class="value" id="stat-total">12</div>
+        <div class="metric-trend" id="stat-total-sub">Todos os registros</div>
+      </div>
+      <div class="metric-card">
+        <div class="label">Novos (este mês)</div>
+        <div class="value" style="color:#42a5f5" id="stat-novos">4</div>
+        <div class="metric-trend">Aguardando contato</div>
+      </div>
+      <div class="metric-card">
+        <div class="label">Convertidos</div>
+        <div class="value" id="stat-conv">5</div>
+        <div class="metric-trend">Taxa: <span id="stat-taxa">41,7%</span></div>
+      </div>
+      <div class="metric-card">
+        <div class="label">Ticket médio est.</div>
+        <div class="value" style="color:#ffc107">R$&nbsp;1.240</div>
+        <div class="metric-trend">Por contrato/mês</div>
+      </div>
+    </div>
+
+    <!-- Pipeline visual -->
+    <div class="admin-card" style="margin-bottom:24px">
+      <div class="admin-card-title">📊 Pipeline de Conversão</div>
+      <div class="pipeline-bar">
+        <div class="pipeline-stages" id="pipeline-stages">
+          <div class="pipeline-stage ps-novo" style="flex:4"></div>
+          <div class="pipeline-stage ps-atend" style="flex:2"></div>
+          <div class="pipeline-stage ps-conv" style="flex:5"></div>
+          <div class="pipeline-stage ps-perd" style="flex:1"></div>
+        </div>
+        <div class="pipeline-legend">
+          <span><span class="pl-dot" style="background:#42a5f5"></span> Novo (<span id="pl-novo">4</span>)</span>
+          <span><span class="pl-dot" style="background:#ffc107"></span> Em atendimento (<span id="pl-atend">2</span>)</span>
+          <span><span class="pl-dot" style="background:#00e676"></span> Convertido (<span id="pl-conv">5</span>)</span>
+          <span><span class="pl-dot" style="background:#ef5350"></span> Perdido (<span id="pl-perd">1</span>)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filtros -->
+    <div class="filter-row">
+      <button class="filter-btn lead-status-btn active" data-filter="todos">Todos</button>
+      <button class="filter-btn lead-status-btn" data-filter="novo">Novos</button>
+      <button class="filter-btn lead-status-btn" data-filter="em-atendimento">Em atendimento</button>
+      <button class="filter-btn lead-status-btn" data-filter="convertido">Convertidos</button>
+      <button class="filter-btn lead-status-btn" data-filter="perdido">Perdidos</button>
+      <div style="margin-left:auto;display:flex;gap:8px;align-items:center">
+        <select class="filter-select" id="filter-seg">
+          <option value="todos">Todos os seguros</option>
+          <option value="Seguro de Vida">Seguro de Vida</option>
+          <option value="Seguro Auto">Seguro Auto</option>
+          <option value="Plano de Saúde">Plano de Saúde</option>
+          <option value="Seguro Residencial">Residencial</option>
+          <option value="Seguro Empresarial">Empresarial</option>
+        </select>
+        <div class="search-wrap">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="text" class="search-box" id="search-lead" placeholder="Buscar lead...">
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabela -->
+    <div class="admin-card" style="overflow-x:auto">
+      <table class="admin-table" id="leads-table">
+        <thead>
+          <tr>
+            <th>Lead</th>
+            <th>Seguro</th>
+            <th>Origem</th>
+            <th>Status</th>
+            <th>Data</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="leads-tbody"></tbody>
+      </table>
+      <div class="empty-state" id="empty-state" style="display:none">
+        <div class="icon">📋</div>
+        <p>Nenhum lead encontrado com esses filtros.</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Modal adicionar lead -->
+<div class="add-lead-modal-overlay" id="modal-overlay">
+  <div class="modal-box">
+    <h2>➕ Novo Lead</h2>
+    <div class="form-group">
+      <label>Nome completo</label>
+      <input type="text" id="nl-nome" class="form-control" placeholder="Ex: João da Silva">
+    </div>
+    <div class="form-group">
+      <label>WhatsApp / Telefone</label>
+      <input type="text" id="nl-phone" class="form-control" placeholder="(21) 99999-0000">
+    </div>
+    <div class="form-group">
+      <label>Tipo de seguro</label>
+      <select id="nl-seg" class="form-control">
+        <option value="">Selecione...</option>
+        <option>Seguro de Vida</option>
+        <option>Seguro Auto</option>
+        <option>Plano de Saúde</option>
+        <option>Seguro Residencial</option>
+        <option>Seguro Empresarial</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Origem</label>
+      <select id="nl-origem" class="form-control">
+        <option value="">Selecione...</option>
+        <option>Site</option>
+        <option>WhatsApp</option>
+        <option>Instagram</option>
+        <option>Indicação</option>
+        <option>Google</option>
+        <option>Outro</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Observações</label>
+      <textarea id="nl-obs" class="form-control" rows="3" placeholder="Detalhes do pedido, modelo do carro, etc."></textarea>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" id="btn-close-modal">Cancelar</button>
+      <button class="btn btn-primary" id="btn-save-lead">Salvar Lead</button>
+    </div>
+  </div>
+</div>
+
+<script src="../assets/js/main.js"></script>
+<script>
+// ── Dados de demonstração ─────────────────────────────────────────────
+const DEMO_LEADS = [
+  { id:1, nome:'Carlos Eduardo Moura', phone:'(21) 98745-3321', seg:'Seguro de Vida', origem:'WhatsApp', status:'convertido', data:'10/04/2026', obs:'Quer R$500k de cobertura, 45 anos.' },
+  { id:2, nome:'Patrícia Lima',         phone:'(21) 99234-8810', seg:'Plano de Saúde', origem:'Site',      status:'novo',       data:'28/04/2026', obs:'Individual, busca amil ou bradesco.' },
+  { id:3, nome:'Roberto Faria',         phone:'(11) 97654-1122', seg:'Seguro Auto',    origem:'Google',   status:'em-atendimento', data:'26/04/2026', obs:'HB20 2023, quer cobertura compl.' },
+  { id:4, nome:'Ana Paula Rocha',       phone:'(21) 91234-5678', seg:'Seguro Residencial', origem:'Indicação', status:'convertido', data:'20/04/2026', obs:'Apto cobertura fogo/roubo.' },
+  { id:5, nome:'Felipe Andrade',        phone:'(11) 93344-7766', seg:'Seguro Empresarial',  origem:'Instagram', status:'novo',   data:'29/04/2026', obs:'Oficina mecânica, 3 funcionários.' },
+  { id:6, nome:'Mariana Costa',         phone:'(21) 98888-4400', seg:'Seguro de Vida', origem:'Site',      status:'convertido', data:'15/04/2026', obs:'Casal, cobertura conjunta.' },
+  { id:7, nome:'Sérgio Guimarães',      phone:'(21) 99001-2233', seg:'Seguro Auto',    origem:'WhatsApp', status:'perdido',     data:'05/04/2026', obs:'Preferiu outra corretora.' },
+  { id:8, nome:'Juliana Neves',         phone:'(11) 98765-4321', seg:'Plano de Saúde', origem:'Google',   status:'em-atendimento', data:'22/04/2026', obs:'Família com 2 crianças.' },
+  { id:9, nome:'Marcos Tavares',        phone:'(21) 97788-9900', seg:'Seguro de Vida', origem:'Indicação', status:'convertido', data:'08/04/2026', obs:'MEI, quer coberturas complementares.' },
+  { id:10, nome:'Fernanda Ribeiro',     phone:'(21) 91122-3344', seg:'Seguro Residencial', origem:'Site', status:'novo',        data:'27/04/2026', obs:'Casa própria, zona sul.' },
+  { id:11, nome:'Lucas Menezes',        phone:'(11) 96655-7788', seg:'Seguro Auto',    origem:'Site',      status:'novo',       data:'30/04/2026', obs:'Corolla 2022, 1ª vez contratando.' },
+  { id:12, nome:'Bruna Carvalho',       phone:'(21) 99870-1234', seg:'Seguro de Vida', origem:'WhatsApp', status:'convertido', data:'01/04/2026', obs:'Quer adicionar filhos na apólice.' }
+];
+
+const segIcons = {
+  'Seguro de Vida':'🛡️','Seguro Auto':'🚗','Plano de Saúde':'❤️',
+  'Seguro Residencial':'🏠','Seguro Empresarial':'🏢'
+};
+const statusBadge = {
+  'novo':          '<span class="badge badge-blue">Novo</span>',
+  'em-atendimento':'<span class="badge badge-yellow">Em atendimento</span>',
+  'convertido':    '<span class="badge badge-green">Convertido</span>',
+  'perdido':       '<span class="badge badge-red">Perdido</span>'
+};
+
+function getLeads() {
+  const stored = localStorage.getItem('sc_leads');
+  return stored ? JSON.parse(stored) : DEMO_LEADS;
+}
+function saveLeads(arr) { localStorage.setItem('sc_leads', JSON.stringify(arr)); }
+function initLeads() {
+  if (!localStorage.getItem('sc_leads')) saveLeads(DEMO_LEADS);
+}
+initLeads();
+
+let activeStatus = 'todos';
+let activeSeg    = 'todos';
+let searchTerm   = '';
+
+function initials(name) {
+  return name.split(' ').slice(0,2).map(n => n[0]).join('').toUpperCase();
+}
+
+function updateStats(leads) {
+  const total = leads.length;
+  const novos = leads.filter(l => l.status === 'novo').length;
+  const conv  = leads.filter(l => l.status === 'convertido').length;
+  const atend = leads.filter(l => l.status === 'em-atendimento').length;
+  const perd  = leads.filter(l => l.status === 'perdido').length;
+  document.getElementById('stat-total').textContent = total;
+  document.getElementById('stat-novos').textContent = novos;
+  document.getElementById('stat-conv').textContent  = conv;
+  document.getElementById('stat-taxa').textContent  = total ? (conv/total*100).toFixed(1).replace('.',',')+'%' : '0%';
+  document.getElementById('pl-novo').textContent  = novos;
+  document.getElementById('pl-atend').textContent = atend;
+  document.getElementById('pl-conv').textContent  = conv;
+  document.getElementById('pl-perd').textContent  = perd;
+  const stages = document.getElementById('pipeline-stages');
+  const kids = stages.children;
+  kids[0].style.flex = novos  || 0.1;
+  kids[1].style.flex = atend  || 0.1;
+  kids[2].style.flex = conv   || 0.1;
+  kids[3].style.flex = perd   || 0.1;
+}
+
+function renderTable() {
+  const leads = getLeads();
+  updateStats(leads);
+  const filtered = leads.filter(l => {
+    const matchStatus = activeStatus === 'todos' || l.status === activeStatus;
+    const matchSeg    = activeSeg    === 'todos' || l.seg === activeSeg;
+    const q           = searchTerm.toLowerCase();
+    const matchSearch = !q || l.nome.toLowerCase().includes(q) || l.phone.includes(q) || l.seg.toLowerCase().includes(q);
+    return matchStatus && matchSeg && matchSearch;
+  });
+  const tbody = document.getElementById('leads-tbody');
+  const empty = document.getElementById('empty-state');
+  if (!filtered.length) {
+    tbody.innerHTML = '';
+    empty.style.display = '';
+    return;
+  }
+  empty.style.display = 'none';
+  tbody.innerHTML = filtered.map(l => `
+    <tr class="lead-row" data-id="${l.id}">
+      <td>
+        <div class="lead-name-cell">
+          <div class="lead-avatar">${initials(l.nome)}</div>
+          <div>
+            <div class="lead-name">${l.nome}</div>
+            <div class="lead-phone">${l.phone}</div>
+          </div>
+        </div>
+      </td>
+      <td><span class="seg-badge">${segIcons[l.seg]||''} ${l.seg}</span></td>
+      <td style="font-size:13px;color:var(--text-muted)">${l.origem}</td>
+      <td>
+        <select class="status-select" data-id="${l.id}">
+          <option value="novo"          ${l.status==='novo'?'selected':''}>Novo</option>
+          <option value="em-atendimento"${l.status==='em-atendimento'?'selected':''}>Em atendimento</option>
+          <option value="convertido"    ${l.status==='convertido'?'selected':''}>Convertido</option>
+          <option value="perdido"       ${l.status==='perdido'?'selected':''}>Perdido</option>
+        </select>
+      </td>
+      <td style="font-size:13px;color:var(--text-muted)">${l.data}</td>
+      <td style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">
+        <a href="https://wa.me/55${l.phone.replace(/\D/g,'')}" target="_blank" class="btn-wa-sm">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp
+        </a>
+        <button class="action-btn action-delete" onclick="deleteLead(${l.id})">🗑️</button>
+      </td>
+    </tr>
+    ${l.obs ? `<tr class="lead-obs-row" data-id="${l.id}" style="display:none"><td colspan="6" style="padding:0 12px 12px 62px;font-size:13px;color:var(--text-muted);font-style:italic">💬 ${l.obs}</td></tr>` : ''}
+  `).join('');
+
+  // Status change handlers
+  tbody.querySelectorAll('.status-select').forEach(sel => {
+    sel.addEventListener('change', function() {
+      const id   = parseInt(this.dataset.id);
+      const arr  = getLeads();
+      const lead = arr.find(l => l.id === id);
+      if (lead) { lead.status = this.value; saveLeads(arr); renderTable(); }
+    });
+  });
+
+  // Row click to toggle obs
+  tbody.querySelectorAll('.lead-row').forEach(row => {
+    row.style.cursor = 'pointer';
+    row.addEventListener('click', e => {
+      if (e.target.closest('select, a, button')) return;
+      const id = row.dataset.id;
+      const obsRow = tbody.querySelector(`.lead-obs-row[data-id="${id}"]`);
+      if (obsRow) obsRow.style.display = obsRow.style.display === 'none' ? '' : 'none';
+    });
+  });
+}
+
+function deleteLead(id) {
+  if (!confirm('Remover este lead?')) return;
+  const arr = getLeads().filter(l => l.id !== id);
+  saveLeads(arr);
+  renderTable();
+}
+
+// Filters
+document.querySelectorAll('.lead-status-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.lead-status-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    activeStatus = this.dataset.filter;
+    renderTable();
+  });
+});
+document.getElementById('filter-seg').addEventListener('change', function() {
+  activeSeg = this.value;
+  renderTable();
+});
+document.getElementById('search-lead').addEventListener('input', function() {
+  searchTerm = this.value.trim();
+  renderTable();
+});
+
+// Modal
+const overlay  = document.getElementById('modal-overlay');
+document.getElementById('btn-open-modal').addEventListener('click', () => overlay.classList.add('open'));
+document.getElementById('btn-close-modal').addEventListener('click', () => overlay.classList.remove('open'));
+overlay.addEventListener('click', e => { if (e.target === overlay) overlay.classList.remove('open'); });
+
+document.getElementById('btn-save-lead').addEventListener('click', function() {
+  const nome   = document.getElementById('nl-nome').value.trim();
+  const phone  = document.getElementById('nl-phone').value.trim();
+  const seg    = document.getElementById('nl-seg').value;
+  const origem = document.getElementById('nl-origem').value;
+  const obs    = document.getElementById('nl-obs').value.trim();
+  if (!nome || !phone || !seg) { alert('Preencha nome, telefone e tipo de seguro.'); return; }
+  const arr = getLeads();
+  const newId = arr.length ? Math.max(...arr.map(l => l.id)) + 1 : 1;
+  const today = new Date();
+  const data  = `${String(today.getDate()).padStart(2,'0')}/${String(today.getMonth()+1).padStart(2,'0')}/${today.getFullYear()}`;
+  arr.unshift({ id: newId, nome, phone, seg, origem: origem || 'Outro', status: 'novo', data, obs });
+  saveLeads(arr);
+  overlay.classList.remove('open');
+  ['nl-nome','nl-phone','nl-obs'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('nl-seg').value    = '';
+  document.getElementById('nl-origem').value = '';
+  renderTable();
+});
+
+renderTable();
+</script>
+</body>
+</html>

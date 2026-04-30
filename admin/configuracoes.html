@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configurações | Admin Start Corretora</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    .config-section-title {
+      font-size: 11px; font-weight: 700; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--text-muted);
+      margin-bottom: 20px; padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .config-section-title span { font-size: 1.1rem; }
+    .form-hint { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+    .config-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 24px; }
+    @media(max-width:700px){ .config-grid { grid-template-columns: 1fr; } }
+    .save-bar {
+      position: sticky; bottom: 0; z-index: 10;
+      background: var(--bg2); border-top: 1px solid var(--border);
+      padding: 16px 32px; margin: 24px -32px -32px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px; flex-wrap: wrap;
+    }
+    .save-bar-msg { font-size: 14px; color: var(--text-muted); }
+    .toast {
+      position: fixed; bottom: 80px; right: 32px; z-index: 999;
+      background: var(--primary); color: #000; font-weight: 700; font-size: 14px;
+      padding: 12px 24px; border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,230,118,.4);
+      transform: translateY(20px); opacity: 0;
+      transition: transform .3s, opacity .3s;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .wa-preview {
+      background: #075e54; border-radius: 8px; padding: 16px;
+      margin-top: 12px;
+    }
+    .wa-preview-bubble {
+      background: #dcf8c6; color: #111; border-radius: 8px 8px 0 8px;
+      padding: 10px 14px; font-size: 13px; display: inline-block;
+      max-width: 280px; line-height: 1.5;
+    }
+    .wa-preview-label { font-size: 11px; color: rgba(255,255,255,.5); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+    .color-preview {
+      width: 32px; height: 32px; border-radius: 6px;
+      border: 1px solid var(--border); flex-shrink: 0;
+    }
+    .color-row { display: flex; align-items: center; gap: 10px; }
+    .tab-nav { display: flex; gap: 4px; margin-bottom: 24px; border-bottom: 1px solid var(--border); padding-bottom: 0; }
+    .tab-btn {
+      padding: 10px 18px; font-family: 'Barlow', sans-serif; font-size: 14px;
+      font-weight: 500; background: none; border: none; color: var(--text-muted);
+      cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px;
+      transition: .2s;
+    }
+    .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+    .susep-tag {
+      display: inline-block; background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 4px; padding: 4px 10px; font-size: 12px; color: var(--text-muted);
+      font-family: monospace;
+    }
+    .danger-zone { border-color: rgba(244,67,54,.3); }
+    .danger-zone .config-section-title { color: #ef5350; }
+  </style>
+</head>
+<body>
+<div class="admin-wrap">
+  <!-- Sidebar -->
+  <aside class="admin-sidebar">
+    <div class="admin-sidebar-logo">
+      <img src="../assets/images/logo-start-corretora.png" alt="Start Corretora" loading="lazy" style="height:40px;margin-bottom:6px">
+      <div class="logo-subtitle">CORRETORA DE SEGUROS</div>
+      <div class="admin-tag">ADMIN</div>
+    </div>
+    <nav class="admin-nav">
+      <a href="index.html"><span class="nav-icon">📊</span> Dashboard</a>
+      <a href="../index.html" target="_blank"><span class="nav-icon">🌐</span> Ver Site</a>
+      <a href="posts.html"><span class="nav-icon">📝</span> Posts</a>
+      <a href="novo-post.html"><span class="nav-icon">➕</span> Novo Post</a>
+      <a href="agendamento.html"><span class="nav-icon">📅</span> Calendário</a>
+      <a href="palavras-chave.html"><span class="nav-icon">🔍</span> Palavras-chave</a>
+      <a href="gsc.html"><span class="nav-icon">📈</span> Search Console</a>
+      <a href="leads.html"><span class="nav-icon">📋</span> Leads</a>
+      <a href="configuracoes.html" class="active"><span class="nav-icon">⚙️</span> Configurações</a>
+    </nav>
+  </aside>
+
+  <!-- Main -->
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <h1>Configurações</h1>
+    </div>
+
+    <!-- Abas -->
+    <div class="tab-nav">
+      <button class="tab-btn active" data-tab="empresa">🏢 Empresa</button>
+      <button class="tab-btn" data-tab="whatsapp">💬 WhatsApp</button>
+      <button class="tab-btn" data-tab="seo">🔍 SEO</button>
+      <button class="tab-btn" data-tab="redes">📱 Redes Sociais</button>
+    </div>
+
+    <!-- Aba: Empresa -->
+    <div class="tab-panel active" id="tab-empresa">
+      <div class="admin-card">
+        <div class="config-section-title"><span>🏢</span> Dados da Empresa</div>
+        <div class="config-grid">
+          <div class="form-group">
+            <label>Nome da empresa</label>
+            <input type="text" class="form-control cfg" data-key="empresa_nome" value="Start Corretora de Seguros LTDA">
+          </div>
+          <div class="form-group">
+            <label>CNPJ</label>
+            <input type="text" class="form-control cfg" data-key="empresa_cnpj" value="48.385.999/0001-69" placeholder="00.000.000/0001-00">
+          </div>
+          <div class="form-group">
+            <label>Registro SUSEP</label>
+            <input type="text" class="form-control cfg" data-key="empresa_susep" placeholder="000000">
+            <p class="form-hint">Número de registro na SUSEP para exibir no rodapé.</p>
+          </div>
+          <div class="form-group">
+            <label>E-mail de contato</label>
+            <input type="email" class="form-control cfg" data-key="empresa_email" placeholder="contato@startcorretora.com.br">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Endereço completo</label>
+          <input type="text" class="form-control cfg" data-key="empresa_endereco" value="Rua Gastão Penalva, 15, Bloco 1, Apto. 215 — Andaraí, Rio de Janeiro/RJ — CEP 20540-220">
+        </div>
+        <div class="form-group">
+          <label>Sobre a empresa (rodapé)</label>
+          <textarea class="form-control cfg" rows="3" data-key="empresa_sobre" placeholder="Breve descrição para o rodapé do site...">Corretora de seguros especializada em seguros de vida, auto, saúde, residencial e empresarial. Atendimento humanizado em RJ e SP.</textarea>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <div class="config-section-title"><span>🌎</span> Regiões de Atuação</div>
+        <div class="config-grid">
+          <div class="form-group">
+            <label>Cidade principal</label>
+            <input type="text" class="form-control cfg" data-key="cidade_principal" value="Rio de Janeiro">
+          </div>
+          <div class="form-group">
+            <label>Estado principal</label>
+            <input type="text" class="form-control cfg" data-key="estado_principal" value="RJ">
+          </div>
+          <div class="form-group">
+            <label>Cidade secundária</label>
+            <input type="text" class="form-control cfg" data-key="cidade_secundaria" value="São Paulo">
+          </div>
+          <div class="form-group">
+            <label>Estado secundário</label>
+            <input type="text" class="form-control cfg" data-key="estado_secundaria" value="SP">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Aba: WhatsApp -->
+    <div class="tab-panel" id="tab-whatsapp">
+      <div class="admin-card">
+        <div class="config-section-title"><span>💬</span> Configuração do WhatsApp</div>
+        <div class="config-grid">
+          <div class="form-group">
+            <label>Número do WhatsApp</label>
+            <input type="text" class="form-control cfg" id="wa-number" data-key="wa_numero" value="5521999992002" placeholder="5521999990000">
+            <p class="form-hint">Formato: código do país + DDD + número, sem espaços. Ex: 5521999990000</p>
+          </div>
+          <div class="form-group">
+            <label>Exibir como</label>
+            <input type="text" class="form-control cfg" data-key="wa_display" value="+55 21 99999-2002">
+            <p class="form-hint">Formato de exibição para o usuário.</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Mensagem padrão (pré-preenchida)</label>
+          <textarea class="form-control cfg" rows="3" id="wa-message" data-key="wa_mensagem">Olá! Vim pelo site e gostaria de uma cotação de seguro.</textarea>
+          <p class="form-hint">Mensagem que será enviada quando o cliente clicar em "falar no WhatsApp".</p>
+        </div>
+
+        <!-- Preview WhatsApp -->
+        <div class="wa-preview">
+          <div class="wa-preview-label">Preview da conversa</div>
+          <div class="wa-preview-bubble" id="wa-bubble-preview">Olá! Vim pelo site e gostaria de uma cotação de seguro.</div>
+        </div>
+
+        <div style="margin-top:20px">
+          <div class="config-section-title" style="margin-top:16px"><span>🔔</span> Botão flutuante</div>
+          <div class="form-group">
+            <label>
+              <input type="checkbox" class="cfg" data-key="wa_float_visible" style="accent-color:var(--primary);margin-right:8px" checked>
+              Exibir botão flutuante do WhatsApp em todas as páginas
+            </label>
+          </div>
+          <div class="form-group">
+            <label>Tempo para aparecer (segundos)</label>
+            <input type="number" class="form-control cfg" data-key="wa_float_delay" value="3" min="0" max="30" style="max-width:120px">
+          </div>
+        </div>
+      </div>
+
+      <!-- Mensagens por tipo de seguro -->
+      <div class="admin-card">
+        <div class="config-section-title"><span>💬</span> Mensagens por Tipo de Seguro</div>
+        <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px">Customize a mensagem pré-preenchida por serviço.</p>
+        <div class="form-group">
+          <label>🛡️ Seguro de Vida</label>
+          <input type="text" class="form-control cfg" data-key="wa_msg_vida" value="Olá! Vim pelo site e gostaria de uma cotação de Seguro de Vida.">
+        </div>
+        <div class="form-group">
+          <label>🚗 Seguro Auto</label>
+          <input type="text" class="form-control cfg" data-key="wa_msg_auto" value="Olá! Vim pelo site e gostaria de uma cotação de Seguro Auto.">
+        </div>
+        <div class="form-group">
+          <label>❤️ Plano de Saúde</label>
+          <input type="text" class="form-control cfg" data-key="wa_msg_saude" value="Olá! Vim pelo site e gostaria de uma cotação de Plano de Saúde.">
+        </div>
+        <div class="form-group">
+          <label>🏠 Seguro Residencial</label>
+          <input type="text" class="form-control cfg" data-key="wa_msg_residencial" value="Olá! Vim pelo site e gostaria de uma cotação de Seguro Residencial.">
+        </div>
+        <div class="form-group">
+          <label>🏢 Seguro Empresarial</label>
+          <input type="text" class="form-control cfg" data-key="wa_msg_empresarial" value="Olá! Vim pelo site e gostaria de uma cotação de Seguro Empresarial.">
+        </div>
+      </div>
+    </div>
+
+    <!-- Aba: SEO -->
+    <div class="tab-panel" id="tab-seo">
+      <div class="admin-card">
+        <div class="config-section-title"><span>🔍</span> Configurações Globais de SEO</div>
+        <div class="form-group">
+          <label>Domínio do site</label>
+          <input type="text" class="form-control cfg" data-key="seo_dominio" value="startcorretoradeseguros.com.br">
+        </div>
+        <div class="form-group">
+          <label>Sufixo do título das páginas</label>
+          <input type="text" class="form-control cfg" data-key="seo_titulo_sufixo" value="| Start Corretora de Seguros">
+          <p class="form-hint">Ex: "Seguro Auto RJ | Start Corretora de Seguros"</p>
+        </div>
+        <div class="form-group">
+          <label>Meta description padrão</label>
+          <textarea class="form-control cfg" rows="3" data-key="seo_meta_desc">Start Corretora de Seguros: cotação rápida e atendimento humanizado em Rio de Janeiro e São Paulo. Seguros de vida, auto, saúde, residencial e empresarial.</textarea>
+          <p class="form-hint">Usada quando a página não tiver uma meta description específica. (ideal: até 160 caracteres)</p>
+        </div>
+        <div class="form-group">
+          <label>Keywords globais (separadas por vírgula)</label>
+          <input type="text" class="form-control cfg" data-key="seo_keywords" value="corretora de seguros, seguro de vida, seguro auto, plano de saúde, Rio de Janeiro, São Paulo">
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <div class="config-section-title"><span>📊</span> Verificação &amp; Analytics</div>
+        <div class="form-group">
+          <label>Google Search Console — Meta tag de verificação</label>
+          <input type="text" class="form-control cfg" data-key="gsc_meta_tag" placeholder='&lt;meta name="google-site-verification" content="XXXXXXXX" /&gt;'>
+          <p class="form-hint">Cole aqui a meta tag fornecida pelo GSC para referência. Adicione-a manualmente ao &lt;head&gt; das páginas HTML.</p>
+        </div>
+        <div class="form-group">
+          <label>Google Analytics — ID de acompanhamento</label>
+          <input type="text" class="form-control cfg" data-key="ga_id" placeholder="G-XXXXXXXXXX">
+          <p class="form-hint">ID do Google Analytics 4 (GA4). Ex: G-XXXXXXXXXX</p>
+        </div>
+        <div class="form-group">
+          <label>Google Tag Manager — ID do container</label>
+          <input type="text" class="form-control cfg" data-key="gtm_id" placeholder="GTM-XXXXXXX">
+        </div>
+        <div class="form-group">
+          <label>Facebook Pixel ID</label>
+          <input type="text" class="form-control cfg" data-key="fb_pixel" placeholder="000000000000000">
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <div class="config-section-title"><span>🗺️</span> Sitemap &amp; Robots</div>
+        <div style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:12px 16px;font-family:monospace;font-size:13px;margin-bottom:12px;color:var(--text-muted)">
+          startcorretoradeseguros.com.br/sitemap.xml
+        </div>
+        <p style="font-size:13px;color:var(--text-muted);line-height:1.6">Envie este endereço no Google Search Console (Índice → Sitemaps) para que o Google indexe todas as páginas do site. Lembre de atualizar o sitemap.xml sempre que publicar novas páginas.</p>
+        <div class="form-group" style="margin-top:16px">
+          <label>Frequência de atualização do conteúdo</label>
+          <select class="form-control cfg" data-key="sitemap_freq">
+            <option value="weekly" selected>Semanal</option>
+            <option value="monthly">Mensal</option>
+            <option value="daily">Diária</option>
+          </select>
+          <p class="form-hint">Usado como referência no sitemap.xml para o Google.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Aba: Redes Sociais -->
+    <div class="tab-panel" id="tab-redes">
+      <div class="admin-card">
+        <div class="config-section-title"><span>📱</span> Perfis nas Redes Sociais</div>
+        <div class="form-group">
+          <label>Instagram</label>
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="color:var(--text-muted);font-size:14px">instagram.com/</span>
+            <input type="text" class="form-control cfg" data-key="social_instagram" placeholder="startcorretora" style="flex:1">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Facebook</label>
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="color:var(--text-muted);font-size:14px">facebook.com/</span>
+            <input type="text" class="form-control cfg" data-key="social_facebook" placeholder="startcorretora" style="flex:1">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>LinkedIn</label>
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="color:var(--text-muted);font-size:14px">linkedin.com/company/</span>
+            <input type="text" class="form-control cfg" data-key="social_linkedin" placeholder="start-corretora" style="flex:1">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>YouTube</label>
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="color:var(--text-muted);font-size:14px">youtube.com/@</span>
+            <input type="text" class="form-control cfg" data-key="social_youtube" placeholder="startcorretora" style="flex:1">
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <div class="config-section-title"><span>🖼️</span> Open Graph (Compartilhamento)</div>
+        <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px">Imagem exibida quando uma página é compartilhada no WhatsApp, Facebook ou LinkedIn.</p>
+        <div class="form-group">
+          <label>Imagem OG padrão (URL)</label>
+          <input type="text" class="form-control cfg" data-key="og_image" placeholder="https://startcorretoradeseguros.com.br/assets/images/og-default.jpg">
+          <p class="form-hint">Recomendado: 1200×630 px, formato JPG ou PNG.</p>
+        </div>
+        <div class="form-group">
+          <label>Twitter Card type</label>
+          <select class="form-control cfg" data-key="twitter_card">
+            <option value="summary_large_image" selected>summary_large_image (imagem grande)</option>
+            <option value="summary">summary (imagem pequena)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Barra de salvar -->
+    <div class="save-bar">
+      <span class="save-bar-msg" id="save-bar-msg">Alterações não salvas</span>
+      <div style="display:flex;gap:10px">
+        <button class="btn btn-outline" id="btn-reset">Resetar padrões</button>
+        <button class="btn btn-primary" id="btn-save-cfg">💾 Salvar configurações</button>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast">✔ Configurações salvas!</div>
+
+<script src="../assets/js/main.js"></script>
+<script>
+// ── Tabs ─────────────────────────────────────────────────────────────
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    this.classList.add('active');
+    document.getElementById('tab-' + this.dataset.tab).classList.add('active');
+  });
+});
+
+// ── Defaults ─────────────────────────────────────────────────────────
+const DEFAULTS = {};
+document.querySelectorAll('.cfg').forEach(el => {
+  const key = el.dataset.key;
+  if (!key) return;
+  DEFAULTS[key] = el.type === 'checkbox' ? el.checked : el.value;
+});
+
+// ── Load from localStorage ────────────────────────────────────────────
+function loadConfig() {
+  const stored = JSON.parse(localStorage.getItem('sc_config') || '{}');
+  document.querySelectorAll('.cfg').forEach(el => {
+    const key = el.dataset.key;
+    if (!key || !(key in stored)) return;
+    if (el.type === 'checkbox') el.checked = stored[key];
+    else el.value = stored[key];
+  });
+}
+loadConfig();
+
+// ── Dirty tracking ────────────────────────────────────────────────────
+let isDirty = false;
+document.querySelectorAll('.cfg').forEach(el => {
+  el.addEventListener('change', () => { isDirty = true; updateSaveBar(); });
+  el.addEventListener('input',  () => { isDirty = true; updateSaveBar(); });
+});
+function updateSaveBar() {
+  const msg = document.getElementById('save-bar-msg');
+  msg.style.color = isDirty ? '#ffc107' : 'var(--text-muted)';
+  msg.textContent  = isDirty ? '⚠ Alterações não salvas' : 'Tudo salvo';
+}
+
+// ── WhatsApp preview ─────────────────────────────────────────────────
+const waMsg = document.getElementById('wa-message');
+const waBubble = document.getElementById('wa-bubble-preview');
+if (waMsg && waBubble) {
+  waMsg.addEventListener('input', () => { waBubble.textContent = waMsg.value; });
+}
+
+// ── Save ─────────────────────────────────────────────────────────────
+document.getElementById('btn-save-cfg').addEventListener('click', function() {
+  const config = {};
+  document.querySelectorAll('.cfg').forEach(el => {
+    const key = el.dataset.key;
+    if (!key) return;
+    config[key] = el.type === 'checkbox' ? el.checked : el.value;
+  });
+  localStorage.setItem('sc_config', JSON.stringify(config));
+  isDirty = false;
+  updateSaveBar();
+  const toast = document.getElementById('toast');
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3000);
+});
+
+// ── Reset ─────────────────────────────────────────────────────────────
+document.getElementById('btn-reset').addEventListener('click', function() {
+  if (!confirm('Resetar todas as configurações para os valores padrão?')) return;
+  localStorage.removeItem('sc_config');
+  document.querySelectorAll('.cfg').forEach(el => {
+    const key = el.dataset.key;
+    if (!key || !(key in DEFAULTS)) return;
+    if (el.type === 'checkbox') el.checked = DEFAULTS[key];
+    else el.value = DEFAULTS[key];
+  });
+  isDirty = false;
+  updateSaveBar();
+  const toast = document.getElementById('toast');
+  toast.textContent = '↺ Configurações resetadas!';
+  toast.classList.add('show');
+  setTimeout(() => { toast.classList.remove('show'); toast.textContent = '✔ Configurações salvas!'; }, 3000);
+});
+
+updateSaveBar();
+</script>
+</body>
+</html>
