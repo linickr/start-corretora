@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Corretora de Seguros em São Paulo: cotação rápida | Start Corretora</title>
-  <meta name="description" content="Start Corretora de Seguros em São Paulo. Seguro auto, vida, saúde, residencial e empresarial com cotação gratuita e atendimento especializado para o mercado paulistano.">
+  <meta name="description" content="Corretora de seguros em São Paulo com cotação online e atendimento especializado. Compare seguro auto, vida, saúde, residencial e empresarial no mercado SP.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://startcorretoradeseguros.com.br/seguro-sao-paulo.html">
+  <link rel="canonical" href="https://startcorretoradeseguros.com.br/seguro-sao-paulo">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://startcorretoradeseguros.com.br/seguro-sao-paulo.html">
+  <meta property="og:url" content="https://startcorretoradeseguros.com.br/seguro-sao-paulo">
   <meta property="og:title" content="Corretora de Seguros em São Paulo | Start Corretora">
   <meta property="og:description" content="Cotação de seguros em São Paulo. Seguro auto, vida, saúde e empresarial com atendimento especializado.">
   <meta property="og:image" content="https://startcorretoradeseguros.com.br/assets/images/logo.png">
@@ -20,10 +20,16 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": ["LocalBusiness", "InsuranceAgency"],
+    "@id": "https://startcorretoradeseguros.com.br/#business",
     "name": "Start Corretora de Seguros LTDA",
-    "telephone": "+55-21-99999-2002",
     "url": "https://startcorretoradeseguros.com.br",
+    "telephone": "+55-21-99999-2002",
+    "image": "https://startcorretoradeseguros.com.br/assets/images/logo-start-corretora.png",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://startcorretoradeseguros.com.br/assets/images/logo-start-corretora.png"
+    },
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Rua Gastão Penalva, nº 15, Bloco 1, Apto. 215",
@@ -32,7 +38,26 @@
       "postalCode": "20540-220",
       "addressCountry": "BR"
     },
-    "areaServed": { "@type": "City", "name": "São Paulo" }
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday"],
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "areaServed": [
+      {"@type": "City", "name": "Rio de Janeiro"},
+      {"@type": "City", "name": "São Paulo"}
+    ],
+    "priceRange": "$",
+    "currenciesAccepted": "BRL"
   }
   </script>
   <!-- Google tag (gtag.js) -->

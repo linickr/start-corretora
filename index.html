@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Corretora de Seguros no Rio de Janeiro e São Paulo | Start Corretora</title>
-  <meta name="description" content="Start Corretora de Seguros: seguro auto, vida, saúde, residencial e empresarial no Rio de Janeiro e São Paulo. Cotação rápida, atendimento humanizado e as melhores seguradoras do Brasil.">
+  <meta name="description" content="Compare seguros auto, vida, saúde, residencial e empresarial no RJ e SP com a Start Corretora. Cotação gratuita e atendimento 100% humanizado. Cotar agora.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://startcorretoradeseguros.com.br/">
   <meta property="og:type" content="website">
@@ -20,10 +20,16 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "InsuranceAgency",
+    "@type": ["LocalBusiness", "InsuranceAgency"],
+    "@id": "https://startcorretoradeseguros.com.br/#business",
     "name": "Start Corretora de Seguros LTDA",
     "url": "https://startcorretoradeseguros.com.br",
     "telephone": "+55-21-99999-2002",
+    "image": "https://startcorretoradeseguros.com.br/assets/images/logo-start-corretora.png",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://startcorretoradeseguros.com.br/assets/images/logo-start-corretora.png"
+    },
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Rua Gastão Penalva, nº 15, Bloco 1, Apto. 215",
@@ -32,7 +38,26 @@
       "postalCode": "20540-220",
       "addressCountry": "BR"
     },
-    "areaServed": ["Rio de Janeiro", "São Paulo", "Brasil"]
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday"],
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "areaServed": [
+      {"@type": "City", "name": "Rio de Janeiro"},
+      {"@type": "City", "name": "São Paulo"}
+    ],
+    "priceRange": "$",
+    "currenciesAccepted": "BRL"
   }
   </script>
 

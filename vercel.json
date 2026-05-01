@@ -1,3 +1,26 @@
 {
-  "trailingSlash": true
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/index.html",                                       "destination": "/",                                            "permanent": true },
+    { "source": "/seguro-de-vida.html",                              "destination": "/seguro-de-vida",                              "permanent": true },
+    { "source": "/plano-de-saude.html",                              "destination": "/plano-de-saude",                              "permanent": true },
+    { "source": "/seguro-auto.html",                                 "destination": "/seguro-auto",                                 "permanent": true },
+    { "source": "/seguro-residencial.html",                          "destination": "/seguro-residencial",                          "permanent": true },
+    { "source": "/seguro-empresarial.html",                          "destination": "/seguro-empresarial",                          "permanent": true },
+    { "source": "/seguro-rio-de-janeiro.html",                       "destination": "/seguro-rio-de-janeiro",                       "permanent": true },
+    { "source": "/seguro-sao-paulo.html",                            "destination": "/seguro-sao-paulo",                            "permanent": true },
+    { "source": "/sobre.html",                                       "destination": "/sobre",                                       "permanent": true },
+    { "source": "/contato.html",                                     "destination": "/contato",                                     "permanent": true },
+    { "source": "/blog/seguro-de-vida-por-que-investir-hoje.html",   "destination": "/blog/seguro-de-vida-por-que-investir-hoje",   "permanent": true },
+    { "source": "/blog/quem-recebe-seguro-de-vida-falecido.html",    "destination": "/blog/quem-recebe-seguro-de-vida-falecido",    "permanent": true },
+    { "source": "/blog/quantas-pessoas-seguro-de-vida.html",         "destination": "/blog/quantas-pessoas-seguro-de-vida",         "permanent": true },
+    { "source": "/blog/quanto-custa-seguro-de-vida-500mil.html",     "destination": "/blog/quanto-custa-seguro-de-vida-500mil",     "permanent": true },
+    { "source": "/blog/beneficios-do-seguro-de-vida.html",           "destination": "/blog/beneficios-do-seguro-de-vida",           "permanent": true },
+    { "source": "/blog/doenca-grave-seguro-de-vida.html",            "destination": "/blog/doenca-grave-seguro-de-vida",            "permanent": true },
+    { "source": "/blog/seguro-auto-rj.html",                         "destination": "/blog/seguro-auto-rj",                         "permanent": true },
+    { "source": "/blog/plano-de-saude-sp.html",                      "destination": "/blog/plano-de-saude-sp",                      "permanent": true },
+    { "source": "/blog/corretora-de-seguros-rio-de-janeiro.html",    "destination": "/blog/corretora-de-seguros-rio-de-janeiro",    "permanent": true },
+    { "source": "/blog/corretora-de-seguros-sao-paulo.html",         "destination": "/blog/corretora-de-seguros-sao-paulo",         "permanent": true }
+  ]
 }
