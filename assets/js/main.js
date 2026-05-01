@@ -51,6 +51,9 @@ if (contactForm) {
       alert('Por favor, preencha nome e telefone.');
       return;
     }
+    if (typeof gtag === 'function') {
+      gtag('event', 'close_convert_lead');
+    }
     const successEl = document.querySelector('.form-success');
     if (successEl) {
       contactForm.style.display = 'none';
@@ -58,6 +61,14 @@ if (contactForm) {
     }
   });
 }
+
+/* ── WhatsApp Click Tracking ── */
+document.addEventListener('click', e => {
+  const link = e.target.closest('a[href*="wa.me"]');
+  if (link && typeof gtag === 'function') {
+    gtag('event', 'CliqueWhatsapp');
+  }
+});
 
 /* ── Admin: Slug auto-generation ── */
 const titleInput = document.querySelector('#post-title');
