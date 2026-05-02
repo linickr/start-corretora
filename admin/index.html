@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -29,15 +29,15 @@
       <div class="admin-tag">ADMIN</div>
     </div>
     <nav class="admin-nav">
-      <a href="index.html" class="active"><span class="nav-icon">📊</span> Dashboard</a>
-      <a href="../index.html" target="_blank"><span class="nav-icon">🌐</span> Ver Site</a>
-      <a href="posts.html"><span class="nav-icon">📝</span> Posts</a>
-      <a href="novo-post.html"><span class="nav-icon">➕</span> Novo Post</a>
-      <a href="agendamento.html"><span class="nav-icon">📅</span> Calendário</a>
-      <a href="palavras-chave.html"><span class="nav-icon">🔍</span> Palavras-chave</a>
-      <a href="gsc.html"><span class="nav-icon">📈</span> Search Console</a>
-      <a href="leads.html"><span class="nav-icon">📋</span> Leads</a>
-      <a href="configuracoes.html"><span class="nav-icon">⚙️</span> Configurações</a>
+      <a href="/admin/" class="active"><span class="nav-icon">📊</span> Dashboard</a>
+      <a href="/" target="_blank"><span class="nav-icon">🌐</span> Ver Site</a>
+      <a href="/admin/posts"><span class="nav-icon">📝</span> Posts</a>
+      <a href="/admin/novo-post"><span class="nav-icon">➕</span> Novo Post</a>
+      <a href="/admin/agendamento"><span class="nav-icon">📅</span> Calendário</a>
+      <a href="/admin/palavras-chave"><span class="nav-icon">🔍</span> Palavras-chave</a>
+      <a href="/admin/gsc"><span class="nav-icon">📈</span> Search Console</a>
+      <a href="/admin/leads"><span class="nav-icon">📋</span> Leads</a>
+      <a href="/admin/configuracoes"><span class="nav-icon">⚙️</span> Configurações</a>
     </nav>
   </aside>
 
@@ -45,10 +45,61 @@
   <main class="admin-main">
     <div class="admin-topbar">
       <h1>Dashboard</h1>
-      <a href="novo-post.html" class="btn btn-primary">➕ Novo Post</a>
+      <a href="/admin/novo-post" class="btn btn-primary">➕ Novo Post</a>
     </div>
 
-    <!-- Métricas -->
+    <!-- Analytics GA4 -->
+    <div class="admin-section-label">📈 Analytics GA4 — últimos 30 dias</div>
+    <div class="metrics-grid" id="ga-metrics-grid">
+      <div class="metric-card">
+        <div class="label">Sessões</div>
+        <div class="value loading-dash" id="ga-sessions">—</div>
+        <div class="sub">Últimos 30 dias</div>
+      </div>
+      <div class="metric-card">
+        <div class="label">Usuários Únicos</div>
+        <div class="value loading-dash" id="ga-users">—</div>
+        <div class="sub">Últimos 30 dias</div>
+      </div>
+      <div class="metric-card">
+        <div class="label">Pageviews</div>
+        <div class="value loading-dash" id="ga-pageviews">—</div>
+        <div class="sub">Últimos 30 dias</div>
+      </div>
+      <div class="metric-card">
+        <div class="label">Conversões</div>
+        <div class="value loading-dash" id="ga-conversions">—</div>
+        <div class="sub">Eventos-chave GA4</div>
+      </div>
+      <div class="metric-card">
+        <div class="label">Tráfego Orgânico</div>
+        <div class="value loading-dash" id="ga-organic">—</div>
+        <div class="sub">Sessões via busca</div>
+      </div>
+      <div class="metric-card">
+        <div class="label">Tráfego Pago</div>
+        <div class="value loading-dash" id="ga-paid">—</div>
+        <div class="sub">Sessões via anúncios</div>
+      </div>
+    </div>
+
+    <div class="admin-card">
+      <div class="admin-card-title">📊 Sessões por Mês</div>
+      <canvas id="chartSessions" height="80"></canvas>
+    </div>
+
+    <div class="admin-card">
+      <div class="admin-card-title">🔝 Top 5 Páginas (30 dias)</div>
+      <table class="admin-table">
+        <thead><tr><th>Página</th><th>Pageviews</th></tr></thead>
+        <tbody id="top-pages-body">
+          <tr><td colspan="2" style="text-align:center;color:#666;padding:16px">Carregando...</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Métricas de conteúdo -->
+    <div class="admin-section-label">📝 Conteúdo</div>
     <div class="metrics-grid">
       <div class="metric-card">
         <div class="label">Total de Posts</div>
@@ -160,8 +211,92 @@
   </main>
 </div>
 
+<style>
+.admin-section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #666;
+  margin: 28px 0 12px;
+  padding-left: 2px;
+}
+.loading-dash { opacity: 0.4; }
+</style>
+
 <script src="../assets/js/main.js"></script>
 <script>
+/* ── GA4 Analytics ────────────────────────────── */
+let chartSessions = null;
+
+async function loadAnalytics() {
+  try {
+    const res = await fetch('/api/analytics');
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const d = await res.json();
+    if (d.error) throw new Error(d.error);
+
+    const fmt = n => Number(n).toLocaleString('pt-BR');
+    const ids = ['ga-sessions','ga-users','ga-pageviews','ga-conversions','ga-organic','ga-paid'];
+    const vals = [d.sessions, d.users, d.pageviews, d.conversions, d.organicSessions, d.paidSessions];
+
+    ids.forEach((id, i) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.textContent = fmt(vals[i] ?? 0);
+      el.classList.remove('loading-dash');
+    });
+
+    // Gráfico de sessões por mês
+    const ctx = document.getElementById('chartSessions');
+    if (ctx && d.sessionsByMonth?.length) {
+      if (chartSessions) chartSessions.destroy();
+      chartSessions = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: d.sessionsByMonth.map(m => m.month),
+          datasets: [{
+            label: 'Sessões',
+            data: d.sessionsByMonth.map(m => m.sessions),
+            backgroundColor: 'rgba(0, 230, 118, 0.7)',
+            borderColor: '#00e676',
+            borderWidth: 1,
+            borderRadius: 4
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { labels: { color: '#999' } } },
+          scales: {
+            x: { ticks: { color: '#999' }, grid: { color: '#2a2a2a' } },
+            y: { ticks: { color: '#999' }, grid: { color: '#2a2a2a' } }
+          }
+        }
+      });
+    }
+
+    // Top páginas
+    const tbody = document.getElementById('top-pages-body');
+    if (tbody && d.topPages?.length) {
+      tbody.innerHTML = d.topPages
+        .map(p => `<tr><td>${p.page}</td><td>${fmt(p.views)}</td></tr>`)
+        .join('');
+    }
+  } catch (err) {
+    console.error('[analytics]', err.message);
+    ['ga-sessions','ga-users','ga-pageviews','ga-conversions','ga-organic','ga-paid'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) { el.textContent = 'N/D'; el.classList.remove('loading-dash'); }
+    });
+    const tbody = document.getElementById('top-pages-body');
+    if (tbody) tbody.innerHTML = `<tr><td colspan="2" style="text-align:center;color:#f66;padding:16px">
+      Dados indisponíveis — configure GA_PROPERTY_ID e GA_SERVICE_ACCOUNT_KEY</td></tr>`;
+  }
+}
+
+loadAnalytics();
+/* ─────────────────────────────────────────────── */
+
 const ctx = document.getElementById('chartPubs');
 if (ctx) {
   new Chart(ctx, {
