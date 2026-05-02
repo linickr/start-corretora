@@ -100,27 +100,27 @@
       </div>
     </div>
 
-    <!-- Métricas simuladas (últimos 28 dias) -->
+    <!-- Métricas (últimos 28 dias) -->
     <div class="gsc-metrics">
       <div class="gsc-metric-card">
-        <div class="gsc-metric-value" style="color:var(--primary)">1.240</div>
+        <div class="gsc-metric-value" id="val-cliques" style="color:var(--primary)">...</div>
         <div class="gsc-metric-label">Cliques totais</div>
-        <div class="gsc-metric-delta delta-up">▲ 18% vs. período anterior</div>
+        <div class="gsc-metric-delta" id="delta-cliques">&nbsp;</div>
       </div>
       <div class="gsc-metric-card">
-        <div class="gsc-metric-value">42.800</div>
+        <div class="gsc-metric-value" id="val-impressoes">...</div>
         <div class="gsc-metric-label">Impressões</div>
-        <div class="gsc-metric-delta delta-up">▲ 31% vs. período anterior</div>
+        <div class="gsc-metric-delta" id="delta-impressoes">&nbsp;</div>
       </div>
       <div class="gsc-metric-card">
-        <div class="gsc-metric-value" style="color:#ffc107">2,9%</div>
+        <div class="gsc-metric-value" id="val-ctr" style="color:#ffc107">...</div>
         <div class="gsc-metric-label">CTR médio</div>
-        <div class="gsc-metric-delta delta-down">▼ 0,4pp vs. período anterior</div>
+        <div class="gsc-metric-delta" id="delta-ctr">&nbsp;</div>
       </div>
       <div class="gsc-metric-card">
-        <div class="gsc-metric-value">18,4</div>
+        <div class="gsc-metric-value" id="val-posicao">...</div>
         <div class="gsc-metric-label">Posição média</div>
-        <div class="gsc-metric-delta delta-up">▲ Melhorou 2,1 posições</div>
+        <div class="gsc-metric-delta" id="delta-posicao">&nbsp;</div>
       </div>
     </div>
 
@@ -166,28 +166,7 @@
         <!-- Páginas mais clicadas -->
         <div class="admin-card">
           <div class="admin-card-title">📄 Páginas mais clicadas</div>
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;padding-bottom:8px;border-bottom:1px solid var(--border)">
-              <span style="color:var(--primary);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">/blog/quem-recebe-seguro-de-vida-falecido</span>
-              <span style="font-weight:600;flex-shrink:0;margin-left:8px">342</span>
-            </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;padding-bottom:8px;border-bottom:1px solid var(--border)">
-              <span style="color:var(--primary);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">/blog/quanto-custa-seguro-de-vida-500mil</span>
-              <span style="font-weight:600;flex-shrink:0;margin-left:8px">218</span>
-            </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;padding-bottom:8px;border-bottom:1px solid var(--border)">
-              <span style="color:var(--primary);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">/seguro-de-vida</span>
-              <span style="font-weight:600;flex-shrink:0;margin-left:8px">187</span>
-            </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;padding-bottom:8px;border-bottom:1px solid var(--border)">
-              <span style="color:var(--primary);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">/blog/beneficios-do-seguro-de-vida</span>
-              <span style="font-weight:600;flex-shrink:0;margin-left:8px">164</span>
-            </div>
-            <div style="display:flex;justify-content:space-between;align-items:center;font-size:13px">
-              <span style="color:var(--primary);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">/seguro-rio-de-janeiro</span>
-              <span style="font-weight:600;flex-shrink:0;margin-left:8px">98</span>
-            </div>
-          </div>
+          <div id="top-pages" style="display:flex;flex-direction:column;gap:10px"></div>
         </div>
       </div>
     </div>
@@ -265,117 +244,177 @@
 
 <script src="../assets/js/main.js"></script>
 <script>
-// --- Dados dos gráficos (simulados — 28 dias) ---
-const labels28 = Array.from({length:28}, (_,i) => {
-  const d = new Date(2026, 3, 27);
-  d.setDate(d.getDate() - 27 + i);
-  return `${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}`;
-});
-
-const dataClicks = [28,34,22,40,38,45,12,29,51,48,33,55,60,18,42,58,47,62,70,55,38,64,72,68,80,75,88,94];
-const dataImpressions = [980,1120,860,1340,1280,1450,580,1050,1680,1590,1190,1780,1920,740,1500,1860,1640,2010,2230,1870,1410,2080,2290,2150,2510,2420,2680,2980];
-const dataCTR = dataClicks.map((c,i) => parseFloat((c/dataImpressions[i]*100).toFixed(2)));
-const dataPosition = [22,21,23,20,19,18,24,21,17,18,20,16,15,22,18,15,16,14,13,15,17,14,12,13,11,12,10,11];
-
+// ---- Chart setup ----
 const chartColors = {
-  clicks: { border:'#00e676', bg:'rgba(0,230,118,0.15)' },
+  clicks:      { border:'#00e676', bg:'rgba(0,230,118,0.15)' },
   impressions: { border:'#2979ff', bg:'rgba(41,121,255,0.15)' },
-  ctr: { border:'#ffc107', bg:'rgba(255,193,7,0.15)' },
-  position: { border:'#ff5252', bg:'rgba(255,82,82,0.15)' }
+  ctr:         { border:'#ffc107', bg:'rgba(255,193,7,0.15)'  },
+  position:    { border:'#ff5252', bg:'rgba(255,82,82,0.15)'  },
 };
+const chartLabels = { clicks:'Cliques', impressions:'Impressões', ctr:'CTR (%)', position:'Posição média' };
 
-const chartDatasets = {
-  clicks: { label:'Cliques', data:dataClicks },
-  impressions: { label:'Impressões', data:dataImpressions },
-  ctr: { label:'CTR (%)', data:dataCTR },
-  position: { label:'Posição média', data:dataPosition }
-};
+let gscData = null;
 
-let activeChart = 'clicks';
-
-const ctx = document.getElementById('chartGSC');
-const chart = new Chart(ctx, {
+const chart = new Chart(document.getElementById('chartGSC'), {
   type: 'line',
-  data: {
-    labels: labels28,
-    datasets: [{
-      label: 'Cliques',
-      data: dataClicks,
-      borderColor: '#00e676',
-      backgroundColor: 'rgba(0,230,118,0.15)',
-      borderWidth: 2,
-      pointRadius: 3,
-      pointHoverRadius: 5,
-      tension: 0.4,
-      fill: true
-    }]
-  },
+  data: { labels: [], datasets: [{ label:'Cliques', data:[], borderColor:'#00e676', backgroundColor:'rgba(0,230,118,0.15)', borderWidth:2, pointRadius:3, pointHoverRadius:5, tension:0.4, fill:true }] },
   options: {
     responsive: true,
     interaction: { mode:'index', intersect:false },
-    plugins: {
-      legend: { labels: { color:'#999', usePointStyle:true } }
-    },
+    plugins: { legend: { labels: { color:'#999', usePointStyle:true } } },
     scales: {
       x: { ticks:{ color:'#999', maxRotation:0, autoSkip:true, maxTicksLimit:10 }, grid:{ color:'#1e1e1e' } },
-      y: { ticks:{ color:'#999' }, grid:{ color:'#1e1e1e' } }
-    }
-  }
+      y: { ticks:{ color:'#999' }, grid:{ color:'#1e1e1e' } },
+    },
+  },
 });
+
+function switchChart(key) {
+  if (!gscData) return;
+  const col = chartColors[key];
+  chart.data.labels = gscData.labels;
+  chart.data.datasets[0].label = chartLabels[key];
+  chart.data.datasets[0].data  = gscData.serie[key];
+  chart.data.datasets[0].borderColor     = col.border;
+  chart.data.datasets[0].backgroundColor = col.bg;
+  chart.update();
+}
 
 document.querySelectorAll('.chart-tab').forEach(btn => {
   btn.addEventListener('click', function() {
     document.querySelectorAll('.chart-tab').forEach(b => b.classList.remove('active'));
     this.classList.add('active');
-    const key = this.dataset.chart;
-    const ds = chartDatasets[key];
-    const col = chartColors[key];
-    chart.data.datasets[0].label = ds.label;
-    chart.data.datasets[0].data = ds.data;
-    chart.data.datasets[0].borderColor = col.border;
-    chart.data.datasets[0].backgroundColor = col.bg;
-    chart.update();
+    switchChart(this.dataset.chart);
   });
 });
 
-// --- Keywords ranking ---
-const keywords = [
-  { term:'quem recebe o seguro de vida do falecido', url:'/blog/quem-recebe-seguro-de-vida-falecido', pos:4, clicks:342, impressions:8200 },
-  { term:'quanto custa seguro de vida 500 mil', url:'/blog/quanto-custa-seguro-de-vida-500mil', pos:6, clicks:218, impressions:5400 },
-  { term:'corretora de seguros rio de janeiro', url:'/seguro-rio-de-janeiro', pos:9, clicks:187, impressions:4100 },
-  { term:'benefícios do seguro de vida', url:'/blog/beneficios-do-seguro-de-vida', pos:11, clicks:164, impressions:6300 },
-  { term:'seguro de vida para autônomo', url:'/seguro-de-vida', pos:13, clicks:98, impressions:3800 },
-  { term:'seguro auto rio de janeiro', url:'/blog/seguro-auto-rj', pos:16, clicks:87, impressions:4200 },
-  { term:'plano de saúde são paulo barato', url:'/blog/plano-de-saude-sp', pos:19, clicks:72, impressions:5100 },
-  { term:'quantas pessoas posso colocar no seguro de vida', url:'/blog/quantas-pessoas-seguro-de-vida', pos:22, clicks:61, impressions:3200 },
-  { term:'seguro residencial incêndio', url:'/seguro-residencial', pos:24, clicks:48, impressions:2800 },
-  { term:'corretora de seguros sp', url:'/seguro-sao-paulo', pos:31, clicks:29, impressions:2100 }
-];
+// ---- Helpers ----
+function fmtNum(n) { return n.toLocaleString('pt-BR'); }
+function fmtCtr(n) { return n.toFixed(1).replace('.', ',') + '%'; }
+function fmtPos(n) { return n.toFixed(1).replace('.', ','); }
 
-const kwContainer = document.getElementById('kw-ranking');
-kwContainer.innerHTML = keywords.map(kw => {
-  const posClass = kw.pos <= 3 ? 'top3' : kw.pos <= 10 ? 'top10' : 'other';
-  return `
-    <div class="kw-row">
-      <div class="kw-pos ${posClass}">${kw.pos}</div>
-      <div class="kw-info">
-        <div class="kw-term">${kw.term}</div>
-        <div class="kw-url">${kw.url}</div>
-      </div>
+function renderKeywords(kws) {
+  document.getElementById('kw-ranking').innerHTML = kws.map(kw => {
+    const posClass = kw.pos <= 3 ? 'top3' : kw.pos <= 10 ? 'top10' : 'other';
+    return `<div class="kw-row">
+      <div class="kw-pos ${posClass}">${fmtPos(kw.pos)}</div>
+      <div class="kw-info"><div class="kw-term">${kw.term}</div><div class="kw-url">${kw.url ?? ''}</div></div>
       <div class="kw-stats">
-        <div class="kw-stat">
-          <div class="kw-stat-val">${kw.clicks}</div>
-          <div class="kw-stat-lbl">Cliques</div>
-        </div>
-        <div class="kw-stat">
-          <div class="kw-stat-val">${(kw.clicks/kw.impressions*100).toFixed(1)}%</div>
-          <div class="kw-stat-lbl">CTR</div>
-        </div>
-      </div>
-    </div>`;
-}).join('');
+        <div class="kw-stat"><div class="kw-stat-val">${fmtNum(kw.clicks)}</div><div class="kw-stat-lbl">Cliques</div></div>
+        <div class="kw-stat"><div class="kw-stat-val">${kw.ctr.toFixed(1).replace('.', ',')}%</div><div class="kw-stat-lbl">CTR</div></div>
+      </div></div>`;
+  }).join('');
+}
 
-// --- Copy sitemap URL ---
+function renderPages(pages) {
+  document.getElementById('top-pages').innerHTML = pages.map((p, i) =>
+    `<div style="display:flex;justify-content:space-between;align-items:center;font-size:13px;padding-bottom:8px;${i < pages.length-1 ? 'border-bottom:1px solid var(--border)' : ''}">
+      <span style="color:var(--primary);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${p.page}</span>
+      <span style="font-weight:600;flex-shrink:0;margin-left:8px">${fmtNum(p.clicks)}</span>
+    </div>`
+  ).join('');
+}
+
+// ---- Load real data ----
+async function loadGSC() {
+  try {
+    const r = await fetch('/api/search-console');
+    if (!r.ok) throw new Error(r.statusText);
+    const d = await r.json();
+    if (d.error) throw new Error(d.error);
+
+    gscData = d;
+
+    document.getElementById('val-cliques').textContent   = fmtNum(d.cliquesTotais);
+    document.getElementById('val-impressoes').textContent = fmtNum(d.impressoes);
+    document.getElementById('val-ctr').textContent       = fmtCtr(d.ctrMedio);
+    document.getElementById('val-posicao').textContent   = fmtPos(d.posicaoMedia);
+
+    const setDelta = (id, val, suffix, lowerIsBetter) => {
+      const el = document.getElementById(id);
+      if (val === 0) { el.textContent = '—'; return; }
+      const up = lowerIsBetter ? val < 0 : val > 0;
+      el.className = `gsc-metric-delta ${up ? 'delta-up' : 'delta-down'}`;
+      el.textContent = `${up ? '▲' : '▼'} ${Math.abs(val).toFixed(1).replace('.', ',')}${suffix}`;
+    };
+    setDelta('delta-cliques',    d.deltaCliques,    '% vs. período anterior', false);
+    setDelta('delta-impressoes', d.deltaImpressoes, '% vs. período anterior', false);
+    setDelta('delta-ctr',        d.deltaCtr,        'pp vs. período anterior', false);
+
+    const elPos = document.getElementById('delta-posicao');
+    if (d.deltaPosicao > 0) {
+      elPos.className = 'gsc-metric-delta delta-up';
+      elPos.textContent = `▲ Melhorou ${d.deltaPosicao.toFixed(1).replace('.', ',')} posições`;
+    } else if (d.deltaPosicao < 0) {
+      elPos.className = 'gsc-metric-delta delta-down';
+      elPos.textContent = `▼ Piorou ${Math.abs(d.deltaPosicao).toFixed(1).replace('.', ',')} posições`;
+    } else {
+      elPos.textContent = '— Estável';
+    }
+
+    switchChart('clicks');
+    renderKeywords(d.keywords);
+    renderPages(d.pages);
+    document.getElementById('alert-not-verified').style.display = 'none';
+
+  } catch (err) {
+    console.warn('[GSC] Falha na API, usando dados de demonstração:', err.message);
+
+    // Fallback com dados de demonstração
+    const fbClicks = [28,34,22,40,38,45,12,29,51,48,33,55,60,18,42,58,47,62,70,55,38,64,72,68,80,75,88,94];
+    const fbImpr   = [980,1120,860,1340,1280,1450,580,1050,1680,1590,1190,1780,1920,740,1500,1860,1640,2010,2230,1870,1410,2080,2290,2150,2510,2420,2680,2980];
+    gscData = {
+      labels: Array.from({length:28}, (_,i) => { const d = new Date(); d.setDate(d.getDate() - 27 + i); return `${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}`; }),
+      serie: {
+        clicks:      fbClicks,
+        impressions: fbImpr,
+        ctr:         fbClicks.map((c,i) => parseFloat((c/fbImpr[i]*100).toFixed(2))),
+        position:    [22,21,23,20,19,18,24,21,17,18,20,16,15,22,18,15,16,14,13,15,17,14,12,13,11,12,10,11],
+      },
+      keywords: [
+        { term:'quem recebe o seguro de vida do falecido', pos:4,  clicks:342, impressions:8200, ctr:4.2 },
+        { term:'quanto custa seguro de vida 500 mil',      pos:6,  clicks:218, impressions:5400, ctr:4.0 },
+        { term:'corretora de seguros rio de janeiro',      pos:9,  clicks:187, impressions:4100, ctr:4.6 },
+        { term:'benefícios do seguro de vida',             pos:11, clicks:164, impressions:6300, ctr:2.6 },
+        { term:'seguro de vida para autônomo',             pos:13, clicks:98,  impressions:3800, ctr:2.6 },
+        { term:'seguro auto rio de janeiro',               pos:16, clicks:87,  impressions:4200, ctr:2.1 },
+        { term:'plano de saúde são paulo barato',          pos:19, clicks:72,  impressions:5100, ctr:1.4 },
+        { term:'quantas pessoas posso colocar no seguro',  pos:22, clicks:61,  impressions:3200, ctr:1.9 },
+        { term:'seguro residencial incêndio',              pos:24, clicks:48,  impressions:2800, ctr:1.7 },
+        { term:'corretora de seguros sp',                  pos:31, clicks:29,  impressions:2100, ctr:1.4 },
+      ],
+      pages: [
+        { page:'/blog/quem-recebe-seguro-de-vida-falecido', clicks:342 },
+        { page:'/blog/quanto-custa-seguro-de-vida-500mil',  clicks:218 },
+        { page:'/seguro-de-vida',                           clicks:187 },
+        { page:'/blog/beneficios-do-seguro-de-vida',        clicks:164 },
+        { page:'/seguro-rio-de-janeiro',                    clicks:98  },
+      ],
+    };
+
+    document.getElementById('val-cliques').textContent   = '1.240';
+    document.getElementById('val-impressoes').textContent = '42.800';
+    document.getElementById('val-ctr').textContent       = '2,9%';
+    document.getElementById('val-posicao').textContent   = '18,4';
+
+    [['delta-cliques','▲ 18% vs. período anterior','delta-up'],
+     ['delta-impressoes','▲ 31% vs. período anterior','delta-up'],
+     ['delta-ctr','▼ 0,4pp vs. período anterior','delta-down'],
+     ['delta-posicao','▲ Melhorou 2,1 posições','delta-up']].forEach(([id,txt,cls]) => {
+      const el = document.getElementById(id);
+      el.textContent = txt;
+      el.className = `gsc-metric-delta ${cls}`;
+    });
+
+    switchChart('clicks');
+    renderKeywords(gscData.keywords);
+    renderPages(gscData.pages);
+  }
+}
+
+loadGSC();
+
+// ---- Copy sitemap URL ----
 document.getElementById('copy-sitemap').addEventListener('click', function() {
   navigator.clipboard.writeText('https://startcorretoradeseguros.com.br/sitemap.xml').then(() => {
     this.textContent = '✔ Copiado!';
@@ -383,7 +422,7 @@ document.getElementById('copy-sitemap').addEventListener('click', function() {
   });
 });
 
-// --- Meta tag save/copy ---
+// ---- Meta tag save/copy ----
 const metaTagInput = document.getElementById('meta-tag-input');
 const savedTag = localStorage.getItem('sc_gsc_meta_tag');
 if (savedTag) metaTagInput.value = savedTag;
