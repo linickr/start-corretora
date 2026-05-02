@@ -1,17 +1,19 @@
 const { BetaAnalyticsDataClient } = require('@google-analytics/data');
 
-const GA_PROPERTY_ID = process.env.GA_PROPERTY_ID; // ex: "properties/123456789"
+// Aceita "505846361" ou "properties/505846361"
+const rawId = process.env.GA4_PROPERTY_ID ?? '';
+const GA_PROPERTY_ID = rawId.startsWith('properties/') ? rawId : `properties/${rawId}`;
 
 function buildClient() {
-  const raw = process.env.GA_SERVICE_ACCOUNT_KEY;
-  if (!raw) throw new Error('GA_SERVICE_ACCOUNT_KEY não definida');
+  const raw = process.env.GOOGLE_SA_KEY;
+  if (!raw) throw new Error('GOOGLE_SA_KEY não definida');
 
-  // Aceita base64 ou JSON puro
+  // Aceita JSON puro ou base64
   let credentials;
   try {
-    credentials = JSON.parse(Buffer.from(raw, 'base64').toString('utf8'));
-  } catch {
     credentials = JSON.parse(raw);
+  } catch {
+    credentials = JSON.parse(Buffer.from(raw, 'base64').toString('utf8'));
   }
 
   return new BetaAnalyticsDataClient({ credentials });
@@ -32,8 +34,8 @@ function intVal(row, idx) {
 module.exports = async function handler(req, res) {
   res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate=600');
 
-  if (!GA_PROPERTY_ID) {
-    return res.status(500).json({ error: 'GA_PROPERTY_ID não definida' });
+  if (!rawId) {
+    return res.status(500).json({ error: 'GA4_PROPERTY_ID não definida' });
   }
 
   try {
