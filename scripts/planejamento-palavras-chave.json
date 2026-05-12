@@ -13,10 +13,10 @@
       "categoria": "vida",
       "prioridade": "alta",
       "intent": "informacional",
-      "status": "pendente",
-      "slug": null,
-      "titulo": null,
-      "gerado_em": null
+      "status": "publicado",
+      "slug": "seguro-de-vida-vale-a-pena",
+      "titulo": "Seguro de Vida Vale a Pena? Guia Completo 2024",
+      "gerado_em": "2026-05-12"
     },
     {
       "id": 2,
@@ -404,8 +404,8 @@
       "keyword": "corretora de seguros na Tijuca",
       "slug": "corretora-de-seguros-na-tijuca",
       "prioridade": "alta",
-      "status": "pendente",
-      "gerado_em": null
+      "status": "publicado",
+      "gerado_em": "2026-05-12"
     },
     {
       "id": 2,
@@ -417,8 +417,8 @@
       "keyword": "corretora de seguros no Flamengo",
       "slug": "corretora-de-seguros-no-flamengo",
       "prioridade": "alta",
-      "status": "pendente",
-      "gerado_em": null
+      "status": "publicado",
+      "gerado_em": "2026-05-12"
     },
     {
       "id": 3,
@@ -980,5 +980,30 @@
       "gerado_em": null
     }
   ],
-  "schedule_log": []
+  "schedule_log": [
+    {
+      "date": "2026-05-12",
+      "blog": null,
+      "local": {
+        "slug": "corretora-de-seguros-na-tijuca",
+        "localizacao": "Tijuca"
+      },
+      "erros": [
+        "blog:seguro de vida vale a pena"
+      ]
+    },
+    {
+      "date": "2026-05-12",
+      "blog": {
+        "slug": "seguro-de-vida-vale-a-pena",
+        "titulo": "Seguro de Vida Vale a Pena? Guia Completo 2024",
+        "categoria": "vida"
+      },
+      "local": {
+        "slug": "corretora-de-seguros-no-flamengo",
+        "localizacao": "Flamengo"
+      },
+      "erros": []
+    }
+  ]
 }

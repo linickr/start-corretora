@@ -305,9 +305,10 @@ def main():
     parser.add_argument("--dry-run",      action="store_true", help="Simula sem gerar nada")
     args = parser.parse_args()
 
-    api_key = os.getenv("ANTHROPIC_API_KEY")
-    if not api_key and not args.dry_run:
-        print("❌  ANTHROPIC_API_KEY não encontrada.")
+    api_key    = os.getenv("ANTHROPIC_API_KEY")
+    auth_token = os.getenv("ANTHROPIC_AUTH_TOKEN")
+    if not api_key and not auth_token and not args.dry_run:
+        print("❌  ANTHROPIC_API_KEY ou ANTHROPIC_AUTH_TOKEN não encontrado.")
         print("    Crie o arquivo .env na raiz do projeto com:")
         print("    ANTHROPIC_API_KEY=sk-ant-...")
         sys.exit(1)
