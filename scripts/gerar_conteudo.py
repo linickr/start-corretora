@@ -33,7 +33,7 @@ except ImportError:
     print("❌ Pacote 'anthropic' não encontrado. Execute: pip install anthropic python-dotenv")
     sys.exit(1)
 
-# ─── Constantes ───────────────────────────────────────────────────────────────
+# ─── Constantes ────────────────────────────────────────────────
 BASE_DIR = Path(__file__).parent.parent
 BLOG_DIR = BASE_DIR / "blog"
 DOMAIN   = "https://startcorretoradeseguros.com.br"
@@ -41,8 +41,9 @@ WA       = "5521999992002"
 GA       = "G-TLZ8DCN563"
 TODAY    = datetime.now()
 
-MODELO_ANALISE  = "claude-opus-4-7"
-MODELO_CONTEUDO = "claude-opus-4-7"
+_MODELO_DEFAULT = "claude-opus-4-7"
+MODELO_ANALISE  = os.getenv("ANTHROPIC_MODEL", _MODELO_DEFAULT)
+MODELO_CONTEUDO = os.getenv("ANTHROPIC_MODEL", _MODELO_DEFAULT)
 
 CATEGORIAS = {
     "vida":        ("label-vida",        "Seguro de Vida"),
@@ -84,7 +85,7 @@ WA_ICON_SVG = """<svg width="28" height="28" viewBox="0 0 24 24" fill="white">
 WA_BTN_SVG = """<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.556 4.118 1.526 5.843L.063 22.853c-.086.224-.027.476.148.64.124.115.284.175.444.175.071 0 .143-.012.213-.037l5.2-1.705A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818c-1.992 0-3.837-.6-5.373-1.627l-.367-.229-3.799 1.247 1.225-3.669-.243-.393C2.427 15.598 1.818 13.864 1.818 12 1.818 6.367 6.367 1.818 12 1.818S22.182 6.367 22.182 12 17.633 21.818 12 21.818z"/></svg>"""
 
 
-# ─── Utilitários ──────────────────────────────────────────────────────────────
+# ─── Utilitários ──────────────────────────────────────────────────────
 def slugify(text: str) -> str:
     text = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode("ascii")
     text = re.sub(r"[^\w\s-]", "", text.lower())
@@ -146,7 +147,7 @@ def serp_defaults(keyword: str) -> dict:
     }
 
 
-# ─── Fase 1: Análise de SERP ──────────────────────────────────────────────────
+# ─── Fase 1: Análise de SERP ──────────────────────────────────────────────
 def analisar_serp(keyword: str, client: anthropic.Anthropic) -> dict:
     print(f"🔍  Analisando SERP para: «{keyword}»  (aguarde ~30s)...")
 
@@ -232,7 +233,7 @@ Após as buscas, retorne APENAS um objeto JSON válido, sem texto antes ou depoi
     return data
 
 
-# ─── Fase 2: Geração de Conteúdo ─────────────────────────────────────────────
+# ─── Fase 2: Geração de Conteúdo ───────────────────────────────────────────────
 def gerar_conteudo(keyword: str, serp: dict, client: anthropic.Anthropic) -> dict:
     print(f"✍️   Gerando conteúdo SEO (aguarde ~60s)...")
 
@@ -314,13 +315,28 @@ Retorne APENAS um JSON válido, sem nenhum texto antes ou depois:
   "wa_mensagem": "Ol%C3%A1!%20Li%20o%20artigo%20sobre%20{keyword.replace(' ', '%20')}%20e%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o."
 }}"""
 
+    messages = [{"role": "user", "content": prompt}]
     response = client.messages.create(
         model=MODELO_CONTEUDO,
         max_tokens=8192,
-        messages=[{"role": "user", "content": prompt}],
+        messages=messages,
     )
 
     text = extrair_texto(response)
+
+    # Se truncado, pedir para o modelo completar o JSON
+    if response.stop_reason == "max_tokens":
+        print("  ⚠️  Resposta truncada — solicitando continuação...")
+        cont = client.messages.create(
+            model=MODELO_CONTEUDO,
+            max_tokens=4096,
+            messages=messages + [
+                {"role": "assistant", "content": text},
+                {"role": "user", "content": "Continue exatamente de onde parou, completando o JSON até o fechamento final }."},
+            ],
+        )
+        text = text + extrair_texto(cont)
+
     data = extrair_json(text)
 
     if not data or "titulo_h1" not in data:
@@ -335,7 +351,7 @@ Retorne APENAS um JSON válido, sem nenhum texto antes ou depois:
     return data
 
 
-# ─── Fase 3: Montagem do HTML ─────────────────────────────────────────────────
+# ─── Fase 3: Montagem do HTML ───────────────────────────────────────────────
 def montar_html(keyword: str, slug: str, conteudo: dict, serp: dict) -> str:
     titulo_h1 = conteudo.get("titulo_h1", keyword)
     meta_title = conteudo.get("meta_title", titulo_h1)
@@ -699,7 +715,7 @@ def montar_html(keyword: str, slug: str, conteudo: dict, serp: dict) -> str:
     return html
 
 
-# ─── Main ─────────────────────────────────────────────────────────────────────
+# ─── Main ────────────────────────────────────────────────────────────────────
 def main():
     parser = argparse.ArgumentParser(
         description="Gera artigo SEO para o blog da Start Corretora",
@@ -730,24 +746,28 @@ def main():
     )
     args = parser.parse_args()
 
-    # Verifica API key
-    api_key = os.getenv("ANTHROPIC_API_KEY")
-    if not api_key:
-        print("❌  ANTHROPIC_API_KEY não encontrada.")
+    # Verifica API key (suporta OAuth token via ANTHROPIC_AUTH_TOKEN)
+    auth_token = os.getenv("ANTHROPIC_AUTH_TOKEN")
+    api_key    = os.getenv("ANTHROPIC_API_KEY")
+    if not auth_token and not api_key:
+        print("❌  ANTHROPIC_API_KEY ou ANTHROPIC_AUTH_TOKEN não encontrado.")
         print("    Crie o arquivo .env na raiz do projeto com:")
         print("    ANTHROPIC_API_KEY=sk-ant-...")
         sys.exit(1)
 
-    client   = anthropic.Anthropic(api_key=api_key)
+    if auth_token:
+        client = anthropic.Anthropic(auth_token=auth_token)
+    else:
+        client = anthropic.Anthropic(api_key=api_key)
     keyword  = args.keyword.strip()
 
-    print(f"\n{'═'*60}")
+    print(f"\n{'='*60}")
     print(f"  GERADOR DE CONTEÚDO SEO — START CORRETORA")
-    print(f"{'═'*60}")
+    print(f"{'='*60}")
     print(f"  Keyword: «{keyword}»")
     print(f"  Modelo:  {MODELO_CONTEUDO}")
     print(f"  SERP:    {'desativada (--sem-serp)' if args.sem_serp else 'ativada (web search)'}")
-    print(f"{'─'*60}\n")
+    print(f"{'--'*30}\n")
 
     # Fase 1 — SERP
     if args.sem_serp:
@@ -776,15 +796,15 @@ def main():
     output_path = output_dir / f"{slug}.html"
     output_path.write_text(html, encoding="utf-8")
 
-    print(f"\n{'═'*60}")
+    print(f"\n{'='*60}")
     print(f"  ✅  ARTIGO GERADO COM SUCESSO")
-    print(f"{'─'*60}")
+    print(f"{'--'*30}")
     print(f"  Arquivo : {output_path}")
     print(f"  URL     : {DOMAIN}/blog/{slug}")
     print(f"  H1      : {conteudo.get('titulo_h1', '')}")
     print(f"  Meta    : {conteudo.get('meta_description', '')[:70]}...")
     print(f"  Categoria: {conteudo.get('categoria', 'geral')}")
-    print(f"{'═'*60}\n")
+    print(f"{'='*60}\n")
     print("📌 Próximos passos:")
     print("   1. Revise e ajuste o conteúdo gerado")
     print("   2. Adicione uma imagem de capa em assets/images/")
