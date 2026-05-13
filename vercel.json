@@ -21,6 +21,7 @@
     { "source": "/blog/seguro-auto-rj.html",                         "destination": "/blog/seguro-auto-rj",                         "permanent": true },
     { "source": "/blog/plano-de-saude-sp.html",                      "destination": "/blog/plano-de-saude-sp",                      "permanent": true },
     { "source": "/blog/corretora-de-seguros-rio-de-janeiro.html",    "destination": "/blog/corretora-de-seguros-rio-de-janeiro",    "permanent": true },
-    { "source": "/blog/corretora-de-seguros-sao-paulo.html",         "destination": "/blog/corretora-de-seguros-sao-paulo",         "permanent": true }
+    { "source": "/blog/corretora-de-seguros-sao-paulo.html",         "destination": "/blog/corretora-de-seguros-sao-paulo",         "permanent": true },
+    { "source": "/blog/seguro-residencial-o-que-e.html",             "destination": "/blog/seguro-residencial-o-que-e",             "permanent": true }
   ]
 }
