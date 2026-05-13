@@ -34,7 +34,7 @@ const FORM_DESKTOP = `
     #bcf-mob  { display: block; }
   }
 </style>
-<section style="padding:56px 0">
+<section id="bcf-desk" style="padding:56px 0">
   <div class="container">
     ${quoteBlock('bcf-desk-form', 'bcf-desk-ok')}
   </div>
