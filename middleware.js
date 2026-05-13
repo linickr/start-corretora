@@ -8,16 +8,16 @@ const CSS_INJECT = [
 ].join('\n  ')
 
 const COTACAO_FORM = `
-<section style="background:#111;border-top:1px solid #1e1e1e;padding:64px 0">
+<section style="border-top:1px solid #1e1e1e;padding:56px 0 64px">
   <div class="container">
     <div style="max-width:560px;margin:0 auto">
 
-      <div style="text-align:center;margin-bottom:32px">
+      <div style="text-align:center;margin-bottom:28px">
         <div class="eyebrow">Cotação Grátis</div>
-        <h2 style="font-size:clamp(1.4rem,3vw,1.9rem);font-weight:700;color:#fff;margin:8px 0 12px">
+        <h2 style="font-size:clamp(1.3rem,3vw,1.75rem);font-weight:700;color:#fff;margin:8px 0 10px">
           Ficou com alguma dúvida?<br><em style="color:#00e676;font-style:normal">Receba sua cotação agora.</em>
         </h2>
-        <p style="color:#888;font-size:.95rem">Nossa equipe entra em contato em até 2 horas úteis. Sem compromisso.</p>
+        <p style="color:#888;font-size:.93rem">Nossa equipe entra em contato em até 2 horas úteis. Sem compromisso.</p>
       </div>
 
       <form id="blogCotacaoForm" novalidate>
@@ -89,8 +89,12 @@ export default async function middleware(request) {
       : `<head>\n  ${CSS_INJECT}\n</head>\n` + html
   }
 
-  if (isBlogPost && !html.includes('blogCotacaoForm') && html.includes('</body>')) {
-    html = html.replace('</body>', COTACAO_FORM + '\n</body>')
+  if (isBlogPost && !html.includes('blogCotacaoForm')) {
+    if (html.includes('<section class="cta-sec">')) {
+      html = html.replace('<section class="cta-sec">', COTACAO_FORM + '\n<section class="cta-sec">')
+    } else if (html.includes('<footer')) {
+      html = html.replace('<footer', COTACAO_FORM + '\n<footer')
+    }
   }
 
   const headers = new Headers(response.headers)
