@@ -50,22 +50,30 @@
     </div>
 
     <!-- Analytics GA4 -->
-    <div class="admin-section-label">📈 Analytics GA4 — últimos 30 dias</div>
+    <div class="admin-section-label" id="ga-section-label">📈 Analytics GA4</div>
+    <div class="period-filters">
+      <button class="period-btn" data-period="7d">Última semana</button>
+      <button class="period-btn" data-period="14d">Últimas 2 semanas</button>
+      <button class="period-btn active" data-period="30d">Último mês</button>
+      <button class="period-btn" data-period="90d">Últimos 3 meses</button>
+      <button class="period-btn" data-period="180d">Últimos 6 meses</button>
+      <button class="period-btn" data-period="365d">Último ano</button>
+    </div>
     <div class="metrics-grid" id="ga-metrics-grid">
       <div class="metric-card">
         <div class="label">Sessões</div>
         <div class="value loading-dash" id="ga-sessions">—</div>
-        <div class="sub">Últimos 30 dias</div>
+        <div class="sub" id="ga-sub-sessions">Carregando...</div>
       </div>
       <div class="metric-card">
         <div class="label">Usuários Únicos</div>
         <div class="value loading-dash" id="ga-users">—</div>
-        <div class="sub">Últimos 30 dias</div>
+        <div class="sub" id="ga-sub-users">Carregando...</div>
       </div>
       <div class="metric-card">
         <div class="label">Pageviews</div>
         <div class="value loading-dash" id="ga-pageviews">—</div>
-        <div class="sub">Últimos 30 dias</div>
+        <div class="sub" id="ga-sub-pageviews">Carregando...</div>
       </div>
       <div class="metric-card">
         <div class="label">Conversões</div>
@@ -85,7 +93,7 @@
     </div>
 
     <div class="admin-card">
-      <div class="admin-card-title">📊 Sessões por Mês</div>
+      <div class="admin-card-title" id="ga-chart-title">📊 Sessões por Período</div>
       <canvas id="chartSessions" height="80"></canvas>
     </div>
 
@@ -219,10 +227,35 @@
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #666;
-  margin: 28px 0 12px;
+  margin: 28px 0 10px;
   padding-left: 2px;
 }
 .loading-dash { opacity: 0.4; }
+.period-filters {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.period-btn {
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 1px solid #333;
+  background: transparent;
+  color: #888;
+  font-size: 0.72rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.period-btn:hover { border-color: #555; color: #ccc; }
+.period-btn.active {
+  border-color: #00e676;
+  background: rgba(0, 230, 118, 0.1);
+  color: #00e676;
+}
+.period-btn:disabled { opacity: 0.5; cursor: wait; }
 </style>
 
 <script src="../assets/js/main.js"></script>
@@ -230,72 +263,121 @@
 /* ── GA4 Analytics ────────────────────────────── */
 let chartSessions = null;
 
-async function loadAnalytics() {
+const PERIOD_LABELS = {
+  '7d':   'última semana',
+  '14d':  'últimas 2 semanas',
+  '30d':  'último mês',
+  '90d':  'últimos 3 meses',
+  '180d': 'últimos 6 meses',
+  '365d': 'último ano',
+};
+
+const CHART_TITLES = {
+  '7d':   '📊 Sessões por Dia',
+  '14d':  '📊 Sessões por Dia',
+  '30d':  '📊 Sessões por Dia',
+  '90d':  '📊 Sessões por Mês',
+  '180d': '📊 Sessões por Mês',
+  '365d': '📊 Sessões por Mês',
+};
+
+const GA_IDS = ['ga-sessions','ga-users','ga-pageviews','ga-conversions','ga-organic','ga-paid'];
+
+function setGaLoading() {
+  GA_IDS.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) { el.textContent = '—'; el.classList.add('loading-dash'); }
+  });
+  const tbody = document.getElementById('top-pages-body');
+  if (tbody) tbody.innerHTML = '<tr><td colspan="2" style="text-align:center;color:#666;padding:16px">Carregando...</td></tr>';
+}
+
+async function loadAnalytics(period = '30d') {
+  // Atualiza botões
+  document.querySelectorAll('.period-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.period === period);
+    btn.disabled = true;
+  });
+  setGaLoading();
+
+  // Atualiza label da seção e do gráfico
+  const periodLabel = PERIOD_LABELS[period] ?? period;
+  const subText = periodLabel.charAt(0).toUpperCase() + periodLabel.slice(1);
+  document.getElementById('ga-section-label').textContent = `📈 Analytics GA4 — ${periodLabel}`;
+  document.getElementById('ga-chart-title').textContent = CHART_TITLES[period] ?? '📊 Sessões por Período';
+  ['ga-sub-sessions','ga-sub-users','ga-sub-pageviews'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = subText;
+  });
+
   try {
-    const res = await fetch('/api/analytics');
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const res = await fetch(`/api/analytics?period=${period}`);
     const d = await res.json();
-    if (d.error) throw new Error(d.error);
+    if (!res.ok || d.error) throw new Error(d.error ?? `HTTP ${res.status}`);
 
     const fmt = n => Number(n).toLocaleString('pt-BR');
-    const ids = ['ga-sessions','ga-users','ga-pageviews','ga-conversions','ga-organic','ga-paid'];
     const vals = [d.sessions, d.users, d.pageviews, d.conversions, d.organicSessions, d.paidSessions];
-
-    ids.forEach((id, i) => {
+    GA_IDS.forEach((id, i) => {
       const el = document.getElementById(id);
       if (!el) return;
       el.textContent = fmt(vals[i] ?? 0);
       el.classList.remove('loading-dash');
     });
 
-    // Gráfico de sessões por mês
+    // Gráfico de sessões
     const ctx = document.getElementById('chartSessions');
-    if (ctx && d.sessionsByMonth?.length) {
+    if (ctx && d.sessionsByPeriod?.length) {
       if (chartSessions) chartSessions.destroy();
       chartSessions = new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: d.sessionsByMonth.map(m => m.month),
+          labels: d.sessionsByPeriod.map(m => m.label),
           datasets: [{
             label: 'Sessões',
-            data: d.sessionsByMonth.map(m => m.sessions),
+            data: d.sessionsByPeriod.map(m => m.sessions),
             backgroundColor: 'rgba(0, 230, 118, 0.7)',
             borderColor: '#00e676',
             borderWidth: 1,
-            borderRadius: 4
-          }]
+            borderRadius: 4,
+          }],
         },
         options: {
           responsive: true,
           plugins: { legend: { labels: { color: '#999' } } },
           scales: {
-            x: { ticks: { color: '#999' }, grid: { color: '#2a2a2a' } },
-            y: { ticks: { color: '#999' }, grid: { color: '#2a2a2a' } }
-          }
-        }
+            x: { ticks: { color: '#999', maxRotation: 45 }, grid: { color: '#2a2a2a' } },
+            y: { ticks: { color: '#999' }, grid: { color: '#2a2a2a' } },
+          },
+        },
       });
     }
 
     // Top páginas
     const tbody = document.getElementById('top-pages-body');
-    if (tbody && d.topPages?.length) {
-      tbody.innerHTML = d.topPages
-        .map(p => `<tr><td>${p.page}</td><td>${fmt(p.views)}</td></tr>`)
-        .join('');
+    if (tbody) {
+      tbody.innerHTML = d.topPages?.length
+        ? d.topPages.map(p => `<tr><td>${p.page}</td><td>${fmt(p.views)}</td></tr>`).join('')
+        : '<tr><td colspan="2" style="text-align:center;color:#666;padding:16px">Sem dados</td></tr>';
     }
   } catch (err) {
     console.error('[analytics]', err.message);
-    ['ga-sessions','ga-users','ga-pageviews','ga-conversions','ga-organic','ga-paid'].forEach(id => {
+    GA_IDS.forEach(id => {
       const el = document.getElementById(id);
       if (el) { el.textContent = 'N/D'; el.classList.remove('loading-dash'); }
     });
     const tbody = document.getElementById('top-pages-body');
     if (tbody) tbody.innerHTML = `<tr><td colspan="2" style="text-align:center;color:#f66;padding:16px">
-      Dados indisponíveis — configure GA_PROPERTY_ID e GA_SERVICE_ACCOUNT_KEY</td></tr>`;
+      Erro GA4: ${err.message}</td></tr>`;
+  } finally {
+    document.querySelectorAll('.period-btn').forEach(btn => { btn.disabled = false; });
   }
 }
 
-loadAnalytics();
+document.querySelectorAll('.period-btn').forEach(btn => {
+  btn.addEventListener('click', () => loadAnalytics(btn.dataset.period));
+});
+
+loadAnalytics('30d');
 /* ─────────────────────────────────────────────── */
 
 const ctx = document.getElementById('chartPubs');
