@@ -469,7 +469,7 @@
     let cur = 0, timer;
     function goTo(n) {
       cur = (n + total) % total;
-      track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+      track.style.transform = 'translateX(-' + (cur * track.parentElement.offsetWidth) + 'px)';
       dots.forEach((d, i) => d.classList.toggle('active', i === cur));
     }
     function startTimer() { timer = setInterval(() => goTo(cur + 1), 4500); }
@@ -488,7 +488,7 @@
     let cur = 0, timer;
     function goTo(n) {
       cur = (n + total) % total;
-      track.style.transform = 'translateX(-' + (cur * 100) + '%)';
+      track.style.transform = 'translateX(-' + (cur * track.parentElement.offsetWidth) + 'px)';
       dots.forEach((d, i) => d.classList.toggle('active', i === cur));
     }
     function startTimer() { timer = setInterval(() => goTo(cur + 1), 5000); }
