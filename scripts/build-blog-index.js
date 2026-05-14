@@ -29,13 +29,15 @@ const getDesc = html => {
 }
 
 const getCat = (html, slug) => {
-  // Slug first — nav HTML contains all service names and would match wrong category
-  const bySlug = CATS.find(c => c.re.test(slug))
-  if (bySlug) return bySlug
-  // Explicit label class as fallback
-  const byLabel = CATS.find(c => html.includes(`label ${c.css}`))
-  if (byLabel) return byLabel
-  return CATS[CATS.length - 1]
+  // Pega o texto do primeiro span.label do artigo — é a categoria declarada no post
+  const m = html.match(/<span[^>]+class="label[^"]*"[^>]*>([^<]+)<\/span>/i)
+  if (m) {
+    const text = m[1].trim()
+    const byText = CATS.find(c => c.label === text)
+    if (byText) return byText
+  }
+  // Fallback: slug
+  return CATS.find(c => c.re.test(slug)) ?? CATS[CATS.length - 1]
 }
 
 const getDate = (slug, sitemap) => {
