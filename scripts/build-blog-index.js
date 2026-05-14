@@ -29,8 +29,13 @@ const getDesc = html => {
 }
 
 const getCat = (html, slug) => {
-  const text = html + ' ' + slug
-  return CATS.find(c => c.re.test(text)) ?? CATS[CATS.length - 1]
+  // Slug first — nav HTML contains all service names and would match wrong category
+  const bySlug = CATS.find(c => c.re.test(slug))
+  if (bySlug) return bySlug
+  // Explicit label class as fallback
+  const byLabel = CATS.find(c => html.includes(`label ${c.css}`))
+  if (byLabel) return byLabel
+  return CATS[CATS.length - 1]
 }
 
 const getDate = (slug, sitemap) => {
