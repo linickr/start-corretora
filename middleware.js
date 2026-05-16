@@ -85,6 +85,48 @@ function buildFragmentPage(fragment, pathname) {
 
   const canonical = `https://startcorretoradeseguros.com.br${pathname.replace(/\.html$/, '')}`
 
+  // Detect article-format fragments (blog/SEO posts with post-body structure)
+  const isArticle = fragment.includes('class="post-body"') || fragment.includes('class="post-meta"')
+
+  let bodyContent
+  if (isArticle) {
+    // Build a friendly location badge from the URL slug
+    const slug = pathname.replace(/^\/+|\.html$/g, '').split('/').pop()
+    const location = slug
+      .replace(/^corretora-de-seguros[-–]?(em[-–]?|no[-–]?|na[-–]?|nos[-–]?|nas[-–]?)?/i, '')
+      .replace(/-/g, ' ')
+      .trim()
+      .replace(/\b\w/g, l => l.toUpperCase()) || 'Rio de Janeiro'
+
+    // Strip label, h1 and post-meta from fragment — they go into the hero
+    const articleContent = fragment
+      .replace(/<span[^>]*class="label[^"]*"[^>]*>[\s\S]*?<\/span>\s*/i, '')
+      .replace(/<h1[^>]*>[\s\S]*?<\/h1>\s*/i, '')
+      .replace(/<div[^>]*class="post-meta"[^>]*>[\s\S]*?<\/div>\s*/i, '')
+
+    bodyContent = `<div class="fragment-hero">
+  <div class="container">
+    <div class="hero-badge">📍 ${location}</div>
+    <h1 class="fragment-hero-title">${rawTitle}</h1>
+    <div class="hero-actions">
+      <a href="https://wa.me/5521999992002?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20uma%20cota%C3%A7%C3%A3o." class="btn-primary" target="_blank" rel="noopener">Cotar pelo WhatsApp →</a>
+      <a href="tel:+5521999992002" class="btn-outline">📞 (21) 99999-2002</a>
+    </div>
+  </div>
+</div>
+<section style="padding:64px 0 80px">
+  <div class="container" style="max-width:820px">
+${articleContent}
+  </div>
+</section>`
+  } else {
+    bodyContent = `<section style="padding-top:calc(var(--nav-h) + var(--ticker-h) + 56px);padding-bottom:80px">
+  <div class="container" style="max-width:820px">
+${fragment}
+  </div>
+</section>`
+  }
+
   return `<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -105,11 +147,7 @@ function buildFragmentPage(fragment, pathname) {
   ${GA}
 </head>
 <body>
-<section style="padding-top:calc(var(--nav-h) + 56px);padding-bottom:80px">
-  <div class="container" style="max-width:820px">
-${fragment}
-  </div>
-</section>
+${bodyContent}
 ${FORM_DESKTOP}
 <script src="/assets/js/layout.js"></script>
 <script src="/assets/js/main.js"></script>
