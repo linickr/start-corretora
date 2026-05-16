@@ -112,6 +112,7 @@ ${fragment}
 </section>
 ${FORM_DESKTOP}
 <script src="/assets/js/layout.js"></script>
+<script src="/assets/js/main.js"></script>
 ${FORM_SCRIPT}
 </body>
 </html>`
@@ -145,7 +146,7 @@ export default async function middleware(request) {
     }
 
     if (!html.includes('layout.js') && html.includes('</body>')) {
-      html = html.replace('</body>', '<script src="/assets/js/layout.js"></script>\n</body>')
+      html = html.replace('</body>', '<script src="/assets/js/layout.js"></script>\n<script src="/assets/js/main.js"></script>\n</body>')
     }
 
     if (isBlogPost && !html.includes('bcf-desk')) {

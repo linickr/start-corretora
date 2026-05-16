@@ -1,20 +1,33 @@
-/* ── Mobile Menu ── */
-const hamburger = document.querySelector('.hamburger');
-const mobileNav = document.querySelector('.mobile-nav');
-if (hamburger && mobileNav) {
-  hamburger.addEventListener('click', () => {
-    mobileNav.classList.toggle('open');
-  });
-}
-
-/* ── FAQ Accordion ── */
-document.querySelectorAll('.faq-question').forEach(q => {
+/* ── FAQ Accordion — suporta .faq-q e .faq-question ── */
+document.querySelectorAll('.faq-q, .faq-question').forEach(q => {
   q.addEventListener('click', () => {
     const item = q.closest('.faq-item');
     const isOpen = item.classList.contains('open');
     document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
     if (!isOpen) item.classList.add('open');
   });
+});
+
+/* ── Quote Form (#quoteForm) ── */
+const quoteForm = document.querySelector('#quoteForm');
+if (quoteForm) {
+  quoteForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const nome = this.nome.value.trim();
+    const tel  = this.telefone.value.trim();
+    const seg  = this.seguro ? (this.seguro.value || 'seguro') : 'seguro';
+    if (!nome || !tel) { alert('Preencha nome e WhatsApp para continuar.'); return; }
+    const msg = encodeURIComponent('Olá! Me chamo ' + nome + ' e gostaria de uma cotação de ' + seg + '.');
+    window.open('https://wa.me/5521999992002?text=' + msg, '_blank');
+    const success = document.querySelector('#quoteSuccess');
+    if (success) { this.style.display = 'none'; success.style.display = 'block'; }
+  });
+}
+
+/* ── WhatsApp Click Tracking ── */
+document.addEventListener('click', e => {
+  const link = e.target.closest('a[href*="wa.me"]');
+  if (link && typeof gtag === 'function') gtag('event', 'CliqueWhatsapp');
 });
 
 /* ── Blog Filter ── */
@@ -62,13 +75,6 @@ if (contactForm) {
   });
 }
 
-/* ── WhatsApp Click Tracking ── */
-document.addEventListener('click', e => {
-  const link = e.target.closest('a[href*="wa.me"]');
-  if (link && typeof gtag === 'function') {
-    gtag('event', 'CliqueWhatsapp');
-  }
-});
 
 /* ── Admin: Slug auto-generation ── */
 const titleInput = document.querySelector('#post-title');
