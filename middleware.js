@@ -2,6 +2,15 @@ export const config = {
   matcher: ['/((?!_vercel|api|assets).*)'],
 }
 
+const FONTS = [
+  '<link rel="preconnect" href="https://fonts.googleapis.com">',
+  '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
+  '<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">',
+].join('\n  ')
+
+const GA = `<script async src="https://www.googletagmanager.com/gtag/js?id=G-TLZ8DCN563"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-TLZ8DCN563');</script>`
+
 const CSS_INJECT = [
   '<link rel="icon" type="image/png" href="/assets/images/favicon.png">',
   '<link rel="stylesheet" href="/assets/css/noturno.css">',
@@ -64,6 +73,50 @@ const FORM_SCRIPT = `<script>
 })();
 </script>`
 
+function buildFragmentPage(fragment, pathname) {
+  const h1Match = fragment.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)
+  const rawTitle = h1Match ? h1Match[1].replace(/<[^>]+>/g, '').trim() : ''
+  const pageTitle = rawTitle ? `${rawTitle} | Start Corretora` : 'Start Corretora de Seguros'
+
+  const pMatch = fragment.match(/<p[^>]*>([\s\S]*?)<\/p>/i)
+  const rawDesc = pMatch
+    ? pMatch[1].replace(/<[^>]+>/g, '').trim().slice(0, 160)
+    : 'Start Corretora de Seguros — cotação online, atendimento humanizado.'
+
+  const canonical = `https://startcorretoradeseguros.com.br${pathname.replace(/\.html$/, '')}`
+
+  return `<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${pageTitle}</title>
+  <meta name="description" content="${rawDesc.replace(/"/g, '&quot;')}">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="${canonical}">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="${canonical}">
+  <meta property="og:title" content="${pageTitle.replace(/"/g, '&quot;')}">
+  <meta property="og:description" content="${rawDesc.replace(/"/g, '&quot;')}">
+  <meta property="og:image" content="https://startcorretoradeseguros.com.br/assets/images/logo-start-corretora.png">
+  ${FONTS}
+  <link rel="stylesheet" href="/assets/css/noturno.css">
+  ${GA}
+</head>
+<body>
+<section style="padding-top:calc(var(--nav-h) + 56px);padding-bottom:80px">
+  <div class="container" style="max-width:820px">
+${fragment}
+  </div>
+</section>
+${FORM_DESKTOP}
+<script src="/assets/js/layout.js"></script>
+${FORM_SCRIPT}
+</body>
+</html>`
+}
+
 export default async function middleware(request) {
   const { pathname } = new URL(request.url)
   const isBlogPost = /^\/blog\/[^/]+/.test(pathname)
@@ -75,26 +128,31 @@ export default async function middleware(request) {
 
   let html = await response.text()
 
-  if (!html.includes('noturno.css')) {
-    html = html.includes('</head>')
-      ? html.replace('</head>', `  ${CSS_INJECT}\n</head>`)
-      : `<head>\n  ${CSS_INJECT}\n</head>\n` + html
-  }
+  const trimmed = html.trimStart()
+  const isFragment = !trimmed.startsWith('<!') && !trimmed.startsWith('<html') && !trimmed.startsWith('<HTML')
 
-  if (isBlogPost && !html.includes('bcf-desk')) {
-    // Desktop: antes do cta-sec ou footer
-    if (html.includes('<section class="cta-sec">')) {
-      html = html.replace('<section class="cta-sec">', FORM_DESKTOP + '\n<section class="cta-sec">')
-    } else if (html.includes('<footer')) {
-      html = html.replace('<footer', FORM_DESKTOP + '\n<footer')
+  if (isFragment) {
+    html = buildFragmentPage(html, pathname)
+  } else {
+    if (!html.includes('noturno.css')) {
+      html = html.includes('</head>')
+        ? html.replace('</head>', `  ${CSS_INJECT}\n</head>`)
+        : `<head>\n  ${CSS_INJECT}\n</head>\n` + html
     }
 
-    // Mobile: após </article>, antes do aside
-    if (html.includes('</article>')) {
-      html = html.replace('</article>', '</article>\n' + FORM_MOBILE)
-    }
+    if (isBlogPost && !html.includes('bcf-desk')) {
+      if (html.includes('<section class="cta-sec">')) {
+        html = html.replace('<section class="cta-sec">', FORM_DESKTOP + '\n<section class="cta-sec">')
+      } else if (html.includes('<footer')) {
+        html = html.replace('<footer', FORM_DESKTOP + '\n<footer')
+      }
 
-    html = html.replace('</body>', FORM_SCRIPT + '\n</body>')
+      if (html.includes('</article>')) {
+        html = html.replace('</article>', '</article>\n' + FORM_MOBILE)
+      }
+
+      html = html.replace('</body>', FORM_SCRIPT + '\n</body>')
+    }
   }
 
   const headers = new Headers(response.headers)
