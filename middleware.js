@@ -140,6 +140,14 @@ export default async function middleware(request) {
         : `<head>\n  ${CSS_INJECT}\n</head>\n` + html
     }
 
+    if (!html.includes('G-TLZ8DCN563') && html.includes('</head>')) {
+      html = html.replace('</head>', `  ${GA}\n</head>`)
+    }
+
+    if (!html.includes('layout.js') && html.includes('</body>')) {
+      html = html.replace('</body>', '<script src="/assets/js/layout.js"></script>\n</body>')
+    }
+
     if (isBlogPost && !html.includes('bcf-desk')) {
       if (html.includes('<section class="cta-sec">')) {
         html = html.replace('<section class="cta-sec">', FORM_DESKTOP + '\n<section class="cta-sec">')
