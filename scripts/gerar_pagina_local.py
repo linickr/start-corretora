@@ -673,14 +673,18 @@ def main():
     parser.add_argument("--sem-serp",    action="store_true", help="Pula análise de SERP (mais rápido)")
     args = parser.parse_args()
 
-    api_key = os.getenv("ANTHROPIC_API_KEY")
-    if not api_key:
-        print("❌  ANTHROPIC_API_KEY não encontrada.")
+    auth_token = os.getenv("ANTHROPIC_AUTH_TOKEN")
+    api_key    = os.getenv("ANTHROPIC_API_KEY")
+    if not auth_token and not api_key:
+        print("❌  ANTHROPIC_API_KEY ou ANTHROPIC_AUTH_TOKEN não encontrado.")
         print("    Crie o arquivo .env na raiz do projeto com:")
         print("    ANTHROPIC_API_KEY=sk-ant-...")
         sys.exit(1)
 
-    client       = anthropic.Anthropic(api_key=api_key)
+    if auth_token:
+        client = anthropic.Anthropic(auth_token=auth_token)
+    else:
+        client = anthropic.Anthropic(api_key=api_key)
     localizacao  = args.localizacao.strip()
     uf           = args.uf.strip().upper()
 

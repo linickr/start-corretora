@@ -7,25 +7,211 @@
     "modelo": "claude-opus-4-7"
   },
   "blog_queue": [
-    {"id": 1, "keyword": "seguro de vida vale a pena", "categoria": "vida", "prioridade": "alta", "intent": "informacional", "status": "pendente", "slug": null, "titulo": null, "gerado_em": null},
-    {"id": 2, "keyword": "quanto custa seguro de vida 2026", "categoria": "vida", "prioridade": "alta", "intent": "informacional", "status": "publicado", "slug": "quanto-custa-seguro-de-vida-2026", "titulo": "Quanto Custa Seguro de Vida 2026: Guia Completo de Preços", "gerado_em": "2026-05-13"},
-    {"id": 3, "keyword": "seguro empresarial para pequenas empresas", "categoria": "empresarial", "prioridade": "alta", "intent": "transacional", "status": "pendente", "slug": null, "titulo": null, "gerado_em": null},
-    {"id": 4, "keyword": "plano de saúde empresarial rio de janeiro", "categoria": "saude", "prioridade": "alta", "intent": "transacional", "status": "pendente", "slug": null, "titulo": null, "gerado_em": null},
-    {"id": 5, "keyword": "seguro saúde para empresa pequena", "categoria": "empresarial", "prioridade": "alta", "intent": "transacional", "status": "pendente", "slug": null, "titulo": null, "gerado_em": null},
-    {"id": 6, "keyword": "seguro auto terceiros rio de janeiro", "categoria": "auto", "prioridade": "alta", "intent": "transacional", "status": "pendente", "slug": null, "titulo": null, "gerado_em": null},
-    {"id": 7, "keyword": "plano de saúde familiar preço", "categoria": "saude", "prioridade": "alta", "intent": "informacional", "status": "pendente", "slug": null, "titulo": null, "gerado_em": null},
-    {"id": 8, "keyword": "corretora de seguros online rio de janeiro", "categoria": "geral", "prioridade": "alta", "intent": "transacional", "status": "pendente", "slug": null, "titulo": null, "gerado_em": null}
+    {
+      "id": 1,
+      "keyword": "seguro de vida vale a pena",
+      "categoria": "vida",
+      "prioridade": "alta",
+      "intent": "informacional",
+      "status": "publicado",
+      "slug": "seguro-de-vida-vale-a-pena",
+      "titulo": "Seguro de Vida Vale a Pena? Guia Completo para Decidir em 2025",
+      "gerado_em": "2026-05-16"
+    },
+    {
+      "id": 2,
+      "keyword": "quanto custa seguro de vida 2026",
+      "categoria": "vida",
+      "prioridade": "alta",
+      "intent": "informacional",
+      "status": "publicado",
+      "slug": "quanto-custa-seguro-de-vida-2026",
+      "titulo": "Quanto Custa Seguro de Vida 2026: Guia Completo de Preços",
+      "gerado_em": "2026-05-13"
+    },
+    {
+      "id": 3,
+      "keyword": "seguro empresarial para pequenas empresas",
+      "categoria": "empresarial",
+      "prioridade": "alta",
+      "intent": "transacional",
+      "status": "pendente",
+      "slug": null,
+      "titulo": null,
+      "gerado_em": null
+    },
+    {
+      "id": 4,
+      "keyword": "plano de saúde empresarial rio de janeiro",
+      "categoria": "saude",
+      "prioridade": "alta",
+      "intent": "transacional",
+      "status": "pendente",
+      "slug": null,
+      "titulo": null,
+      "gerado_em": null
+    },
+    {
+      "id": 5,
+      "keyword": "seguro saúde para empresa pequena",
+      "categoria": "empresarial",
+      "prioridade": "alta",
+      "intent": "transacional",
+      "status": "pendente",
+      "slug": null,
+      "titulo": null,
+      "gerado_em": null
+    },
+    {
+      "id": 6,
+      "keyword": "seguro auto terceiros rio de janeiro",
+      "categoria": "auto",
+      "prioridade": "alta",
+      "intent": "transacional",
+      "status": "pendente",
+      "slug": null,
+      "titulo": null,
+      "gerado_em": null
+    },
+    {
+      "id": 7,
+      "keyword": "plano de saúde familiar preço",
+      "categoria": "saude",
+      "prioridade": "alta",
+      "intent": "informacional",
+      "status": "pendente",
+      "slug": null,
+      "titulo": null,
+      "gerado_em": null
+    },
+    {
+      "id": 8,
+      "keyword": "corretora de seguros online rio de janeiro",
+      "categoria": "geral",
+      "prioridade": "alta",
+      "intent": "transacional",
+      "status": "pendente",
+      "slug": null,
+      "titulo": null,
+      "gerado_em": null
+    }
   ],
   "local_queue": [
-    {"id": 1, "localizacao": "Tijuca", "preposicao": "na", "tipo": "bairro", "cidade": "Rio de Janeiro", "uf": "RJ", "keyword": "corretora de seguros na Tijuca", "slug": "corretora-de-seguros-na-tijuca", "prioridade": "alta", "status": "publicado", "gerado_em": "2026-05-12"},
-    {"id": 2, "localizacao": "Flamengo", "preposicao": "no", "tipo": "bairro", "cidade": "Rio de Janeiro", "uf": "RJ", "keyword": "corretora de seguros no Flamengo", "slug": "corretora-de-seguros-no-flamengo", "prioridade": "alta", "status": "publicado", "gerado_em": "2026-05-12"},
-    {"id": 3, "localizacao": "Botafogo", "preposicao": "em", "tipo": "bairro", "cidade": "Rio de Janeiro", "uf": "RJ", "keyword": "corretora de seguros em Botafogo", "slug": "corretora-de-seguros-em-botafogo", "prioridade": "alta", "status": "publicado", "gerado_em": "2026-05-13"},
-    {"id": 4, "localizacao": "Lapa", "preposicao": "na", "tipo": "bairro", "cidade": "Rio de Janeiro", "uf": "RJ", "keyword": "corretora de seguros na Lapa", "slug": "corretora-de-seguros-na-lapa", "prioridade": "alta", "status": "pendente", "gerado_em": null},
-    {"id": 5, "localizacao": "Vila Mariana", "preposicao": "na", "tipo": "bairro", "cidade": "São Paulo", "uf": "SP", "keyword": "corretora de seguros na Vila Mariana", "slug": "corretora-de-seguros-na-vila-mariana", "prioridade": "alta", "status": "pendente", "gerado_em": null}
+    {
+      "id": 1,
+      "localizacao": "Tijuca",
+      "preposicao": "na",
+      "tipo": "bairro",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "keyword": "corretora de seguros na Tijuca",
+      "slug": "corretora-de-seguros-na-tijuca",
+      "prioridade": "alta",
+      "status": "publicado",
+      "gerado_em": "2026-05-12"
+    },
+    {
+      "id": 2,
+      "localizacao": "Flamengo",
+      "preposicao": "no",
+      "tipo": "bairro",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "keyword": "corretora de seguros no Flamengo",
+      "slug": "corretora-de-seguros-no-flamengo",
+      "prioridade": "alta",
+      "status": "publicado",
+      "gerado_em": "2026-05-12"
+    },
+    {
+      "id": 3,
+      "localizacao": "Botafogo",
+      "preposicao": "em",
+      "tipo": "bairro",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "keyword": "corretora de seguros em Botafogo",
+      "slug": "corretora-de-seguros-em-botafogo",
+      "prioridade": "alta",
+      "status": "publicado",
+      "gerado_em": "2026-05-13"
+    },
+    {
+      "id": 4,
+      "localizacao": "Lapa",
+      "preposicao": "na",
+      "tipo": "bairro",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "keyword": "corretora de seguros na Lapa",
+      "slug": "corretora-de-seguros-na-lapa",
+      "prioridade": "alta",
+      "status": "publicado",
+      "gerado_em": "2026-05-16"
+    },
+    {
+      "id": 5,
+      "localizacao": "Vila Mariana",
+      "preposicao": "na",
+      "tipo": "bairro",
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "keyword": "corretora de seguros na Vila Mariana",
+      "slug": "corretora-de-seguros-na-vila-mariana",
+      "prioridade": "alta",
+      "status": "pendente",
+      "gerado_em": null
+    }
   ],
   "schedule_log": [
-    {"date": "2026-05-12", "blog": null, "local": {"slug": "corretora-de-seguros-na-tijuca", "localizacao": "Tijuca"}, "erros": ["blog:seguro de vida vale a pena"]},
-    {"date": "2026-05-12", "blog": {"slug": "seguro-de-vida-vale-a-pena", "titulo": "Seguro de Vida Vale a Pena? Guia Completo 2024", "categoria": "vida"}, "local": {"slug": "corretora-de-seguros-no-flamengo", "localizacao": "Flamengo"}, "erros": []},
-    {"date": "2026-05-13", "blog": {"slug": "quanto-custa-seguro-de-vida-2026", "titulo": "Quanto Custa Seguro de Vida 2026: Guia Completo de Preços", "categoria": "vida"}, "local": {"slug": "corretora-de-seguros-em-botafogo", "localizacao": "Botafogo"}, "erros": []}
+    {
+      "date": "2026-05-12",
+      "blog": null,
+      "local": {
+        "slug": "corretora-de-seguros-na-tijuca",
+        "localizacao": "Tijuca"
+      },
+      "erros": [
+        "blog:seguro de vida vale a pena"
+      ]
+    },
+    {
+      "date": "2026-05-12",
+      "blog": {
+        "slug": "seguro-de-vida-vale-a-pena",
+        "titulo": "Seguro de Vida Vale a Pena? Guia Completo 2024",
+        "categoria": "vida"
+      },
+      "local": {
+        "slug": "corretora-de-seguros-no-flamengo",
+        "localizacao": "Flamengo"
+      },
+      "erros": []
+    },
+    {
+      "date": "2026-05-13",
+      "blog": {
+        "slug": "quanto-custa-seguro-de-vida-2026",
+        "titulo": "Quanto Custa Seguro de Vida 2026: Guia Completo de Preços",
+        "categoria": "vida"
+      },
+      "local": {
+        "slug": "corretora-de-seguros-em-botafogo",
+        "localizacao": "Botafogo"
+      },
+      "erros": []
+    },
+    {
+      "date": "2026-05-16",
+      "blog": {
+        "slug": "seguro-de-vida-vale-a-pena",
+        "titulo": "Seguro de Vida Vale a Pena? Guia Completo para Decidir em 2025",
+        "categoria": "vida"
+      },
+      "local": null,
+      "erros": [
+        "local:Lapa"
+      ]
+    }
   ]
 }
