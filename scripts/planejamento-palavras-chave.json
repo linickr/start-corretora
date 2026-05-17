@@ -35,10 +35,10 @@
       "categoria": "empresarial",
       "prioridade": "alta",
       "intent": "transacional",
-      "status": "pendente",
-      "slug": null,
-      "titulo": null,
-      "gerado_em": null
+      "status": "publicado",
+      "slug": "seguro-empresarial-para-pequenas-empresas",
+      "titulo": "Seguro Empresarial para Pequenas Empresas: Guia Completo",
+      "gerado_em": "2026-05-17"
     },
     {
       "id": 4,
@@ -159,8 +159,8 @@
       "keyword": "corretora de seguros na Vila Mariana",
       "slug": "corretora-de-seguros-na-vila-mariana",
       "prioridade": "alta",
-      "status": "pendente",
-      "gerado_em": null
+      "status": "publicado",
+      "gerado_em": "2026-05-17"
     }
   ],
   "schedule_log": [
@@ -212,6 +212,28 @@
       "erros": [
         "local:Lapa"
       ]
+    },
+    {
+      "date": "2026-05-17",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:seguro empresarial para pequenas empresas",
+        "local:Vila Mariana"
+      ]
+    },
+    {
+      "date": "2026-05-17",
+      "blog": {
+        "slug": "seguro-empresarial-para-pequenas-empresas",
+        "titulo": "Seguro Empresarial para Pequenas Empresas: Guia Completo",
+        "categoria": "empresarial"
+      },
+      "local": {
+        "slug": "corretora-de-seguros-na-vila-mariana",
+        "localizacao": "Vila Mariana"
+      },
+      "erros": []
     }
   ]
 }
