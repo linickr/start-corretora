@@ -57,10 +57,10 @@
       "categoria": "empresarial",
       "prioridade": "alta",
       "intent": "transacional",
-      "status": "pendente",
-      "slug": null,
-      "titulo": null,
-      "gerado_em": null
+      "status": "publicado",
+      "slug": "seguro-saude-para-empresa-pequena",
+      "titulo": "Seguro Saúde para Empresa Pequena: Guia Completo 2025",
+      "gerado_em": "2026-05-19"
     },
     {
       "id": 6,
@@ -249,6 +249,24 @@
         "slug": "plano-de-saude-empresarial-rio-de-janeiro",
         "titulo": "Plano de Saúde Empresarial no Rio de Janeiro",
         "categoria": "saude"
+      },
+      "local": null,
+      "erros": []
+    },
+    {
+      "date": "2026-05-19",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:seguro saúde para empresa pequena"
+      ]
+    },
+    {
+      "date": "2026-05-19",
+      "blog": {
+        "slug": "seguro-saude-para-empresa-pequena",
+        "titulo": "Seguro Saúde para Empresa Pequena: Guia Completo 2025",
+        "categoria": "empresarial"
       },
       "local": null,
       "erros": []

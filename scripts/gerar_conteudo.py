@@ -101,6 +101,14 @@ def extrair_texto(response) -> str:
 
 
 def extrair_json(text: str) -> dict:
+    # Tenta parse direto do texto limpo
+    stripped = text.strip()
+    if stripped.startswith("{"):
+        try:
+            return json.loads(stripped)
+        except json.JSONDecodeError:
+            pass
+
     # Tenta bloco de código ```json ... ```
     match = re.search(r"```(?:json)?\s*(\{[\s\S]*?\})\s*```", text)
     if match:
@@ -108,10 +116,23 @@ def extrair_json(text: str) -> dict:
             return json.loads(match.group(1))
         except json.JSONDecodeError:
             pass
-    # Tenta o primeiro { ... } de nível raiz
+
+    # Tenta o primeiro { ... } de nível raiz com rastreamento de strings
     depth = 0
     start = None
+    in_string = False
+    escape = False
     for i, ch in enumerate(text):
+        if escape:
+            escape = False
+            continue
+        if ch == "\\" and in_string:
+            escape = True
+            continue
+        if ch == '"' and not escape:
+            in_string = not in_string
+        if in_string:
+            continue
         if ch == "{":
             if depth == 0:
                 start = i
@@ -318,24 +339,25 @@ Retorne APENAS um JSON válido, sem nenhum texto antes ou depois:
     messages = [{"role": "user", "content": prompt}]
     response = client.messages.create(
         model=MODELO_CONTEUDO,
-        max_tokens=8192,
+        max_tokens=16000,
         messages=messages,
     )
 
     text = extrair_texto(response)
 
-    # Se truncado, pedir para o modelo completar o JSON
+    # Se truncado, solicitar versão mais concisa
     if response.stop_reason == "max_tokens":
-        print("  ⚠️  Resposta truncada — solicitando continuação...")
-        cont = client.messages.create(
-            model=MODELO_CONTEUDO,
-            max_tokens=4096,
-            messages=messages + [
-                {"role": "assistant", "content": text},
-                {"role": "user", "content": "Continue exatamente de onde parou, completando o JSON até o fechamento final }."},
-            ],
+        print("  ⚠️  Resposta truncada — solicitando versão reduzida...")
+        prompt_curto = prompt.replace(
+            "═══ FORMATO DE RESPOSTA ═══",
+            "═══ IMPORTANTE: Mantenha corpo_html com no máximo 3000 caracteres para caber no limite de tokens.\n\n═══ FORMATO DE RESPOSTA ═══",
         )
-        text = text + extrair_texto(cont)
+        response = client.messages.create(
+            model=MODELO_CONTEUDO,
+            max_tokens=16000,
+            messages=[{"role": "user", "content": prompt_curto}],
+        )
+        text = extrair_texto(response)
 
     data = extrair_json(text)
 
