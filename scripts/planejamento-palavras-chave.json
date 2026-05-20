@@ -68,10 +68,10 @@
       "categoria": "auto",
       "prioridade": "alta",
       "intent": "transacional",
-      "status": "pendente",
-      "slug": null,
-      "titulo": null,
-      "gerado_em": null
+      "status": "publicado",
+      "slug": "seguro-auto-terceiros-rio-de-janeiro",
+      "titulo": "Seguro Auto Terceiros Rio de Janeiro: Guia Completo 2025",
+      "gerado_em": "2026-05-20"
     },
     {
       "id": 7,
@@ -267,6 +267,24 @@
         "slug": "seguro-saude-para-empresa-pequena",
         "titulo": "Seguro Saúde para Empresa Pequena: Guia Completo 2025",
         "categoria": "empresarial"
+      },
+      "local": null,
+      "erros": []
+    },
+    {
+      "date": "2026-05-20",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:seguro auto terceiros rio de janeiro"
+      ]
+    },
+    {
+      "date": "2026-05-20",
+      "blog": {
+        "slug": "seguro-auto-terceiros-rio-de-janeiro",
+        "titulo": "Seguro Auto Terceiros Rio de Janeiro: Guia Completo 2025",
+        "categoria": "auto"
       },
       "local": null,
       "erros": []
