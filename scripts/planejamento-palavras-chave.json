@@ -79,10 +79,10 @@
       "categoria": "saude",
       "prioridade": "alta",
       "intent": "informacional",
-      "status": "pendente",
-      "slug": null,
-      "titulo": null,
-      "gerado_em": null
+      "status": "publicado",
+      "slug": "plano-de-saude-familiar-preco",
+      "titulo": "Plano de Saúde Familiar Preço: Guia Completo 2026",
+      "gerado_em": "2026-05-21"
     },
     {
       "id": 8,
@@ -285,6 +285,16 @@
         "slug": "seguro-auto-terceiros-rio-de-janeiro",
         "titulo": "Seguro Auto Terceiros Rio de Janeiro: Guia Completo 2025",
         "categoria": "auto"
+      },
+      "local": null,
+      "erros": []
+    },
+    {
+      "date": "2026-05-21",
+      "blog": {
+        "slug": "plano-de-saude-familiar-preco",
+        "titulo": "Plano de Saúde Familiar Preço: Guia Completo 2026",
+        "categoria": "saude"
       },
       "local": null,
       "erros": []
