@@ -90,10 +90,10 @@
       "categoria": "geral",
       "prioridade": "alta",
       "intent": "transacional",
-      "status": "pendente",
-      "slug": null,
-      "titulo": null,
-      "gerado_em": null
+      "status": "publicado",
+      "slug": "corretora-de-seguros-online-rio-de-janeiro",
+      "titulo": "Corretora de Seguros Online Rio de Janeiro: Guia Completo",
+      "gerado_em": "2026-05-22"
     }
   ],
   "local_queue": [
@@ -295,6 +295,16 @@
         "slug": "plano-de-saude-familiar-preco",
         "titulo": "Plano de Saúde Familiar Preço: Guia Completo 2026",
         "categoria": "saude"
+      },
+      "local": null,
+      "erros": []
+    },
+    {
+      "date": "2026-05-22",
+      "blog": {
+        "slug": "corretora-de-seguros-online-rio-de-janeiro",
+        "titulo": "Corretora de Seguros Online Rio de Janeiro: Guia Completo",
+        "categoria": "geral"
       },
       "local": null,
       "erros": []
