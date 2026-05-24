@@ -94,6 +94,41 @@
       "slug": "corretora-de-seguros-online-rio-de-janeiro",
       "titulo": "Corretora de Seguros Online Rio de Janeiro: Guia Completo",
       "gerado_em": "2026-05-22"
+    },
+    {
+      "id": 9,
+      "keyword": "seguro auto cobertura total rio de janeiro",
+      "categoria": "auto",
+      "prioridade": "alta",
+      "intent": "transacional",
+      "status": "publicado",
+      "slug": "seguro-auto-cobertura-total-rio-de-janeiro",
+      "titulo": "Seguro Auto Cobertura Total Rio de Janeiro: Guia Completo",
+      "gerado_em": "2026-05-24"
+    },
+    {
+      "id": 10,
+      "keyword": "seguro residencial para apartamento alugado",
+      "categoria": "residencial",
+      "prioridade": "alta",
+      "intent": "informacional",
+      "status": "pendente"
+    },
+    {
+      "id": 11,
+      "keyword": "seguro de vida para autonomo",
+      "categoria": "vida",
+      "prioridade": "media",
+      "intent": "informacional",
+      "status": "pendente"
+    },
+    {
+      "id": 12,
+      "keyword": "seguro empresarial responsabilidade civil",
+      "categoria": "empresarial",
+      "prioridade": "media",
+      "intent": "informacional",
+      "status": "pendente"
     }
   ],
   "local_queue": [
@@ -161,6 +196,55 @@
       "prioridade": "alta",
       "status": "publicado",
       "gerado_em": "2026-05-17"
+    },
+    {
+      "id": 6,
+      "localizacao": "Laranjeiras",
+      "preposicao": "em",
+      "tipo": "bairro",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "keyword": "corretora de seguros em Laranjeiras",
+      "slug": "corretora-de-seguros-em-laranjeiras",
+      "prioridade": "alta",
+      "status": "publicado",
+      "gerado_em": "2026-05-24"
+    },
+    {
+      "id": 7,
+      "localizacao": "Catete",
+      "preposicao": "no",
+      "tipo": "bairro",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "keyword": "corretora de seguros no Catete",
+      "slug": "corretora-de-seguros-no-catete",
+      "prioridade": "alta",
+      "status": "pendente"
+    },
+    {
+      "id": 8,
+      "localizacao": "Petrópolis",
+      "preposicao": "em",
+      "tipo": "cidade",
+      "cidade": "Petrópolis",
+      "uf": "RJ",
+      "keyword": "corretora de seguros em Petrópolis",
+      "slug": "corretora-de-seguros-em-petropolis",
+      "prioridade": "media",
+      "status": "pendente"
+    },
+    {
+      "id": 9,
+      "localizacao": "Duque de Caxias",
+      "preposicao": "em",
+      "tipo": "cidade",
+      "cidade": "Duque de Caxias",
+      "uf": "RJ",
+      "keyword": "corretora de seguros em Duque de Caxias",
+      "slug": "corretora-de-seguros-em-duque-de-caxias",
+      "prioridade": "media",
+      "status": "pendente"
     }
   ],
   "schedule_log": [
@@ -313,6 +397,61 @@
       "date": "2026-05-23",
       "blog": null,
       "local": null,
+      "erros": []
+    },
+    {
+      "date": "2026-05-24",
+      "blog": null,
+      "local": null,
+      "erros": []
+    },
+    {
+      "date": "2026-05-24",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:seguro auto cobertura total rio de janeiro",
+        "local:Laranjeiras"
+      ]
+    },
+    {
+      "date": "2026-05-24",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:seguro auto cobertura total rio de janeiro",
+        "local:Laranjeiras"
+      ]
+    },
+    {
+      "date": "2026-05-24",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:seguro auto cobertura total rio de janeiro",
+        "local:Laranjeiras"
+      ]
+    },
+    {
+      "date": "2026-05-24",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:seguro auto cobertura total rio de janeiro",
+        "local:Laranjeiras"
+      ]
+    },
+    {
+      "date": "2026-05-24",
+      "blog": {
+        "slug": "seguro-auto-cobertura-total-rio-de-janeiro",
+        "titulo": "Seguro Auto Cobertura Total Rio de Janeiro: Guia Completo",
+        "categoria": "auto"
+      },
+      "local": {
+        "slug": "corretora-de-seguros-em-laranjeiras",
+        "localizacao": "Laranjeiras"
+      },
       "erros": []
     }
   ]
