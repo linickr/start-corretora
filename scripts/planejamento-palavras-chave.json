@@ -112,7 +112,10 @@
       "categoria": "residencial",
       "prioridade": "alta",
       "intent": "informacional",
-      "status": "pendente"
+      "status": "publicado",
+      "slug": "seguro-residencial-para-apartamento-alugado",
+      "titulo": "Seguro Residencial para Apartamento Alugado: Guia Completo",
+      "gerado_em": "2026-05-25"
     },
     {
       "id": 11,
@@ -220,7 +223,8 @@
       "keyword": "corretora de seguros no Catete",
       "slug": "corretora-de-seguros-no-catete",
       "prioridade": "alta",
-      "status": "pendente"
+      "status": "publicado",
+      "gerado_em": "2026-05-25"
     },
     {
       "id": 8,
@@ -451,6 +455,28 @@
       "local": {
         "slug": "corretora-de-seguros-em-laranjeiras",
         "localizacao": "Laranjeiras"
+      },
+      "erros": []
+    },
+    {
+      "date": "2026-05-25",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:seguro residencial para apartamento alugado",
+        "local:Catete"
+      ]
+    },
+    {
+      "date": "2026-05-25",
+      "blog": {
+        "slug": "seguro-residencial-para-apartamento-alugado",
+        "titulo": "Seguro Residencial para Apartamento Alugado: Guia Completo",
+        "categoria": "residencial"
+      },
+      "local": {
+        "slug": "corretora-de-seguros-no-catete",
+        "localizacao": "Catete"
       },
       "erros": []
     }
