@@ -123,7 +123,10 @@
       "categoria": "vida",
       "prioridade": "media",
       "intent": "informacional",
-      "status": "pendente"
+      "status": "publicado",
+      "slug": "seguro-de-vida-para-autonomo",
+      "titulo": "Seguro de Vida para Autônomo: Guia Completo e Atualizado",
+      "gerado_em": "2026-05-26"
     },
     {
       "id": 12,
@@ -236,7 +239,8 @@
       "keyword": "corretora de seguros em Petrópolis",
       "slug": "corretora-de-seguros-em-petropolis",
       "prioridade": "media",
-      "status": "pendente"
+      "status": "publicado",
+      "gerado_em": "2026-05-26"
     },
     {
       "id": 9,
@@ -477,6 +481,28 @@
       "local": {
         "slug": "corretora-de-seguros-no-catete",
         "localizacao": "Catete"
+      },
+      "erros": []
+    },
+    {
+      "date": "2026-05-26",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:seguro de vida para autonomo",
+        "local:Petrópolis"
+      ]
+    },
+    {
+      "date": "2026-05-26",
+      "blog": {
+        "slug": "seguro-de-vida-para-autonomo",
+        "titulo": "Seguro de Vida para Autônomo: Guia Completo e Atualizado",
+        "categoria": "vida"
+      },
+      "local": {
+        "slug": "corretora-de-seguros-em-petropolis",
+        "localizacao": "Petrópolis"
       },
       "erros": []
     }
