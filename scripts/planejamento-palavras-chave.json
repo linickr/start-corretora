@@ -134,7 +134,10 @@
       "categoria": "empresarial",
       "prioridade": "media",
       "intent": "informacional",
-      "status": "pendente"
+      "status": "publicado",
+      "slug": "seguro-empresarial-responsabilidade-civil",
+      "titulo": "Seguro Empresarial Responsabilidade Civil: Guia Completo 2025",
+      "gerado_em": "2026-05-27"
     }
   ],
   "local_queue": [
@@ -252,7 +255,8 @@
       "keyword": "corretora de seguros em Duque de Caxias",
       "slug": "corretora-de-seguros-em-duque-de-caxias",
       "prioridade": "media",
-      "status": "pendente"
+      "status": "publicado",
+      "gerado_em": "2026-05-27"
     }
   ],
   "schedule_log": [
@@ -503,6 +507,19 @@
       "local": {
         "slug": "corretora-de-seguros-em-petropolis",
         "localizacao": "Petrópolis"
+      },
+      "erros": []
+    },
+    {
+      "date": "2026-05-27",
+      "blog": {
+        "slug": "seguro-empresarial-responsabilidade-civil",
+        "titulo": "Seguro Empresarial Responsabilidade Civil: Guia Completo 2025",
+        "categoria": "empresarial"
+      },
+      "local": {
+        "slug": "corretora-de-seguros-em-duque-de-caxias",
+        "localizacao": "Duque de Caxias"
       },
       "erros": []
     }
