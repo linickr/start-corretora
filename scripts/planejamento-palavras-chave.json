@@ -138,6 +138,25 @@
       "slug": "seguro-empresarial-responsabilidade-civil",
       "titulo": "Seguro Empresarial Responsabilidade Civil: Guia Completo 2025",
       "gerado_em": "2026-05-27"
+    },
+    {
+      "id": 13,
+      "keyword": "o que é franquia no seguro auto",
+      "categoria": "auto",
+      "prioridade": "media",
+      "intent": "informacional",
+      "status": "publicado",
+      "slug": "o-que-e-franquia-no-seguro-auto",
+      "titulo": "O que é franquia no seguro auto: guia completo 2025",
+      "gerado_em": "2026-05-28"
+    },
+    {
+      "id": 14,
+      "keyword": "seguro residencial vale a pena",
+      "categoria": "residencial",
+      "prioridade": "media",
+      "intent": "informacional",
+      "status": "pendente"
     }
   ],
   "local_queue": [
@@ -257,6 +276,31 @@
       "prioridade": "media",
       "status": "publicado",
       "gerado_em": "2026-05-27"
+    },
+    {
+      "id": 10,
+      "localizacao": "Méier",
+      "preposicao": "no",
+      "tipo": "bairro",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "keyword": "corretora de seguros no Méier",
+      "slug": "corretora-de-seguros-no-meier",
+      "prioridade": "alta",
+      "status": "publicado",
+      "gerado_em": "2026-05-28"
+    },
+    {
+      "id": 11,
+      "localizacao": "Madureira",
+      "preposicao": "em",
+      "tipo": "bairro",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "keyword": "corretora de seguros em Madureira",
+      "slug": "corretora-de-seguros-em-madureira",
+      "prioridade": "media",
+      "status": "pendente"
     }
   ],
   "schedule_log": [
@@ -520,6 +564,19 @@
       "local": {
         "slug": "corretora-de-seguros-em-duque-de-caxias",
         "localizacao": "Duque de Caxias"
+      },
+      "erros": []
+    },
+    {
+      "date": "2026-05-28",
+      "blog": {
+        "slug": "o-que-e-franquia-no-seguro-auto",
+        "titulo": "O que é franquia no seguro auto: guia completo 2025",
+        "categoria": "auto"
+      },
+      "local": {
+        "slug": "corretora-de-seguros-no-meier",
+        "localizacao": "Méier"
       },
       "erros": []
     }
