@@ -156,7 +156,10 @@
       "categoria": "residencial",
       "prioridade": "media",
       "intent": "informacional",
-      "status": "pendente"
+      "status": "publicado",
+      "slug": "seguro-residencial-vale-a-pena",
+      "titulo": "Seguro Residencial Vale a Pena? Guia Completo 2025",
+      "gerado_em": "2026-05-29"
     }
   ],
   "local_queue": [
@@ -300,7 +303,8 @@
       "keyword": "corretora de seguros em Madureira",
       "slug": "corretora-de-seguros-em-madureira",
       "prioridade": "media",
-      "status": "pendente"
+      "status": "publicado",
+      "gerado_em": "2026-05-29"
     }
   ],
   "schedule_log": [
@@ -577,6 +581,28 @@
       "local": {
         "slug": "corretora-de-seguros-no-meier",
         "localizacao": "Méier"
+      },
+      "erros": []
+    },
+    {
+      "date": "2026-05-29",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:seguro residencial vale a pena",
+        "local:Madureira"
+      ]
+    },
+    {
+      "date": "2026-05-29",
+      "blog": {
+        "slug": "seguro-residencial-vale-a-pena",
+        "titulo": "Seguro Residencial Vale a Pena? Guia Completo 2025",
+        "categoria": "residencial"
+      },
+      "local": {
+        "slug": "corretora-de-seguros-em-madureira",
+        "localizacao": "Madureira"
       },
       "erros": []
     }
