@@ -7,66 +7,632 @@
     "modelo": "claude-opus-4-7"
   },
   "blog_queue": [
-    {"id": 1, "keyword": "seguro de vida vale a pena", "categoria": "vida", "prioridade": "alta", "intent": "informacional", "status": "publicado", "slug": "seguro-de-vida-vale-a-pena", "titulo": "Seguro de Vida Vale a Pena? Guia Completo para Decidir em 2025", "gerado_em": "2026-05-16"},
-    {"id": 2, "keyword": "quanto custa seguro de vida 2026", "categoria": "vida", "prioridade": "alta", "intent": "informacional", "status": "publicado", "slug": "quanto-custa-seguro-de-vida-2026", "titulo": "Quanto Custa Seguro de Vida 2026: Guia Completo de Preços", "gerado_em": "2026-05-13"},
-    {"id": 3, "keyword": "seguro empresarial para pequenas empresas", "categoria": "empresarial", "prioridade": "alta", "intent": "transacional", "status": "publicado", "slug": "seguro-empresarial-para-pequenas-empresas", "titulo": "Seguro Empresarial para Pequenas Empresas: Guia Completo", "gerado_em": "2026-05-17"},
-    {"id": 4, "keyword": "plano de saúde empresarial rio de janeiro", "categoria": "saude", "prioridade": "alta", "intent": "transacional", "status": "publicado", "slug": "plano-de-saude-empresarial-rio-de-janeiro", "titulo": "Plano de Saúde Empresarial no Rio de Janeiro", "gerado_em": "2026-05-18"},
-    {"id": 5, "keyword": "seguro saúde para empresa pequena", "categoria": "empresarial", "prioridade": "alta", "intent": "transacional", "status": "publicado", "slug": "seguro-saude-para-empresa-pequena", "titulo": "Seguro Saúde para Empresa Pequena: Guia Completo 2025", "gerado_em": "2026-05-19"},
-    {"id": 6, "keyword": "seguro auto terceiros rio de janeiro", "categoria": "auto", "prioridade": "alta", "intent": "transacional", "status": "publicado", "slug": "seguro-auto-terceiros-rio-de-janeiro", "titulo": "Seguro Auto Terceiros Rio de Janeiro: Guia Completo 2025", "gerado_em": "2026-05-20"},
-    {"id": 7, "keyword": "plano de saúde familiar preço", "categoria": "saude", "prioridade": "alta", "intent": "informacional", "status": "publicado", "slug": "plano-de-saude-familiar-preco", "titulo": "Plano de Saúde Familiar Preço: Guia Completo 2026", "gerado_em": "2026-05-21"},
-    {"id": 8, "keyword": "corretora de seguros online rio de janeiro", "categoria": "geral", "prioridade": "alta", "intent": "transacional", "status": "publicado", "slug": "corretora-de-seguros-online-rio-de-janeiro", "titulo": "Corretora de Seguros Online Rio de Janeiro: Guia Completo", "gerado_em": "2026-05-22"},
-    {"id": 9, "keyword": "seguro auto cobertura total rio de janeiro", "categoria": "auto", "prioridade": "alta", "intent": "transacional", "status": "publicado", "slug": "seguro-auto-cobertura-total-rio-de-janeiro", "titulo": "Seguro Auto Cobertura Total Rio de Janeiro: Guia Completo", "gerado_em": "2026-05-24"},
-    {"id": 10, "keyword": "seguro residencial para apartamento alugado", "categoria": "residencial", "prioridade": "alta", "intent": "informacional", "status": "publicado", "slug": "seguro-residencial-para-apartamento-alugado", "titulo": "Seguro Residencial para Apartamento Alugado: Guia Completo", "gerado_em": "2026-05-25"},
-    {"id": 11, "keyword": "seguro de vida para autonomo", "categoria": "vida", "prioridade": "media", "intent": "informacional", "status": "publicado", "slug": "seguro-de-vida-para-autonomo", "titulo": "Seguro de Vida para Autônomo: Guia Completo e Atualizado", "gerado_em": "2026-05-26"},
-    {"id": 12, "keyword": "seguro empresarial responsabilidade civil", "categoria": "empresarial", "prioridade": "media", "intent": "informacional", "status": "publicado", "slug": "seguro-empresarial-responsabilidade-civil", "titulo": "Seguro Empresarial Responsabilidade Civil: Guia Completo 2025", "gerado_em": "2026-05-27"},
-    {"id": 13, "keyword": "o que é franquia no seguro auto", "categoria": "auto", "prioridade": "media", "intent": "informacional", "status": "publicado", "slug": "o-que-e-franquia-no-seguro-auto", "titulo": "O que é franquia no seguro auto: guia completo 2025", "gerado_em": "2026-05-28"},
-    {"id": 14, "keyword": "seguro residencial vale a pena", "categoria": "residencial", "prioridade": "media", "intent": "informacional", "status": "publicado", "slug": "seguro-residencial-vale-a-pena", "titulo": "Seguro Residencial Vale a Pena? Guia Completo 2025", "gerado_em": "2026-05-29"},
-    {"id": 15, "keyword": "seguro de vida por que contratar", "categoria": "vida", "prioridade": "alta", "status": "publicado", "slug": "seguro-de-vida-por-que-contratar", "titulo": "Seguro de Vida: Por que Contratar em 2026?", "gerado_em": "2026-05-30"}
+    {
+      "id": 1,
+      "keyword": "seguro de vida vale a pena",
+      "categoria": "vida",
+      "prioridade": "alta",
+      "intent": "informacional",
+      "status": "publicado",
+      "slug": "seguro-de-vida-vale-a-pena",
+      "titulo": "Seguro de Vida Vale a Pena? Guia Completo para Decidir em 2025",
+      "gerado_em": "2026-05-16"
+    },
+    {
+      "id": 2,
+      "keyword": "quanto custa seguro de vida 2026",
+      "categoria": "vida",
+      "prioridade": "alta",
+      "intent": "informacional",
+      "status": "publicado",
+      "slug": "quanto-custa-seguro-de-vida-2026",
+      "titulo": "Quanto Custa Seguro de Vida 2026: Guia Completo de Preços",
+      "gerado_em": "2026-05-13"
+    },
+    {
+      "id": 3,
+      "keyword": "seguro empresarial para pequenas empresas",
+      "categoria": "empresarial",
+      "prioridade": "alta",
+      "intent": "transacional",
+      "status": "publicado",
+      "slug": "seguro-empresarial-para-pequenas-empresas",
+      "titulo": "Seguro Empresarial para Pequenas Empresas: Guia Completo",
+      "gerado_em": "2026-05-17"
+    },
+    {
+      "id": 4,
+      "keyword": "plano de saúde empresarial rio de janeiro",
+      "categoria": "saude",
+      "prioridade": "alta",
+      "intent": "transacional",
+      "status": "publicado",
+      "slug": "plano-de-saude-empresarial-rio-de-janeiro",
+      "titulo": "Plano de Saúde Empresarial no Rio de Janeiro",
+      "gerado_em": "2026-05-18"
+    },
+    {
+      "id": 5,
+      "keyword": "seguro saúde para empresa pequena",
+      "categoria": "empresarial",
+      "prioridade": "alta",
+      "intent": "transacional",
+      "status": "publicado",
+      "slug": "seguro-saude-para-empresa-pequena",
+      "titulo": "Seguro Saúde para Empresa Pequena: Guia Completo 2025",
+      "gerado_em": "2026-05-19"
+    },
+    {
+      "id": 6,
+      "keyword": "seguro auto terceiros rio de janeiro",
+      "categoria": "auto",
+      "prioridade": "alta",
+      "intent": "transacional",
+      "status": "publicado",
+      "slug": "seguro-auto-terceiros-rio-de-janeiro",
+      "titulo": "Seguro Auto Terceiros Rio de Janeiro: Guia Completo 2025",
+      "gerado_em": "2026-05-20"
+    },
+    {
+      "id": 7,
+      "keyword": "plano de saúde familiar preço",
+      "categoria": "saude",
+      "prioridade": "alta",
+      "intent": "informacional",
+      "status": "publicado",
+      "slug": "plano-de-saude-familiar-preco",
+      "titulo": "Plano de Saúde Familiar Preço: Guia Completo 2026",
+      "gerado_em": "2026-05-21"
+    },
+    {
+      "id": 8,
+      "keyword": "corretora de seguros online rio de janeiro",
+      "categoria": "geral",
+      "prioridade": "alta",
+      "intent": "transacional",
+      "status": "publicado",
+      "slug": "corretora-de-seguros-online-rio-de-janeiro",
+      "titulo": "Corretora de Seguros Online Rio de Janeiro: Guia Completo",
+      "gerado_em": "2026-05-22"
+    },
+    {
+      "id": 9,
+      "keyword": "seguro auto cobertura total rio de janeiro",
+      "categoria": "auto",
+      "prioridade": "alta",
+      "intent": "transacional",
+      "status": "publicado",
+      "slug": "seguro-auto-cobertura-total-rio-de-janeiro",
+      "titulo": "Seguro Auto Cobertura Total Rio de Janeiro: Guia Completo",
+      "gerado_em": "2026-05-24"
+    },
+    {
+      "id": 10,
+      "keyword": "seguro residencial para apartamento alugado",
+      "categoria": "residencial",
+      "prioridade": "alta",
+      "intent": "informacional",
+      "status": "publicado",
+      "slug": "seguro-residencial-para-apartamento-alugado",
+      "titulo": "Seguro Residencial para Apartamento Alugado: Guia Completo",
+      "gerado_em": "2026-05-25"
+    },
+    {
+      "id": 11,
+      "keyword": "seguro de vida para autonomo",
+      "categoria": "vida",
+      "prioridade": "media",
+      "intent": "informacional",
+      "status": "publicado",
+      "slug": "seguro-de-vida-para-autonomo",
+      "titulo": "Seguro de Vida para Autônomo: Guia Completo e Atualizado",
+      "gerado_em": "2026-05-26"
+    },
+    {
+      "id": 12,
+      "keyword": "seguro empresarial responsabilidade civil",
+      "categoria": "empresarial",
+      "prioridade": "media",
+      "intent": "informacional",
+      "status": "publicado",
+      "slug": "seguro-empresarial-responsabilidade-civil",
+      "titulo": "Seguro Empresarial Responsabilidade Civil: Guia Completo 2025",
+      "gerado_em": "2026-05-27"
+    },
+    {
+      "id": 13,
+      "keyword": "o que é franquia no seguro auto",
+      "categoria": "auto",
+      "prioridade": "media",
+      "intent": "informacional",
+      "status": "publicado",
+      "slug": "o-que-e-franquia-no-seguro-auto",
+      "titulo": "O que é franquia no seguro auto: guia completo 2025",
+      "gerado_em": "2026-05-28"
+    },
+    {
+      "id": 14,
+      "keyword": "seguro residencial vale a pena",
+      "categoria": "residencial",
+      "prioridade": "media",
+      "intent": "informacional",
+      "status": "publicado",
+      "slug": "seguro-residencial-vale-a-pena",
+      "titulo": "Seguro Residencial Vale a Pena? Guia Completo 2025",
+      "gerado_em": "2026-05-29"
+    },
+    {
+      "id": 15,
+      "keyword": "seguro de vida por que contratar",
+      "categoria": "vida",
+      "prioridade": "alta",
+      "status": "publicado",
+      "slug": "seguro-de-vida-por-que-contratar",
+      "titulo": "Seguro de Vida: Por que Contratar em 2026?",
+      "gerado_em": "2026-05-30"
+    }
   ],
   "local_queue": [
-    {"id": 1, "localizacao": "Tijuca", "preposicao": "na", "tipo": "bairro", "cidade": "Rio de Janeiro", "uf": "RJ", "keyword": "corretora de seguros na Tijuca", "slug": "corretora-de-seguros-na-tijuca", "prioridade": "alta", "status": "publicado", "gerado_em": "2026-05-12"},
-    {"id": 2, "localizacao": "Flamengo", "preposicao": "no", "tipo": "bairro", "cidade": "Rio de Janeiro", "uf": "RJ", "keyword": "corretora de seguros no Flamengo", "slug": "corretora-de-seguros-no-flamengo", "prioridade": "alta", "status": "publicado", "gerado_em": "2026-05-12"},
-    {"id": 3, "localizacao": "Botafogo", "preposicao": "em", "tipo": "bairro", "cidade": "Rio de Janeiro", "uf": "RJ", "keyword": "corretora de seguros em Botafogo", "slug": "corretora-de-seguros-em-botafogo", "prioridade": "alta", "status": "publicado", "gerado_em": "2026-05-13"},
-    {"id": 4, "localizacao": "Lapa", "preposicao": "na", "tipo": "bairro", "cidade": "Rio de Janeiro", "uf": "RJ", "keyword": "corretora de seguros na Lapa", "slug": "corretora-de-seguros-na-lapa", "prioridade": "alta", "status": "publicado", "gerado_em": "2026-05-16"},
-    {"id": 5, "localizacao": "Vila Mariana", "preposicao": "na", "tipo": "bairro", "cidade": "São Paulo", "uf": "SP", "keyword": "corretora de seguros na Vila Mariana", "slug": "corretora-de-seguros-na-vila-mariana", "prioridade": "alta", "status": "publicado", "gerado_em": "2026-05-17"},
-    {"id": 6, "localizacao": "Laranjeiras", "preposicao": "em", "tipo": "bairro", "cidade": "Rio de Janeiro", "uf": "RJ", "keyword": "corretora de seguros em Laranjeiras", "slug": "corretora-de-seguros-em-laranjeiras", "prioridade": "alta", "status": "publicado", "gerado_em": "2026-05-24"},
-    {"id": 7, "localizacao": "Catete", "preposicao": "no", "tipo": "bairro", "cidade": "Rio de Janeiro", "uf": "RJ", "keyword": "corretora de seguros no Catete", "slug": "corretora-de-seguros-no-catete", "prioridade": "alta", "status": "publicado", "gerado_em": "2026-05-25"},
-    {"id": 8, "localizacao": "Petrópolis", "preposicao": "em", "tipo": "cidade", "cidade": "Petrópolis", "uf": "RJ", "keyword": "corretora de seguros em Petrópolis", "slug": "corretora-de-seguros-em-petropolis", "prioridade": "media", "status": "publicado", "gerado_em": "2026-05-26"},
-    {"id": 9, "localizacao": "Duque de Caxias", "preposicao": "em", "tipo": "cidade", "cidade": "Duque de Caxias", "uf": "RJ", "keyword": "corretora de seguros em Duque de Caxias", "slug": "corretora-de-seguros-em-duque-de-caxias", "prioridade": "media", "status": "publicado", "gerado_em": "2026-05-27"},
-    {"id": 10, "localizacao": "Méier", "preposicao": "no", "tipo": "bairro", "cidade": "Rio de Janeiro", "uf": "RJ", "keyword": "corretora de seguros no Méier", "slug": "corretora-de-seguros-no-meier", "prioridade": "alta", "status": "publicado", "gerado_em": "2026-05-28"},
-    {"id": 11, "localizacao": "Madureira", "preposicao": "em", "tipo": "bairro", "cidade": "Rio de Janeiro", "uf": "RJ", "keyword": "corretora de seguros em Madureira", "slug": "corretora-de-seguros-em-madureira", "prioridade": "media", "status": "publicado", "gerado_em": "2026-05-29"},
-    {"id": 12, "localizacao": "Ipanema", "uf": "RJ", "cidade": "Rio de Janeiro", "tipo": "bairro", "preposicao": "em", "slug": "corretora-de-seguros-em-ipanema", "prioridade": "alta", "status": "publicado", "gerado_em": "2026-05-30"}
+    {
+      "id": 1,
+      "localizacao": "Tijuca",
+      "preposicao": "na",
+      "tipo": "bairro",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "keyword": "corretora de seguros na Tijuca",
+      "slug": "corretora-de-seguros-na-tijuca",
+      "prioridade": "alta",
+      "status": "publicado",
+      "gerado_em": "2026-05-12"
+    },
+    {
+      "id": 2,
+      "localizacao": "Flamengo",
+      "preposicao": "no",
+      "tipo": "bairro",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "keyword": "corretora de seguros no Flamengo",
+      "slug": "corretora-de-seguros-no-flamengo",
+      "prioridade": "alta",
+      "status": "publicado",
+      "gerado_em": "2026-05-12"
+    },
+    {
+      "id": 3,
+      "localizacao": "Botafogo",
+      "preposicao": "em",
+      "tipo": "bairro",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "keyword": "corretora de seguros em Botafogo",
+      "slug": "corretora-de-seguros-em-botafogo",
+      "prioridade": "alta",
+      "status": "publicado",
+      "gerado_em": "2026-05-13"
+    },
+    {
+      "id": 4,
+      "localizacao": "Lapa",
+      "preposicao": "na",
+      "tipo": "bairro",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "keyword": "corretora de seguros na Lapa",
+      "slug": "corretora-de-seguros-na-lapa",
+      "prioridade": "alta",
+      "status": "publicado",
+      "gerado_em": "2026-05-16"
+    },
+    {
+      "id": 5,
+      "localizacao": "Vila Mariana",
+      "preposicao": "na",
+      "tipo": "bairro",
+      "cidade": "São Paulo",
+      "uf": "SP",
+      "keyword": "corretora de seguros na Vila Mariana",
+      "slug": "corretora-de-seguros-na-vila-mariana",
+      "prioridade": "alta",
+      "status": "publicado",
+      "gerado_em": "2026-05-17"
+    },
+    {
+      "id": 6,
+      "localizacao": "Laranjeiras",
+      "preposicao": "em",
+      "tipo": "bairro",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "keyword": "corretora de seguros em Laranjeiras",
+      "slug": "corretora-de-seguros-em-laranjeiras",
+      "prioridade": "alta",
+      "status": "publicado",
+      "gerado_em": "2026-05-24"
+    },
+    {
+      "id": 7,
+      "localizacao": "Catete",
+      "preposicao": "no",
+      "tipo": "bairro",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "keyword": "corretora de seguros no Catete",
+      "slug": "corretora-de-seguros-no-catete",
+      "prioridade": "alta",
+      "status": "publicado",
+      "gerado_em": "2026-05-25"
+    },
+    {
+      "id": 8,
+      "localizacao": "Petrópolis",
+      "preposicao": "em",
+      "tipo": "cidade",
+      "cidade": "Petrópolis",
+      "uf": "RJ",
+      "keyword": "corretora de seguros em Petrópolis",
+      "slug": "corretora-de-seguros-em-petropolis",
+      "prioridade": "media",
+      "status": "publicado",
+      "gerado_em": "2026-05-26"
+    },
+    {
+      "id": 9,
+      "localizacao": "Duque de Caxias",
+      "preposicao": "em",
+      "tipo": "cidade",
+      "cidade": "Duque de Caxias",
+      "uf": "RJ",
+      "keyword": "corretora de seguros em Duque de Caxias",
+      "slug": "corretora-de-seguros-em-duque-de-caxias",
+      "prioridade": "media",
+      "status": "publicado",
+      "gerado_em": "2026-05-27"
+    },
+    {
+      "id": 10,
+      "localizacao": "Méier",
+      "preposicao": "no",
+      "tipo": "bairro",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "keyword": "corretora de seguros no Méier",
+      "slug": "corretora-de-seguros-no-meier",
+      "prioridade": "alta",
+      "status": "publicado",
+      "gerado_em": "2026-05-28"
+    },
+    {
+      "id": 11,
+      "localizacao": "Madureira",
+      "preposicao": "em",
+      "tipo": "bairro",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "keyword": "corretora de seguros em Madureira",
+      "slug": "corretora-de-seguros-em-madureira",
+      "prioridade": "media",
+      "status": "publicado",
+      "gerado_em": "2026-05-29"
+    },
+    {
+      "id": 12,
+      "localizacao": "Ipanema",
+      "uf": "RJ",
+      "cidade": "Rio de Janeiro",
+      "tipo": "bairro",
+      "preposicao": "em",
+      "slug": "corretora-de-seguros-em-ipanema",
+      "prioridade": "alta",
+      "status": "publicado",
+      "gerado_em": "2026-05-30"
+    }
   ],
   "schedule_log": [
-    {"date": "2026-05-12", "blog": null, "local": {"slug": "corretora-de-seguros-na-tijuca", "localizacao": "Tijuca"}, "erros": ["blog:seguro de vida vale a pena"]},
-    {"date": "2026-05-12", "blog": {"slug": "seguro-de-vida-vale-a-pena", "titulo": "Seguro de Vida Vale a Pena? Guia Completo 2024", "categoria": "vida"}, "local": {"slug": "corretora-de-seguros-no-flamengo", "localizacao": "Flamengo"}, "erros": []},
-    {"date": "2026-05-13", "blog": {"slug": "quanto-custa-seguro-de-vida-2026", "titulo": "Quanto Custa Seguro de Vida 2026: Guia Completo de Preços", "categoria": "vida"}, "local": {"slug": "corretora-de-seguros-em-botafogo", "localizacao": "Botafogo"}, "erros": []},
-    {"date": "2026-05-16", "blog": {"slug": "seguro-de-vida-vale-a-pena", "titulo": "Seguro de Vida Vale a Pena? Guia Completo para Decidir em 2025", "categoria": "vida"}, "local": null, "erros": ["local:Lapa"]},
-    {"date": "2026-05-17", "blog": null, "local": null, "erros": ["blog:seguro empresarial para pequenas empresas", "local:Vila Mariana"]},
-    {"date": "2026-05-17", "blog": {"slug": "seguro-empresarial-para-pequenas-empresas", "titulo": "Seguro Empresarial para Pequenas Empresas: Guia Completo", "categoria": "empresarial"}, "local": {"slug": "corretora-de-seguros-na-vila-mariana", "localizacao": "Vila Mariana"}, "erros": []},
-    {"date": "2026-05-18", "blog": null, "local": null, "erros": ["blog:plano de saúde empresarial rio de janeiro"]},
-    {"date": "2026-05-18", "blog": {"slug": "plano-de-saude-empresarial-rio-de-janeiro", "titulo": "Plano de Saúde Empresarial no Rio de Janeiro", "categoria": "saude"}, "local": null, "erros": []},
-    {"date": "2026-05-19", "blog": null, "local": null, "erros": ["blog:seguro saúde para empresa pequena"]},
-    {"date": "2026-05-19", "blog": {"slug": "seguro-saude-para-empresa-pequena", "titulo": "Seguro Saúde para Empresa Pequena: Guia Completo 2025", "categoria": "empresarial"}, "local": null, "erros": []},
-    {"date": "2026-05-20", "blog": null, "local": null, "erros": ["blog:seguro auto terceiros rio de janeiro"]},
-    {"date": "2026-05-20", "blog": {"slug": "seguro-auto-terceiros-rio-de-janeiro", "titulo": "Seguro Auto Terceiros Rio de Janeiro: Guia Completo 2025", "categoria": "auto"}, "local": null, "erros": []},
-    {"date": "2026-05-21", "blog": {"slug": "plano-de-saude-familiar-preco", "titulo": "Plano de Saúde Familiar Preço: Guia Completo 2026", "categoria": "saude"}, "local": null, "erros": []},
-    {"date": "2026-05-22", "blog": {"slug": "corretora-de-seguros-online-rio-de-janeiro", "titulo": "Corretora de Seguros Online Rio de Janeiro: Guia Completo", "categoria": "geral"}, "local": null, "erros": []},
-    {"date": "2026-05-23", "blog": null, "local": null, "erros": []},
-    {"date": "2026-05-24", "blog": null, "local": null, "erros": []},
-    {"date": "2026-05-24", "blog": null, "local": null, "erros": ["blog:seguro auto cobertura total rio de janeiro", "local:Laranjeiras"]},
-    {"date": "2026-05-24", "blog": null, "local": null, "erros": ["blog:seguro auto cobertura total rio de janeiro", "local:Laranjeiras"]},
-    {"date": "2026-05-24", "blog": null, "local": null, "erros": ["blog:seguro auto cobertura total rio de janeiro", "local:Laranjeiras"]},
-    {"date": "2026-05-24", "blog": null, "local": null, "erros": ["blog:seguro auto cobertura total rio de janeiro", "local:Laranjeiras"]},
-    {"date": "2026-05-24", "blog": {"slug": "seguro-auto-cobertura-total-rio-de-janeiro", "titulo": "Seguro Auto Cobertura Total Rio de Janeiro: Guia Completo", "categoria": "auto"}, "local": {"slug": "corretora-de-seguros-em-laranjeiras", "localizacao": "Laranjeiras"}, "erros": []},
-    {"date": "2026-05-25", "blog": null, "local": null, "erros": ["blog:seguro residencial para apartamento alugado", "local:Catete"]},
-    {"date": "2026-05-25", "blog": {"slug": "seguro-residencial-para-apartamento-alugado", "titulo": "Seguro Residencial para Apartamento Alugado: Guia Completo", "categoria": "residencial"}, "local": {"slug": "corretora-de-seguros-no-catete", "localizacao": "Catete"}, "erros": []},
-    {"date": "2026-05-26", "blog": null, "local": null, "erros": ["blog:seguro de vida para autonomo", "local:Petrópolis"]},
-    {"date": "2026-05-26", "blog": {"slug": "seguro-de-vida-para-autonomo", "titulo": "Seguro de Vida para Autônomo: Guia Completo e Atualizado", "categoria": "vida"}, "local": {"slug": "corretora-de-seguros-em-petropolis", "localizacao": "Petrópolis"}, "erros": []},
-    {"date": "2026-05-27", "blog": {"slug": "seguro-empresarial-responsabilidade-civil", "titulo": "Seguro Empresarial Responsabilidade Civil: Guia Completo 2025", "categoria": "empresarial"}, "local": {"slug": "corretora-de-seguros-em-duque-de-caxias", "localizacao": "Duque de Caxias"}, "erros": []},
-    {"date": "2026-05-28", "blog": {"slug": "o-que-e-franquia-no-seguro-auto", "titulo": "O que é franquia no seguro auto: guia completo 2025", "categoria": "auto"}, "local": {"slug": "corretora-de-seguros-no-meier", "localizacao": "Méier"}, "erros": []},
-    {"date": "2026-05-29", "blog": null, "local": null, "erros": ["blog:seguro residencial vale a pena", "local:Madureira"]},
-    {"date": "2026-05-29", "blog": {"slug": "seguro-residencial-vale-a-pena", "titulo": "Seguro Residencial Vale a Pena? Guia Completo 2025", "categoria": "residencial"}, "local": {"slug": "corretora-de-seguros-em-madureira", "localizacao": "Madureira"}, "erros": []},
-    {"date": "2026-05-30", "blog": {"slug": "seguro-de-vida-por-que-contratar", "titulo": "Seguro de Vida: Por que Contratar em 2026?", "categoria": "vida"}, "local": {"slug": "corretora-de-seguros-em-ipanema", "localizacao": "Ipanema"}, "erros": []}
+    {
+      "date": "2026-05-12",
+      "blog": null,
+      "local": {
+        "slug": "corretora-de-seguros-na-tijuca",
+        "localizacao": "Tijuca"
+      },
+      "erros": [
+        "blog:seguro de vida vale a pena"
+      ]
+    },
+    {
+      "date": "2026-05-12",
+      "blog": {
+        "slug": "seguro-de-vida-vale-a-pena",
+        "titulo": "Seguro de Vida Vale a Pena? Guia Completo 2024",
+        "categoria": "vida"
+      },
+      "local": {
+        "slug": "corretora-de-seguros-no-flamengo",
+        "localizacao": "Flamengo"
+      },
+      "erros": []
+    },
+    {
+      "date": "2026-05-13",
+      "blog": {
+        "slug": "quanto-custa-seguro-de-vida-2026",
+        "titulo": "Quanto Custa Seguro de Vida 2026: Guia Completo de Preços",
+        "categoria": "vida"
+      },
+      "local": {
+        "slug": "corretora-de-seguros-em-botafogo",
+        "localizacao": "Botafogo"
+      },
+      "erros": []
+    },
+    {
+      "date": "2026-05-16",
+      "blog": {
+        "slug": "seguro-de-vida-vale-a-pena",
+        "titulo": "Seguro de Vida Vale a Pena? Guia Completo para Decidir em 2025",
+        "categoria": "vida"
+      },
+      "local": null,
+      "erros": [
+        "local:Lapa"
+      ]
+    },
+    {
+      "date": "2026-05-17",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:seguro empresarial para pequenas empresas",
+        "local:Vila Mariana"
+      ]
+    },
+    {
+      "date": "2026-05-17",
+      "blog": {
+        "slug": "seguro-empresarial-para-pequenas-empresas",
+        "titulo": "Seguro Empresarial para Pequenas Empresas: Guia Completo",
+        "categoria": "empresarial"
+      },
+      "local": {
+        "slug": "corretora-de-seguros-na-vila-mariana",
+        "localizacao": "Vila Mariana"
+      },
+      "erros": []
+    },
+    {
+      "date": "2026-05-18",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:plano de saúde empresarial rio de janeiro"
+      ]
+    },
+    {
+      "date": "2026-05-18",
+      "blog": {
+        "slug": "plano-de-saude-empresarial-rio-de-janeiro",
+        "titulo": "Plano de Saúde Empresarial no Rio de Janeiro",
+        "categoria": "saude"
+      },
+      "local": null,
+      "erros": []
+    },
+    {
+      "date": "2026-05-19",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:seguro saúde para empresa pequena"
+      ]
+    },
+    {
+      "date": "2026-05-19",
+      "blog": {
+        "slug": "seguro-saude-para-empresa-pequena",
+        "titulo": "Seguro Saúde para Empresa Pequena: Guia Completo 2025",
+        "categoria": "empresarial"
+      },
+      "local": null,
+      "erros": []
+    },
+    {
+      "date": "2026-05-20",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:seguro auto terceiros rio de janeiro"
+      ]
+    },
+    {
+      "date": "2026-05-20",
+      "blog": {
+        "slug": "seguro-auto-terceiros-rio-de-janeiro",
+        "titulo": "Seguro Auto Terceiros Rio de Janeiro: Guia Completo 2025",
+        "categoria": "auto"
+      },
+      "local": null,
+      "erros": []
+    },
+    {
+      "date": "2026-05-21",
+      "blog": {
+        "slug": "plano-de-saude-familiar-preco",
+        "titulo": "Plano de Saúde Familiar Preço: Guia Completo 2026",
+        "categoria": "saude"
+      },
+      "local": null,
+      "erros": []
+    },
+    {
+      "date": "2026-05-22",
+      "blog": {
+        "slug": "corretora-de-seguros-online-rio-de-janeiro",
+        "titulo": "Corretora de Seguros Online Rio de Janeiro: Guia Completo",
+        "categoria": "geral"
+      },
+      "local": null,
+      "erros": []
+    },
+    {
+      "date": "2026-05-23",
+      "blog": null,
+      "local": null,
+      "erros": []
+    },
+    {
+      "date": "2026-05-24",
+      "blog": null,
+      "local": null,
+      "erros": []
+    },
+    {
+      "date": "2026-05-24",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:seguro auto cobertura total rio de janeiro",
+        "local:Laranjeiras"
+      ]
+    },
+    {
+      "date": "2026-05-24",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:seguro auto cobertura total rio de janeiro",
+        "local:Laranjeiras"
+      ]
+    },
+    {
+      "date": "2026-05-24",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:seguro auto cobertura total rio de janeiro",
+        "local:Laranjeiras"
+      ]
+    },
+    {
+      "date": "2026-05-24",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:seguro auto cobertura total rio de janeiro",
+        "local:Laranjeiras"
+      ]
+    },
+    {
+      "date": "2026-05-24",
+      "blog": {
+        "slug": "seguro-auto-cobertura-total-rio-de-janeiro",
+        "titulo": "Seguro Auto Cobertura Total Rio de Janeiro: Guia Completo",
+        "categoria": "auto"
+      },
+      "local": {
+        "slug": "corretora-de-seguros-em-laranjeiras",
+        "localizacao": "Laranjeiras"
+      },
+      "erros": []
+    },
+    {
+      "date": "2026-05-25",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:seguro residencial para apartamento alugado",
+        "local:Catete"
+      ]
+    },
+    {
+      "date": "2026-05-25",
+      "blog": {
+        "slug": "seguro-residencial-para-apartamento-alugado",
+        "titulo": "Seguro Residencial para Apartamento Alugado: Guia Completo",
+        "categoria": "residencial"
+      },
+      "local": {
+        "slug": "corretora-de-seguros-no-catete",
+        "localizacao": "Catete"
+      },
+      "erros": []
+    },
+    {
+      "date": "2026-05-26",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:seguro de vida para autonomo",
+        "local:Petrópolis"
+      ]
+    },
+    {
+      "date": "2026-05-26",
+      "blog": {
+        "slug": "seguro-de-vida-para-autonomo",
+        "titulo": "Seguro de Vida para Autônomo: Guia Completo e Atualizado",
+        "categoria": "vida"
+      },
+      "local": {
+        "slug": "corretora-de-seguros-em-petropolis",
+        "localizacao": "Petrópolis"
+      },
+      "erros": []
+    },
+    {
+      "date": "2026-05-27",
+      "blog": {
+        "slug": "seguro-empresarial-responsabilidade-civil",
+        "titulo": "Seguro Empresarial Responsabilidade Civil: Guia Completo 2025",
+        "categoria": "empresarial"
+      },
+      "local": {
+        "slug": "corretora-de-seguros-em-duque-de-caxias",
+        "localizacao": "Duque de Caxias"
+      },
+      "erros": []
+    },
+    {
+      "date": "2026-05-28",
+      "blog": {
+        "slug": "o-que-e-franquia-no-seguro-auto",
+        "titulo": "O que é franquia no seguro auto: guia completo 2025",
+        "categoria": "auto"
+      },
+      "local": {
+        "slug": "corretora-de-seguros-no-meier",
+        "localizacao": "Méier"
+      },
+      "erros": []
+    },
+    {
+      "date": "2026-05-29",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:seguro residencial vale a pena",
+        "local:Madureira"
+      ]
+    },
+    {
+      "date": "2026-05-29",
+      "blog": {
+        "slug": "seguro-residencial-vale-a-pena",
+        "titulo": "Seguro Residencial Vale a Pena? Guia Completo 2025",
+        "categoria": "residencial"
+      },
+      "local": {
+        "slug": "corretora-de-seguros-em-madureira",
+        "localizacao": "Madureira"
+      },
+      "erros": []
+    },
+    {
+      "date": "2026-05-30",
+      "blog": {"slug": "seguro-de-vida-por-que-contratar", "titulo": "Seguro de Vida: Por que Contratar em 2026?", "categoria": "vida"},
+      "local": {"slug": "corretora-de-seguros-em-ipanema", "localizacao": "Ipanema"},
+      "erros": []
+    }
   ]
 }
