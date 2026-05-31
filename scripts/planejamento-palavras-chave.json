@@ -170,6 +170,17 @@
       "slug": "seguro-de-vida-por-que-contratar",
       "titulo": "Seguro de Vida: Por que Contratar em 2026?",
       "gerado_em": "2026-05-30"
+    },
+    {
+      "id": 16,
+      "keyword": "seguro de vida para casais",
+      "categoria": "vida",
+      "prioridade": "alta",
+      "intent": "informacional",
+      "status": "publicado",
+      "slug": "seguro-vida-casais-protecao-conjunta",
+      "titulo": "Seguro de Vida para Casais: Proteção Conjunta e Tranquilidade",
+      "gerado_em": "2026-05-31"
     }
   ],
   "local_queue": [
@@ -327,6 +338,19 @@
       "prioridade": "alta",
       "status": "publicado",
       "gerado_em": "2026-05-30"
+    },
+    {
+      "id": 13,
+      "localizacao": "Santa Teresa",
+      "preposicao": "em",
+      "tipo": "bairro",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "keyword": "corretora de seguros em Santa Teresa",
+      "slug": "corretora-de-seguros-em-santa-teresa",
+      "prioridade": "alta",
+      "status": "publicado",
+      "gerado_em": "2026-05-31"
     }
   ],
   "schedule_log": [
@@ -630,8 +654,37 @@
     },
     {
       "date": "2026-05-30",
-      "blog": {"slug": "seguro-de-vida-por-que-contratar", "titulo": "Seguro de Vida: Por que Contratar em 2026?", "categoria": "vida"},
-      "local": {"slug": "corretora-de-seguros-em-ipanema", "localizacao": "Ipanema"},
+      "blog": {
+        "slug": "seguro-de-vida-por-que-contratar",
+        "titulo": "Seguro de Vida: Por que Contratar em 2026?",
+        "categoria": "vida"
+      },
+      "local": {
+        "slug": "corretora-de-seguros-em-ipanema",
+        "localizacao": "Ipanema"
+      },
+      "erros": []
+    },
+    {
+      "date": "2026-05-31",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:seguro de vida para casais",
+        "local:Santa Teresa"
+      ]
+    },
+    {
+      "date": "2026-05-31",
+      "blog": {
+        "slug": "seguro-vida-casais-protecao-conjunta",
+        "titulo": "Seguro de Vida para Casais: Proteção Conjunta e Tranquilidade",
+        "categoria": "vida"
+      },
+      "local": {
+        "slug": "corretora-de-seguros-em-santa-teresa",
+        "localizacao": "Santa Teresa"
+      },
       "erros": []
     }
   ]
