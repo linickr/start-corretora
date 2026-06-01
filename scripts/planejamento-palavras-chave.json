@@ -181,6 +181,89 @@
       "slug": "seguro-vida-casais-protecao-conjunta",
       "titulo": "Seguro de Vida para Casais: Proteção Conjunta e Tranquilidade",
       "gerado_em": "2026-05-31"
+    },
+    {
+      "id": 17,
+      "keyword": "seguro residencial para casa propria",
+      "categoria": "residencial",
+      "prioridade": "alta",
+      "intent": "informacional",
+      "status": "publicado",
+      "slug": "seguro-residencial-para-casa-propria",
+      "titulo": "Seguro Residencial para Casa Própria: Guia Completo 2026",
+      "gerado_em": "2026-06-01"
+    },
+    {
+      "id": 18,
+      "keyword": "quanto custa plano de saude individual 2026",
+      "categoria": "saude",
+      "prioridade": "alta",
+      "intent": "informacional",
+      "status": "pendente"
+    },
+    {
+      "id": 19,
+      "keyword": "seguro auto para jovem motorista",
+      "categoria": "auto",
+      "prioridade": "alta",
+      "intent": "informacional",
+      "status": "pendente"
+    },
+    {
+      "id": 20,
+      "keyword": "o que cobre seguro residencial",
+      "categoria": "residencial",
+      "prioridade": "media",
+      "intent": "informacional",
+      "status": "pendente"
+    },
+    {
+      "id": 21,
+      "keyword": "seguro de vida para pais com filhos",
+      "categoria": "vida",
+      "prioridade": "alta",
+      "intent": "informacional",
+      "status": "pendente"
+    },
+    {
+      "id": 22,
+      "keyword": "como escolher corretora de seguros",
+      "categoria": "geral",
+      "prioridade": "media",
+      "intent": "informacional",
+      "status": "pendente"
+    },
+    {
+      "id": 23,
+      "keyword": "seguro empresarial incendio e danos materiais",
+      "categoria": "empresarial",
+      "prioridade": "media",
+      "intent": "informacional",
+      "status": "pendente"
+    },
+    {
+      "id": 24,
+      "keyword": "seguro auto roubo e furto rio de janeiro",
+      "categoria": "auto",
+      "prioridade": "alta",
+      "intent": "transacional",
+      "status": "pendente"
+    },
+    {
+      "id": 25,
+      "keyword": "plano de saude para aposentados",
+      "categoria": "saude",
+      "prioridade": "media",
+      "intent": "informacional",
+      "status": "pendente"
+    },
+    {
+      "id": 26,
+      "keyword": "seguro residencial contra enchentes e alagamentos",
+      "categoria": "residencial",
+      "prioridade": "media",
+      "intent": "informacional",
+      "status": "pendente"
     }
   ],
   "local_queue": [
@@ -351,6 +434,127 @@
       "prioridade": "alta",
       "status": "publicado",
       "gerado_em": "2026-05-31"
+    },
+    {
+      "id": 14,
+      "localizacao": "Jacarepaguá",
+      "preposicao": "em",
+      "tipo": "bairro",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "keyword": "corretora de seguros em Jacarepaguá",
+      "slug": "corretora-de-seguros-em-jacarepagua",
+      "prioridade": "alta",
+      "status": "publicado",
+      "gerado_em": "2026-06-01"
+    },
+    {
+      "id": 15,
+      "localizacao": "Ilha do Governador",
+      "preposicao": "na",
+      "tipo": "bairro",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "keyword": "corretora de seguros na Ilha do Governador",
+      "slug": "corretora-de-seguros-na-ilha-do-governador",
+      "prioridade": "alta",
+      "status": "pendente"
+    },
+    {
+      "id": 16,
+      "localizacao": "Engenho Novo",
+      "preposicao": "no",
+      "tipo": "bairro",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "keyword": "corretora de seguros no Engenho Novo",
+      "slug": "corretora-de-seguros-no-engenho-novo",
+      "prioridade": "media",
+      "status": "pendente"
+    },
+    {
+      "id": 17,
+      "localizacao": "Bangu",
+      "preposicao": "no",
+      "tipo": "bairro",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "keyword": "corretora de seguros no Bangu",
+      "slug": "corretora-de-seguros-no-bangu",
+      "prioridade": "media",
+      "status": "pendente"
+    },
+    {
+      "id": 18,
+      "localizacao": "Campo Grande",
+      "preposicao": "no",
+      "tipo": "bairro",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "keyword": "corretora de seguros no Campo Grande",
+      "slug": "corretora-de-seguros-no-campo-grande",
+      "prioridade": "media",
+      "status": "pendente"
+    },
+    {
+      "id": 19,
+      "localizacao": "Andaraí",
+      "preposicao": "no",
+      "tipo": "bairro",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "keyword": "corretora de seguros no Andaraí",
+      "slug": "corretora-de-seguros-no-andarai",
+      "prioridade": "media",
+      "status": "pendente"
+    },
+    {
+      "id": 20,
+      "localizacao": "Vila Isabel",
+      "preposicao": "na",
+      "tipo": "bairro",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "keyword": "corretora de seguros na Vila Isabel",
+      "slug": "corretora-de-seguros-na-vila-isabel",
+      "prioridade": "media",
+      "status": "pendente"
+    },
+    {
+      "id": 21,
+      "localizacao": "Penha",
+      "preposicao": "na",
+      "tipo": "bairro",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "keyword": "corretora de seguros na Penha",
+      "slug": "corretora-de-seguros-na-penha",
+      "prioridade": "media",
+      "status": "pendente"
+    },
+    {
+      "id": 22,
+      "localizacao": "Realengo",
+      "preposicao": "no",
+      "tipo": "bairro",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "keyword": "corretora de seguros no Realengo",
+      "slug": "corretora-de-seguros-no-realengo",
+      "prioridade": "baixa",
+      "status": "pendente"
+    },
+    {
+      "id": 23,
+      "localizacao": "São Cristóvão",
+      "preposicao": "no",
+      "tipo": "bairro",
+      "cidade": "Rio de Janeiro",
+      "uf": "RJ",
+      "keyword": "corretora de seguros no São Cristóvão",
+      "slug": "corretora-de-seguros-no-sao-cristovao",
+      "prioridade": "media",
+      "status": "pendente"
     }
   ],
   "schedule_log": [
@@ -684,6 +888,34 @@
       "local": {
         "slug": "corretora-de-seguros-em-santa-teresa",
         "localizacao": "Santa Teresa"
+      },
+      "erros": []
+    },
+    {
+      "date": "2026-06-01",
+      "blog": null,
+      "local": null,
+      "erros": []
+    },
+    {
+      "date": "2026-06-01",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:seguro residencial para casa propria",
+        "local:Jacarepaguá"
+      ]
+    },
+    {
+      "date": "2026-06-01",
+      "blog": {
+        "slug": "seguro-residencial-para-casa-propria",
+        "titulo": "Seguro Residencial para Casa Própria: Guia Completo 2026",
+        "categoria": "residencial"
+      },
+      "local": {
+        "slug": "corretora-de-seguros-em-jacarepagua",
+        "localizacao": "Jacarepaguá"
       },
       "erros": []
     }
