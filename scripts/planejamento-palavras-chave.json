@@ -199,7 +199,10 @@
       "categoria": "saude",
       "prioridade": "alta",
       "intent": "informacional",
-      "status": "pendente"
+      "status": "publicado",
+      "slug": "quanto-custa-plano-de-saude-individual-2026",
+      "titulo": "Quanto Custa Plano de Saúde Individual 2026: Guia Completo",
+      "gerado_em": "2026-06-02"
     },
     {
       "id": 19,
@@ -458,7 +461,8 @@
       "keyword": "corretora de seguros na Ilha do Governador",
       "slug": "corretora-de-seguros-na-ilha-do-governador",
       "prioridade": "alta",
-      "status": "pendente"
+      "status": "publicado",
+      "gerado_em": "2026-06-02"
     },
     {
       "id": 16,
@@ -916,6 +920,28 @@
       "local": {
         "slug": "corretora-de-seguros-em-jacarepagua",
         "localizacao": "Jacarepaguá"
+      },
+      "erros": []
+    },
+    {
+      "date": "2026-06-02",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:quanto custa plano de saude individual 2026",
+        "local:Ilha do Governador"
+      ]
+    },
+    {
+      "date": "2026-06-02",
+      "blog": {
+        "slug": "quanto-custa-plano-de-saude-individual-2026",
+        "titulo": "Quanto Custa Plano de Saúde Individual 2026: Guia Completo",
+        "categoria": "saude"
+      },
+      "local": {
+        "slug": "corretora-de-seguros-na-ilha-do-governador",
+        "localizacao": "Ilha do Governador"
       },
       "erros": []
     }
