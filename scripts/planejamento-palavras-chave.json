@@ -210,7 +210,10 @@
       "categoria": "auto",
       "prioridade": "alta",
       "intent": "informacional",
-      "status": "pendente"
+      "status": "publicado",
+      "slug": "seguro-auto-para-jovem-motorista",
+      "titulo": "Seguro Auto para Jovem Motorista: Como Pagar Menos e Ter Boa Cobertura em 2026",
+      "gerado_em": "2026-06-03"
     },
     {
       "id": 20,
@@ -474,7 +477,8 @@
       "keyword": "corretora de seguros no Engenho Novo",
       "slug": "corretora-de-seguros-no-engenho-novo",
       "prioridade": "media",
-      "status": "pendente"
+      "status": "publicado",
+      "gerado_em": "2026-06-03"
     },
     {
       "id": 17,
@@ -942,6 +946,36 @@
       "local": {
         "slug": "corretora-de-seguros-na-ilha-do-governador",
         "localizacao": "Ilha do Governador"
+      },
+      "erros": []
+    },
+    {
+      "date": "2026-06-03",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:seguro auto para jovem motorista",
+        "local:Engenho Novo"
+      ]
+    },
+    {
+      "date": "2026-06-03",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:seguro auto para jovem motorista",
+        "local:Engenho Novo"
+      ]
+    },
+    {
+      "date": "2026-06-03",
+      "blog": {
+        "slug": "seguro-auto-para-jovem-motorista",
+        "keyword": "seguro auto para jovem motorista"
+      },
+      "local": {
+        "slug": "corretora-de-seguros-no-engenho-novo",
+        "localizacao": "Engenho Novo"
       },
       "erros": []
     }
