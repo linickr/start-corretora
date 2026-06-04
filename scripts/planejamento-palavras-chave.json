@@ -229,7 +229,10 @@
       "categoria": "vida",
       "prioridade": "alta",
       "intent": "informacional",
-      "status": "pendente"
+      "status": "publicado",
+      "slug": "seguro-de-vida-para-pais-com-filhos",
+      "titulo": "Seguro de Vida para Pais com Filhos: Guia Completo 2025",
+      "gerado_em": "2026-06-04"
     },
     {
       "id": 22,
@@ -490,7 +493,8 @@
       "keyword": "corretora de seguros no Bangu",
       "slug": "corretora-de-seguros-no-bangu",
       "prioridade": "media",
-      "status": "pendente"
+      "status": "publicado",
+      "gerado_em": "2026-06-04"
     },
     {
       "id": 18,
@@ -976,6 +980,28 @@
       "local": {
         "slug": "corretora-de-seguros-no-engenho-novo",
         "localizacao": "Engenho Novo"
+      },
+      "erros": []
+    },
+    {
+      "date": "2026-06-04",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:seguro de vida para pais com filhos",
+        "local:Bangu"
+      ]
+    },
+    {
+      "date": "2026-06-04",
+      "blog": {
+        "slug": "seguro-de-vida-para-pais-com-filhos",
+        "titulo": "Seguro de Vida para Pais com Filhos: Guia Completo 2025",
+        "categoria": "vida"
+      },
+      "local": {
+        "slug": "corretora-de-seguros-no-bangu",
+        "localizacao": "Bangu"
       },
       "erros": []
     }
