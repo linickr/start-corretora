@@ -18,10 +18,10 @@
   {
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "InsuranceAgency"],
-    "@id": "https://startcorretoradeseguros.com.br/corretora-de-seguros-copacabana/",
+    "@id": "https://startcorretoradeseguros.com.br/#business",
     "name": "Start Corretora de Seguros",
     "description": "Corretora de seguros especializada em Copacabana e Leme, Zona Sul do Rio de Janeiro. Seguro auto, vida, residencial, empresarial, saúde e viagem.",
-    "url": "https://startcorretoradeseguros.com.br/corretora-de-seguros-copacabana/",
+    "url": "https://startcorretoradeseguros.com.br/",
     "telephone": "+5521999992002",
     "address": {
       "@type": "PostalAddress",
@@ -31,9 +31,15 @@
       "postalCode": "20540-220",
       "addressCountry": "BR"
     },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "-22.9199",
+      "longitude": "-43.2472"
+    },
     "areaServed": [
       {"@type": "Place", "name": "Copacabana"},
-      {"@type": "Place", "name": "Leme"}
+      {"@type": "Place", "name": "Leme"},
+      {"@type": "Place", "name": "Zona Sul Rio de Janeiro"}
     ],
     "openingHoursSpecification": [
       {
@@ -50,7 +56,15 @@
       }
     ],
     "priceRange": "$$",
-    "image": "https://startcorretoradeseguros.com.br/assets/images/logo-start-corretora.png"
+    "image": "https://startcorretoradeseguros.com.br/assets/images/logo-start-corretora.png",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://startcorretoradeseguros.com.br/assets/images/logo-start-corretora.png"
+    },
+    "sameAs": [
+      "https://startcorretoradeseguros.com.br/",
+      "https://wa.me/5521999992002"
+    ]
   }
   </script>
 
@@ -68,7 +82,13 @@
       {
         "@type": "ListItem",
         "position": 2,
-        "name": "Corretora de Seguros em Copacabana RJ - Start Corretora",
+        "name": "Seguros no Rio",
+        "item": "https://startcorretoradeseguros.com.br/corretora-de-seguros-rio-de-janeiro"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Corretora de Seguros em Copacabana RJ",
         "item": "https://startcorretoradeseguros.com.br/corretora-de-seguros-copacabana/"
       }
     ]
