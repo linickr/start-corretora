@@ -256,7 +256,10 @@
       "categoria": "auto",
       "prioridade": "alta",
       "intent": "transacional",
-      "status": "pendente"
+      "status": "publicado",
+      "slug": "seguro-auto-roubo-furto-rio-de-janeiro",
+      "titulo": "Seguro Auto Roubo e Furto no Rio de Janeiro: Guia Completo 2024",
+      "gerado_em": "2026-06-05"
     },
     {
       "id": 25,
@@ -506,7 +509,8 @@
       "keyword": "corretora de seguros no Campo Grande",
       "slug": "corretora-de-seguros-no-campo-grande",
       "prioridade": "media",
-      "status": "pendente"
+      "status": "publicado",
+      "gerado_em": "2026-06-05"
     },
     {
       "id": 19,
@@ -1002,6 +1006,37 @@
       "local": {
         "slug": "corretora-de-seguros-no-bangu",
         "localizacao": "Bangu"
+      },
+      "erros": []
+    },
+    {
+      "date": "2026-06-05",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:seguro auto roubo e furto rio de janeiro",
+        "local:Campo Grande"
+      ]
+    },
+    {
+      "date": "2026-06-05",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:seguro auto roubo e furto rio de janeiro",
+        "local:Campo Grande"
+      ]
+    },
+    {
+      "date": "2026-06-05",
+      "blog": {
+        "slug": "seguro-auto-roubo-furto-rio-de-janeiro",
+        "titulo": "Seguro Auto Roubo e Furto no Rio de Janeiro: Guia Completo 2024",
+        "categoria": "auto"
+      },
+      "local": {
+        "slug": "corretora-de-seguros-no-campo-grande",
+        "localizacao": "Campo Grande"
       },
       "erros": []
     }
