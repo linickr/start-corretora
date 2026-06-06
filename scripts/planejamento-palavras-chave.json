@@ -221,7 +221,10 @@
       "categoria": "residencial",
       "prioridade": "media",
       "intent": "informacional",
-      "status": "pendente"
+      "status": "publicado",
+      "slug": "o-que-cobre-seguro-residencial",
+      "titulo": "O que cobre seguro residencial: guia completo 2025",
+      "gerado_em": "2026-06-06"
     },
     {
       "id": 21,
@@ -522,7 +525,8 @@
       "keyword": "corretora de seguros no Andaraí",
       "slug": "corretora-de-seguros-no-andarai",
       "prioridade": "media",
-      "status": "pendente"
+      "status": "publicado",
+      "gerado_em": "2026-06-06"
     },
     {
       "id": 20,
@@ -1037,6 +1041,28 @@
       "local": {
         "slug": "corretora-de-seguros-no-campo-grande",
         "localizacao": "Campo Grande"
+      },
+      "erros": []
+    },
+    {
+      "date": "2026-06-06",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:o que cobre seguro residencial",
+        "local:Andaraí"
+      ]
+    },
+    {
+      "date": "2026-06-06",
+      "blog": {
+        "slug": "o-que-cobre-seguro-residencial",
+        "titulo": "O que cobre seguro residencial: guia completo 2025",
+        "categoria": "residencial"
+      },
+      "local": {
+        "slug": "corretora-de-seguros-no-andarai",
+        "localizacao": "Andaraí"
       },
       "erros": []
     }
