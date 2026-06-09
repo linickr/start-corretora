@@ -243,7 +243,10 @@
       "categoria": "geral",
       "prioridade": "media",
       "intent": "informacional",
-      "status": "pendente"
+      "status": "publicado",
+      "slug": "como-escolher-corretora-de-seguros",
+      "titulo": "Como Escolher Corretora de Seguros: Guia Completo 2025",
+      "gerado_em": "2026-06-09"
     },
     {
       "id": 23,
@@ -538,7 +541,8 @@
       "keyword": "corretora de seguros na Vila Isabel",
       "slug": "corretora-de-seguros-na-vila-isabel",
       "prioridade": "media",
-      "status": "pendente"
+      "status": "publicado",
+      "gerado_em": "2026-06-09"
     },
     {
       "id": 21,
@@ -1063,6 +1067,28 @@
       "local": {
         "slug": "corretora-de-seguros-no-andarai",
         "localizacao": "Andaraí"
+      },
+      "erros": []
+    },
+    {
+      "date": "2026-06-09",
+      "blog": null,
+      "local": null,
+      "erros": [
+        "blog:como escolher corretora de seguros",
+        "local:Vila Isabel"
+      ]
+    },
+    {
+      "date": "2026-06-09",
+      "blog": {
+        "slug": "como-escolher-corretora-de-seguros",
+        "titulo": "Como Escolher Corretora de Seguros: Guia Completo 2025",
+        "categoria": "geral"
+      },
+      "local": {
+        "slug": "corretora-de-seguros-na-vila-isabel",
+        "localizacao": "Vila Isabel"
       },
       "erros": []
     }
